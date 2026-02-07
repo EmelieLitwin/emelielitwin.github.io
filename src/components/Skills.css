@@ -150,8 +150,8 @@
 }
 
 .category-title.blue {
-  color: var(--color-primary);
-  text-shadow: 0 0 15px var(--color-primary);
+  color: var(--color-accent);
+  text-shadow: 0 0 15px var(--color-accent);
 }
 
 .category-title.magenta {
@@ -208,8 +208,8 @@
 }
 
 .skill-tag.blue {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .skill-tag.magenta {
@@ -228,8 +228,8 @@
 }
 
 .skill-tag.blue:hover {
-  background: var(--color-primary-alpha);
-  box-shadow: 0 6px 20px var(--color-primary);
+  background: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 6px 20px var(--color-accent);
 }
 
 .skill-tag.magenta:hover {

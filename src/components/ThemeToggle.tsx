@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './ThemeToggle.css'
 
-export type Theme = 'cyberpunk' | 'paper' | 'rainbow' | 'blueprint' | 'editorial'
+export type Theme = 'cyberpunk'
 
 interface ThemeOption {
   id: Theme
@@ -16,30 +16,6 @@ const themes: ThemeOption[] = [
     name: 'Cyberpunk',
     icon: '🌆',
     description: 'Neon lights & future vibes'
-  },
-  {
-    id: 'paper',
-    name: 'Pen & Paper',
-    icon: '✏️',
-    description: 'Handwritten sketch style'
-  },
-  {
-    id: 'rainbow',
-    name: 'Rainbow Burst',
-    icon: '🌈',
-    description: 'Colorful & playful'
-  },
-  {
-    id: 'blueprint',
-    name: 'Blueprint',
-    icon: '�',
-    description: 'Technical precision & CAD'
-  },
-  {
-    id: 'editorial',
-    name: 'Editorial',
-    icon: '📰',
-    description: 'Magazine elegance'
   }
 ]
 

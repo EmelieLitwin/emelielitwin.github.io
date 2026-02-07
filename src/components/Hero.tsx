@@ -33,9 +33,9 @@ export default function Hero() {
             <svg className="wave-icon" width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet">
               <defs>
                 <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{ stopColor: 'var(--color-cyan)', stopOpacity: 1 }} />
-                  <stop offset="50%" style={{ stopColor: 'var(--color-blue)', stopOpacity: 1 }} />
-                  <stop offset="100%" style={{ stopColor: 'var(--color-magenta)', stopOpacity: 1 }} />
+                  <stop offset="0%" style={{ stopColor: 'var(--color-primary)', stopOpacity: 1 }} />
+                  <stop offset="50%" style={{ stopColor: 'var(--color-accent)', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: 'var(--color-secondary)', stopOpacity: 1 }} />
                 </linearGradient>
               </defs>
               <path d="M5.946 30.785c-2.999 7.189 2.213 15.866 9.784 17.387c-5.9-3.962-9.584-10.327-9.784-17.387" fill="url(#wave-gradient)"></path>
