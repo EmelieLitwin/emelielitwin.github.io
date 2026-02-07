@@ -1,7 +1,7 @@
 import './Education.css'
 
 export default function Education() {
-  const education = [
+  const degrees = [
     {
       degree: 'Frontend Development',
       school: 'Jensen Yrkeshögskola',
@@ -22,14 +22,14 @@ export default function Education() {
       period: '2010 - 2013',
       description: 'Bachelor\'s degree in nutrition science with focus on health, metabolism, and evidence-based practices.',
       icon: '●'
-    },
-    {
-      degree: 'Single Courses',
-      school: 'Various Universities',
-      period: '2013 - 2020',
-      description: 'Programming with JavaScript, HTML & CSS • Programming and problem solving with Python • Introduction to Java • Introduction to eHealth',
-      icon: '◆'
     }
+  ]
+
+  const courses = [
+    'Programming with JavaScript, HTML & CSS',
+    'Programming and problem solving with Python',
+    'Introduction to Java',
+    'Introduction to eHealth'
   ]
 
   return (
@@ -38,7 +38,7 @@ export default function Education() {
         <h2 className="section-title">Education</h2>
         
         <div className="education-grid">
-          {education.map((edu) => (
+          {degrees.map((edu) => (
             <div key={edu.degree} className="education-card">
               <div className="edu-icon">{edu.icon}</div>
               <h3>{edu.degree}</h3>
@@ -47,6 +47,18 @@ export default function Education() {
               <p className="edu-description">{edu.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="courses-section">
+          <h3 className="courses-title">◆ Additional Courses</h3>
+          <div className="courses-list">
+            {courses.map((course) => (
+              <div key={course} className="course-item">
+                <span className="course-bullet">▸</span>
+                {course}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

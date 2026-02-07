@@ -3,58 +3,36 @@ import './Skills.css'
 export default function Skills() {
   const skillCategories = [
     {
-      title: 'Design',
+      title: 'Design & UX',
       icon: '◆',
       skills: [
         'Design Systems',
         'UX/UI Design',
-        'Figma & Sketch',
-        'Prototyping',
-        'User Research & Testing',
-        'Adobe Creative Suite',
-        'Wireframing',
-        'Mobile & Web Design'
-      ]
-    },
-    {
-      title: 'Development',
-      icon: '▲',
-      skills: [
-        'TypeScript',
-        'StencilJS',
-        'Web Components',
-        'React',
-        'JavaScript',
-        'HTML/CSS',
-        'Git & GitHub',
-        'Frontend Development',
+        'Figma & Prototyping',
+        'User Research',
         'Accessibility (WCAG 2.1)'
       ]
     },
     {
-      title: 'AI & Modern Tools',
-      icon: '●',
+      title: 'Development & Tools',
+      icon: '▲',
       skills: [
-        'AI-Assisted Development',
-        'Prompt Engineering',
-        'GitHub Copilot',
-        'ChatGPT & LLMs',
-        'AI in Design Workflows',
-        'Automation Tools'
+        'TypeScript & JavaScript',
+        'StencilJS & Web Components',
+        'React',
+        'HTML/CSS',
+        'Git & GitHub'
       ]
     },
     {
-      title: 'Methods & Collaboration',
-      icon: '■',
+      title: 'AI & Collaboration',
+      icon: '●',
       skills: [
+        'AI-Assisted Development',
+        'GitHub Copilot & ChatGPT',
         'Agile/Scrum',
         'Design Thinking',
-        'Cross-functional Collaboration',
-        'Workshops & Facilitation',
-        'User Testing',
-        'Requirements Analysis',
-        'Documentation',
-        'Mentoring'
+        'Workshops & Documentation'
       ]
     }
   ]

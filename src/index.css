@@ -5,17 +5,22 @@
   line-height: 1.6;
   font-weight: 400;
 
-  /* Light mode colors - Origami inspired with WCAG AA compliance */
-  --color-primary: #D91B7F;
-  --color-secondary: #8B3DC7;
-  --color-accent: #0891B2;
-  --color-teal: #0D9488;
-  --color-blue: #2563EB;
-  --color-dark: #1A1A2E;
-  --color-light: #F8F9FA;
-  --color-bg: #FFFFFF;
-  --color-text: #1E293B;
-  --color-text-secondary: #475569;
+  /* Neon Cyberpunk Theme - matching unicorn colors */
+  --color-cyan: #00F0FF;
+  --color-blue: #3B82F6;
+  --color-magenta: #FF00FF;
+  --color-pink: #FF70C8;
+  --color-purple: #C895FC;
+  
+  --color-primary: var(--color-cyan);
+  --color-secondary: var(--color-magenta);
+  --color-accent: var(--color-blue);
+  
+  --color-bg: #0A0E1A;
+  --color-bg-secondary: #111827;
+  --color-surface: #1E293B;
+  --color-text: #F1F5F9;
+  --color-text-secondary: #94A3B8;
   
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Poppins', sans-serif;
@@ -27,52 +32,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-/* Dark mode colors - WCAG AA compliant */
-[data-theme="dark"] {
-  --color-primary: #FF70C8;
-  --color-secondary: #C895FC;
-  --color-accent: #67E8F9;
-  --color-teal: #5EEAD4;
-  --color-blue: #93C5FD;
-  --color-dark: #F8F9FA;
-  --color-light: #1E293B;
-  --color-bg: #0F172A;
-  --color-text: #F1F5F9;
-  --color-text-secondary: #CBD5E1;
-}
-
-[data-theme="dark"] .hero {
-  background: var(--color-bg);
-}
-
-[data-theme="dark"] .projects,
-[data-theme="dark"] .education {
-  background: #1E293B;
-}
-
-[data-theme="dark"] .skills {
-  background: linear-gradient(180deg, #1E293B 0%, var(--color-light) 100%);
-}
-
-[data-theme="dark"] .project-card,
-[data-theme="dark"] .education-card,
-[data-theme="dark"] .skill-category {
-  background: #0F172A;
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .tag,
-[data-theme="dark"] .skill-category li {
-  background: var(--color-light);
-  color: var(--color-text);
-  border-color: var(--color-primary);
-}
-
-
 
 * {
   margin: 0;
@@ -98,5 +58,5 @@ h1, h2, h3, h4, h5, h6 {
 
 ::selection {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-bg);
 }

@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 8rem 2rem 4rem;
   background: var(--color-bg);
   position: relative;
   overflow: hidden;
@@ -33,36 +33,27 @@
   width: 100%;
   max-width: 500px;
   height: auto;
-  filter: drop-shadow(0 0 40px rgba(217, 70, 239, 0.6)) 
-          drop-shadow(0 0 60px rgba(34, 211, 238, 0.4))
-          drop-shadow(0 0 80px rgba(236, 72, 153, 0.3));
-}
-
-[data-theme="dark"] .origami-svg {
-  filter: drop-shadow(0 0 50px rgba(217, 70, 239, 0.8)) 
-          drop-shadow(0 0 70px rgba(34, 211, 238, 0.6))
-          drop-shadow(0 0 90px rgba(236, 72, 153, 0.5));
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.2)) 
+          drop-shadow(0 0 15px rgba(59, 130, 246, 0.15));
 }
 
 .origami-part {
-  animation: neon-intense-pulse 2.5s ease-in-out infinite;
+  animation: neon-subtle-pulse 2.5s ease-in-out infinite;
   transform-origin: center;
   transition: all 0.4s ease;
 }
 
 .origami-part:hover {
-  filter: brightness(1.5) saturate(1.3);
-  transform: scale(1.02);
+  filter: brightness(1.3);
+  stroke-width: 3;
 }
 
-@keyframes neon-intense-pulse {
+@keyframes neon-subtle-pulse {
   0%, 100% { 
-    opacity: 0.85;
-    filter: brightness(1) saturate(1);
+    opacity: 0.7;
   }
   50% { 
     opacity: 1;
-    filter: brightness(1.25) saturate(1.15);
   }
 }
 
@@ -79,7 +70,7 @@
 .hero-greeting {
   font-size: 1.3rem;
   font-weight: 600;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-magenta));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -90,9 +81,9 @@
 .hero-title {
   font-size: 4rem;
   font-weight: 900;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.1;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-teal));
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-blue), var(--color-magenta));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
