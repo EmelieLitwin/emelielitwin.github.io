@@ -6,10 +6,12 @@ import Skills from './components/Skills'
 import Education from './components/Education'
 import Contact from './components/Contact'
 import ThemeToggle from './components/ThemeToggle'
+import ScrollProgress from './components/ScrollProgress'
 
 function App() {
   return (
     <>
+      <ScrollProgress />
       <Header />
       <main>
         <Hero />

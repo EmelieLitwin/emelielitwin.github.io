@@ -44,7 +44,20 @@
 .timeline-item {
   position: relative;
   margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+.timeline-item-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-item:nth-child(1).timeline-item-visible { transition-delay: 0s; }
+.timeline-item:nth-child(2).timeline-item-visible { transition-delay: 0.15s; }
+.timeline-item:nth-child(3).timeline-item-visible { transition-delay: 0.3s; }
+.timeline-item:nth-child(4).timeline-item-visible { transition-delay: 0.45s; }
 
 .timeline-item:last-child {
   margin-bottom: 0;
@@ -64,6 +77,18 @@
   justify-content: center;
   box-shadow: 0 0 20px var(--accent-color);
   z-index: 2;
+  animation: markerPulse 2s ease-in-out infinite;
+}
+
+@keyframes markerPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--accent-color);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--accent-color), 0 0 40px var(--accent-color);
+    transform: scale(1.05);
+  }
 }
 
 .timeline-icon {
@@ -86,9 +111,12 @@
 }
 
 .timeline-content:hover {
-  transform: translateX(8px);
+  transform: translateX(12px) scale(1.02);
   border-color: var(--accent-color);
-  box-shadow: 0 8px 30px rgba(0, 240, 255, 0.2);
+  box-shadow: 
+    0 10px 40px rgba(0, 240, 255, 0.3),
+    0 0 60px rgba(0, 240, 255, 0.1);
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(30, 41, 59, 0.85) 100%);
 }
 
 .view-more {
@@ -182,6 +210,33 @@
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 240, 255, 0.2);
   animation: slideUp 0.3s ease;
+}
+
+/* Custom scrollbar for modal */
+.modal-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: rgba(10, 14, 26, 0.5);
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-blue), var(--color-magenta));
+  border-radius: 10px;
+  border: 2px solid rgba(17, 24, 39, 0.95);
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--color-magenta), var(--color-cyan), var(--color-blue));
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Firefox scrollbar */
+.modal-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-cyan) rgba(10, 14, 26, 0.5);
 }
 
 @keyframes slideUp {
@@ -335,5 +390,34 @@
   
   .timeline-period {
     white-space: normal;
+  }
+
+  .modal-overlay {
+    padding: 1rem;
+  }
+
+  .modal-content {
+    padding: 2rem;
+    max-height: 90vh;
+  }
+
+  .modal-header h2 {
+    font-size: 2rem;
+  }
+
+  .modal-company {
+    font-size: 1.1rem;
+  }
+
+  .modal-close {
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+  }
+
+  .modal-section h3 {
+    font-size: 1.3rem;
   }
 }

@@ -44,8 +44,18 @@
 }
 
 .logo:hover .logo-text {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.6));
+  background: linear-gradient(135deg, var(--color-magenta), var(--color-cyan), var(--color-blue), var(--color-magenta));
+  background-size: 200% 200%;
+  animation: logo-rainbow 1.5s ease-in-out 2;
+  text-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.8));
+}
+
+@keyframes logo-rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .nav-links {

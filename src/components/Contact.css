@@ -160,7 +160,8 @@
 }
 
 .contact-link:hover .contact-icon {
-  transform: scale(1.15);
+  transform: rotate(360deg) scale(1.3);
+  filter: drop-shadow(0 0 15px currentColor);
 }
 
 .contact-link:focus-visible {

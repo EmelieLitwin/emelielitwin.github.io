@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import './Projects.css'
+import { useState, useEffect, useRef } from 'react';
+import './Projects.css';
 
 interface Job {
   role: string
@@ -17,6 +17,26 @@ interface Job {
 
 export default function Projects() {
   const [selectedJob, setSelectedJob] = useState<Job | null>(null)
+  const itemRefs = useRef<(HTMLElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('timeline-item-visible')
+          }
+        })
+      },
+      { threshold: 0.2 }
+    )
+
+    itemRefs.current.forEach((item) => {
+      if (item) observer.observe(item)
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   const timeline: Job[] = [
     {
@@ -28,18 +48,19 @@ export default function Projects() {
       color: 'var(--color-cyan)',
       details: {
         achievements: [
-          'Built 50+ web components in the Tegel Design System',
-          'Reduced development time by 40% through reusable components',
-          'Improved accessibility compliance across all Scania digital products',
-          'Led workshops and training for developers and designers'
+          'Built 50+ web components and CSS components for Tegel Design System',
+          'Created demo pages showcasing design system in Angular and React',
+          'Developed Power Apps component library for internal tools',
+          'Wrote comprehensive documentation for designers and developers'
         ],
         process: [
-          'Collaborate with UX designers to define component requirements',
-          'Develop components using StencilJS and TypeScript',
-          'Write comprehensive documentation and examples',
-          'Conduct accessibility audits and improvements'
+          'Design and prototype components in Figma',
+          'Code web components using StencilJS and CSS',
+          'Structure design tokens and variable architecture',
+          'Conduct user interviews to validate solutions',
+          'Acted as Product Owner for entire design system'
         ],
-        tools: ['StencilJS', 'TypeScript', 'Figma', 'Git', 'Web Components']
+        tools: ['StencilJS', 'TypeScript', 'Figma', 'CSS', 'Angular', 'React', 'Power Apps', 'Git']
       }
     },
     {
@@ -47,22 +68,23 @@ export default function Projects() {
       company: 'Arbetsförmedlingen',
       period: '2021 - 2022',
       description: 'Developed and maintained the government design system. Led workshops and created accessible components following WCAG 2.1 guidelines.',
-      icon: '◆',
+      icon: '✕',
       color: 'var(--color-blue)',
       details: {
         achievements: [
-          'Established WCAG 2.1 AA compliance across all components',
-          'Created comprehensive design system documentation',
-          'Trained 20+ developers on accessible component usage',
-          'Reduced design-to-development handoff time by 50%'
+          'Built multi-brand government design system for multiple agencies',
+          'Achieved WCAG AAA compliance across all components',
+          'Owned full component lifecycle from research to documentation',
+          'Created comprehensive design system documentation'
         ],
         process: [
-          'Research accessibility standards and best practices',
+          'Conduct research and user needs analysis',
           'Design and prototype accessible components',
-          'Build components with semantic HTML and ARIA',
-          'Test with screen readers and accessibility tools'
+          'Code components with semantic HTML and ARIA',
+          'Test with screen readers and accessibility tools',
+          'Document patterns and best practices'
         ],
-        tools: ['React', 'JavaScript', 'Sketch', 'WCAG Guidelines', 'ARIA']
+        tools: ['React', 'JavaScript', 'Sketch', 'WCAG AAA', 'ARIA']
       }
     },
     {
@@ -74,18 +96,16 @@ export default function Projects() {
       color: 'var(--color-magenta)',
       details: {
         achievements: [
-          'Increased patient engagement by 40%',
-          'Simplified booking flow reducing steps by 60%',
-          'Conducted user interviews with 30+ patients',
-          'Created design system for healthcare portal'
+          'Designed patient portal interface',
+          'Conducted user interviews with patients',
+          'Improved engagement through user-centered design'
         ],
         process: [
-          'User research and stakeholder interviews',
-          'Create user personas and journey maps',
-          'Design and prototype solutions in Figma',
-          'Usability testing and iteration'
+          'User research and interviews',
+          'Design solutions in Figma',
+          'Iterate based on feedback'
         ],
-        tools: ['Figma', 'UserTesting', 'Miro', 'Sketch', 'InVision']
+        tools: ['Figma', 'Sketch', 'Miro']
       }
     },
     {
@@ -97,18 +117,75 @@ export default function Projects() {
       color: 'var(--color-cyan)',
       details: {
         achievements: [
-          'Launched meditation app with 10,000+ downloads',
-          'Designed onboarding flow with 85% completion rate',
-          'Collaborated with physicians on content design',
-          'Created calming and intuitive interface design'
+          'Designed meditation app concept',
+          'Collaborated with physicians on content'
         ],
         process: [
-          'Research meditation apps and user needs',
-          'Collaborate with medical professionals',
-          'Design onboarding and meditation experiences',
-          'Iterate based on user feedback'
+          'Research meditation apps',
+          'Design app interface and user flows'
         ],
-        tools: ['Sketch', 'Principle', 'Zeplin', 'Adobe Creative Suite']
+        tools: ['Sketch', 'Adobe Creative Suite']
+      }
+    },
+    {
+      role: 'Knitwear Designer',
+      company: 'Litwins Knitwins',
+      period: '2019 - Present',
+      description: 'Independent knitwear design business selling patterns on international platforms. Creating visually appealing designs and pattern sheets.',
+      icon: '◆',
+      color: 'var(--color-magenta)',
+      details: {
+        achievements: [
+          'Sell knitwear patterns on Ravelry.com internationally',
+          'Create product sheets and pattern designs',
+          'Building portfolio for future pattern book publication'
+        ],
+        process: [
+          'Design knitwear patterns',
+          'Create product sheets in InDesign',
+          'Edit visuals in Photoshop and Illustrator'
+        ],
+        tools: ['Adobe InDesign', 'Photoshop', 'Illustrator']
+      }
+    },
+    {
+      role: 'Requirements Analyst Intern',
+      company: 'Karolinska Universitetssjukhuset',
+      period: '2018',
+      description: 'Worked in requirements analysis team for ILOV project, creating digital scorecards for the hospital\'s new business model.',
+      icon: '✚',
+      color: 'var(--color-blue)',
+      details: {
+        achievements: [
+          'Documented requirements for digital scorecard system',
+          'Created patient report dashboard in Tableau',
+          'Supported stakeholder meetings and documentation'
+        ],
+        process: [
+          'Participate in stakeholder meetings',
+          'Document and analyze requirements',
+          'Build reports in Tableau'
+        ],
+        tools: ['Tableau', 'Requirements Analysis', 'Documentation']
+      }
+    },
+    {
+      role: 'Summer Intern',
+      company: 'Ericsson',
+      period: '2017 - 2018',
+      description: 'Supported eShop operations and internal reporting through design and automation.',
+      icon: '○',
+      color: 'var(--color-cyan)',
+      details: {
+        achievements: [
+          'Created CPI templates for eShop',
+          'Automated internal reports with Excel macros'
+        ],
+        process: [
+          'Design templates in Illustrator',
+          'Write Excel macros for automation'
+        ],
+        tools: ['Adobe Illustrator', 'Excel', 'VBA']
       }
     }
   ]
@@ -120,11 +197,12 @@ export default function Projects() {
         <p className="section-intro">My journey bridging design and development</p>
         
         <div className="timeline">
-          {timeline.map((job) => (
+          {timeline.map((job, index) => (
             <article 
               key={job.company + job.period} 
               className="timeline-item" 
               style={{ '--accent-color': job.color } as React.CSSProperties}
+              ref={el => { itemRefs.current[index] = el }}
             >
               <div className="timeline-marker" aria-hidden="true">
                 <span className="timeline-icon">{job.icon}</span>
