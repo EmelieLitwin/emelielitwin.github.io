@@ -1,0 +1,233 @@
+.blueprint-toggle {
+  position: fixed;
+  top: 5rem;
+  right: 2rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 990;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-glow-sm);
+}
+
+.blueprint-toggle:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow-md);
+  transform: translateY(-1px);
+}
+
+.blueprint-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 989;
+}
+
+.blueprint-measurements {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Measurement lines */
+.measure-h,
+.measure-v {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.measure-h {
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+}
+
+.measure-v {
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: row;
+}
+
+.measure-top {
+  top: 1rem;
+}
+
+.measure-left {
+  left: 1rem;
+}
+
+.measure-label {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  background: var(--color-bg);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.measure-line {
+  width: 200px;
+  height: 1px;
+  background: var(--color-primary);
+  position: relative;
+}
+
+.measure-h .measure-line {
+  width: 1px;
+  height: 100px;
+}
+
+.measure-line::before,
+.measure-line::after {
+  content: '';
+  position: absolute;
+  background: var(--color-primary);
+}
+
+.measure-h .measure-line::before,
+.measure-h .measure-line::after {
+  width: 10px;
+  height: 1px;
+  left: -4px;
+}
+
+.measure-h .measure-line::before {
+  top: 0;
+}
+
+.measure-h .measure-line::after {
+  bottom: 0;
+}
+
+.measure-v .measure-line::before,
+.measure-v .measure-line::after {
+  width: 1px;
+  height: 10px;
+  top: -4px;
+}
+
+.measure-v .measure-line::before {
+  left: 0;
+}
+
+.measure-v .measure-line::after {
+  right: 0;
+}
+
+/* Coordinates */
+.coordinate {
+  position: absolute;
+  font-family: 'Courier New', monospace;
+  font-size: 0.65rem;
+  color: var(--color-primary);
+  background: var(--color-bg);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.top-left {
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.top-right {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.bottom-left {
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+
+.bottom-right {
+  bottom: 0.5rem;
+  right: 0.5rem;
+}
+
+/* Crosshair */
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.crosshair-h,
+.crosshair-v {
+  position: absolute;
+  background: var(--color-primary);
+  opacity: 0.3;
+}
+
+.crosshair-h {
+  width: 100vw;
+  height: 1px;
+  left: -50vw;
+  top: 0;
+}
+
+.crosshair-v {
+  width: 1px;
+  height: 100vh;
+  top: -50vh;
+  left: 0;
+}
+
+.crosshair-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.65rem;
+  color: var(--color-primary);
+  background: var(--color-bg);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* Animation */
+.blueprint-overlay {
+  animation: blueprintFadeIn 0.3s ease;
+}
+
+@keyframes blueprintFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .blueprint-toggle {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .measure-line {
+    width: 100px;
+  }
+
+  .measure-h .measure-line {
+    height: 50px;
+  }
+}

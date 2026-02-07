@@ -17,14 +17,14 @@
   border-radius: 16px;
   text-align: center;
   transition: all 0.3s ease;
-  border: 2px solid rgba(0, 240, 255, 0.2);
-  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.1);
+  border: 2px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .education-card:hover {
   transform: translateY(-8px) rotate(2deg) scale(1.05);
   border-color: var(--color-primary);
-  box-shadow: 0 12px 40px rgba(0, 240, 255, 0.4);
+  box-shadow: 0 12px 40px var(--color-primary-alpha);
 }
 
 .education-card:hover .edu-icon {
@@ -72,15 +72,15 @@
   color: var(--color-text-secondary);
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(0, 240, 255, 0.2);
+  border-top: 1px solid var(--color-border);
 }
 
 .courses-section {
   background: var(--color-surface);
   padding: 2.5rem;
   border-radius: 16px;
-  border: 2px solid rgba(255, 0, 255, 0.2);
-  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.1);
+  border: 2px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .courses-title {
@@ -106,18 +106,18 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  border-left: 3px solid var(--color-magenta);
+  border-left: 3px solid var(--color-primary);
   transition: all 0.3s ease;
 }
 
 .course-item:hover {
-  background: rgba(255, 0, 255, 0.1);
-  border-left-color: var(--color-magenta);
-  box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+  background: var(--color-surface);
+  border-left-color: var(--color-primary);
+  box-shadow: 0 0 15px var(--color-primary-alpha);
 }
 
 .course-bullet {
-  color: var(--color-magenta);
+  color: var(--color-primary);
   font-size: 1.2rem;
 }
 

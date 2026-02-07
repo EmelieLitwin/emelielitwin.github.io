@@ -13,7 +13,7 @@
   left: 50%;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--color-primary-alpha) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
@@ -24,7 +24,7 @@
   text-align: center;
   margin-bottom: 1rem;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-magenta));
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -67,7 +67,7 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  border: 2px solid rgba(0, 240, 255, 0.3);
+  border: 2px solid var(--color-border);
   font-family: var(--font-body);
   overflow: hidden;
   cursor: pointer;
@@ -85,11 +85,11 @@
 }
 
 .email-link .link-glow {
-  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.2), transparent 70%);
+  background: radial-gradient(circle at center, var(--color-primary-alpha), transparent 70%);
 }
 
 .linkedin-link .link-glow {
-  background: radial-gradient(circle at center, rgba(255, 0, 255, 0.2), transparent 70%);
+  background: radial-gradient(circle at center, var(--color-secondary-alpha), transparent 70%);
 }
 
 .contact-icon {
@@ -99,13 +99,13 @@
 }
 
 .email-link .contact-icon {
-  color: var(--color-cyan);
-  text-shadow: 0 0 20px var(--color-cyan);
+  color: var(--color-primary);
+  text-shadow: 0 0 20px var(--color-primary);
 }
 
 .linkedin-link .contact-icon {
-  color: var(--color-magenta);
-  text-shadow: 0 0 20px var(--color-magenta);
+  color: var(--color-secondary);
+  text-shadow: 0 0 20px var(--color-secondary);
 }
 
 .contact-text {
@@ -130,11 +130,11 @@
 }
 
 .email-link .link-value {
-  color: var(--color-cyan);
+  color: var(--color-primary);
 }
 
 .linkedin-link .link-value {
-  color: var(--color-magenta);
+  color: var(--color-secondary);
 }
 
 .contact-link:hover .link-glow,
@@ -149,14 +149,14 @@
 
 .email-link:hover,
 .email-link:focus {
-  border-color: var(--color-cyan);
-  box-shadow: 0 10px 40px rgba(0, 240, 255, 0.3);
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 40px var(--color-primary-alpha);
 }
 
 .linkedin-link:hover,
 .linkedin-link:focus {
-  border-color: var(--color-magenta);
-  box-shadow: 0 10px 40px rgba(255, 0, 255, 0.3);
+  border-color: var(--color-secondary);
+  box-shadow: 0 10px 40px var(--color-secondary-alpha);
 }
 
 .contact-link:hover .contact-icon {

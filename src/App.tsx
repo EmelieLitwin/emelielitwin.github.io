@@ -7,11 +7,13 @@ import Education from './components/Education'
 import Contact from './components/Contact'
 import ThemeToggle from './components/ThemeToggle'
 import ScrollProgress from './components/ScrollProgress'
+import BlueprintOverlay from './components/BlueprintOverlay'
 
 function App() {
   return (
     <>
       <ScrollProgress />
+      <BlueprintOverlay />
       <Header />
       <main>
         <Hero />
