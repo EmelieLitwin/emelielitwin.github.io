@@ -4,35 +4,35 @@ export default function Skills() {
   const skillCategories = [
     {
       title: 'Design & UX',
-      icon: '◆',
+      color: 'cyan',
       skills: [
         'Design Systems',
         'UX/UI Design',
         'Figma & Prototyping',
         'User Research',
-        'Accessibility (WCAG 2.1)'
+        'Accessibility'
       ]
     },
     {
-      title: 'Development & Tools',
-      icon: '▲',
+      title: 'Development',
+      color: 'blue',
       skills: [
         'TypeScript & JavaScript',
-        'StencilJS & Web Components',
-        'React',
-        'HTML/CSS',
-        'Git & GitHub'
+        'React & Frameworks',
+        'Web Components',
+        'HTML/CSS & Styling',
+        'Git & Version Control'
       ]
     },
     {
-      title: 'AI & Collaboration',
-      icon: '●',
+      title: 'Team & Process',
+      color: 'magenta',
       skills: [
-        'AI-Assisted Development',
-        'GitHub Copilot & ChatGPT',
-        'Agile/Scrum',
-        'Design Thinking',
-        'Workshops & Documentation'
+        'Agile & Scrum',
+        'Cross-functional',
+        'Workshops',
+        'Documentation',
+        'Stakeholder Mgmt'
       ]
     }
   ]
@@ -44,12 +44,12 @@ export default function Skills() {
         <div className="skills-grid">
           {skillCategories.map((category) => (
             <div key={category.title} className="skill-category">
-              <h3><span className="skill-icon">{category.icon}</span>{category.title}</h3>
-              <ul>
+              <h3 className={`category-title ${category.color}`}>{category.title}</h3>
+              <div className="skills-tags">
                 {category.skills.map((skill) => (
-                  <li key={skill}>{skill}</li>
+                  <span key={skill} className={`skill-tag ${category.color}`}>{skill}</span>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>

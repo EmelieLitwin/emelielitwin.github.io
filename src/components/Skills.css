@@ -43,105 +43,127 @@
 }
 
 .skill-category {
-  background: var(--color-surface);
-  padding: 2.5rem;
-  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(10, 14, 26, 0.6) 0%, rgba(17, 24, 39, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  padding: 3rem 2.5rem;
+  border-radius: 30px;
   box-shadow: 0 4px 20px rgba(0, 240, 255, 0.1);
-  transition: all 0.3s ease;
-  border: 2px solid rgba(0, 240, 255, 0.2);
+  transition: all 0.4s ease;
+  border: 2px solid rgba(0, 240, 255, 0.15);
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 450px;
+  align-items: center;
+  overflow: hidden;
+  cursor: default;
 }
 
 .skill-category::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-blue), var(--color-magenta));
-  border-radius: 20px;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(0, 240, 255, 0.1) 0%, transparent 60%);
   opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
+  transition: opacity 0.4s ease;
+  z-index: 0;
 }
 
 .skill-category:hover::before {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .skill-category:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 35px rgba(0, 240, 255, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 45px rgba(0, 240, 255, 0.2);
+  border-color: var(--color-cyan);
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(30, 41, 59, 0.9) 100%);
 }
 
-.skill-category h3 {
+.category-title {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  color: var(--color-text);
   font-weight: 800;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
   font-family: var(--font-heading);
-}
-
-.skill-icon {
-  font-size: 1.5rem;
-  display: inline-block;
-  transition: transform 0.3s ease;
-  margin-right: 0.8rem;
-  color: var(--color-primary);
-  text-shadow: 0 0 15px var(--color-primary);
-}
-
-.skill-category:hover .skill-icon {
-  transform: scale(1.1);
-}
-
-.skill-category ul {
-  list-style: none;
-  padding: 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.skill-category li {
-  padding: 1rem 1rem;
-  background: var(--color-bg-secondary);
-  border-radius: 10px;
-  color: var(--color-text);
-  font-weight: 600;
-  transition: all 0.2s ease;
   position: relative;
-  padding-left: 2rem;
-  flex: 1;
+  z-index: 1;
+  text-align: center;
+  line-height: 1.2;
+  user-select: none;
+}
+
+.category-title.cyan {
+  color: var(--color-cyan);
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+}
+
+.category-title.blue {
+  color: var(--color-blue);
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.category-title.magenta {
+  color: var(--color-magenta);
+  text-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.skills-tags {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  justify-content: center;
 }
 
-.skill-category li::before {
-  content: '▸';
-  position: absolute;
-  left: 0.8rem;
-  color: var(--color-primary);
-  font-weight: bold;
-  transition: none;
+.skill-tag {
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: rgba(10, 14, 26, 0.5);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  border: 2px solid;
+  text-align: center;
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
 }
 
-.skill-category li:hover {
-  background: rgba(0, 240, 255, 0.1);
-  border-left: 3px solid var(--color-primary);
-  padding-left: calc(2rem - 3px);
+.skill-tag.cyan {
+  border-color: var(--color-cyan);
+  color: var(--color-cyan);
 }
 
-.skill-category li:hover::before {
-  color: var(--color-primary);
+.skill-tag.blue {
+  border-color: var(--color-blue);
+  color: var(--color-blue);
+}
+
+.skill-tag.magenta {
+  border-color: var(--color-magenta);
+  color: var(--color-magenta);
+}
+
+.skill-tag:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px currentColor;
+}
+
+.skill-tag.cyan:hover {
+  background: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
+}
+
+.skill-tag.blue:hover {
+  background: rgba(59, 130, 246, 0.15);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+}
+
+.skill-tag.magenta:hover {
+  background: rgba(255, 0, 255, 0.15);
+  box-shadow: 0 6px 20px rgba(255, 0, 255, 0.5);
 }
 
 @media (max-width: 968px) {

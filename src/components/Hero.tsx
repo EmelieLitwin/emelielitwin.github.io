@@ -5,7 +5,9 @@ export default function Hero() {
     <section className="hero" id="about">
       <div className="hero-content">
         <div className="hero-text">
-          <p className="hero-greeting">Hi, I'm Emelie</p>
+          <p className="hero-greeting">
+            <span className="wave">👋</span> Hi, I'm Emelie
+          </p>
           <h1 className="hero-title">Design Technologist</h1>
           <p className="hero-subtitle">
             I create delightful digital experiences at the intersection of design and code

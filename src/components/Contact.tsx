@@ -7,8 +7,9 @@ export default function Contact() {
         <h2 className="section-title">Let's Connect</h2>
         <div className="contact-content">
           <p className="contact-intro">
-            Interested in design systems, web components, or AI-assisted development? 
-            Let's create something amazing together.
+            Want to bridge design and development? Whether it's building design systems, 
+            crafting web components, or exploring innovative solutions—let's create something 
+            amazing together.
           </p>
           <div className="contact-methods">
             <a href="mailto:emelielitwin@gmail.com" className="contact-link email-link">
