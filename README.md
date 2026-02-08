@@ -154,7 +154,7 @@ website2026/
 ## 🔗 Links
 
 - **Live Site:** [emelielitwin.github.io](https://emelielitwin.github.io)
-- **Repository:** [github.com/EmelieLitwin/EmelieLitwin.github.io](https://github.com/EmelieLitwin/EmelieLitwin.github.io)
+- **Repository:** [github.com/EmelieLitwin/emelielitwin.github.io](https://github.com/EmelieLitwin/emelielitwin.github.io)
 - **LinkedIn:** [linkedin.com/in/emelielitwin](https://linkedin.com/in/emelielitwin)
 - **Email:** emelielitwin@gmail.com
 
