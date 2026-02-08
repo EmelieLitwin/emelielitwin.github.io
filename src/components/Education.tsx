@@ -38,9 +38,15 @@ export default function Education() {
         <h2 className="section-title">Education</h2>
         
         <div className="education-grid">
-          {degrees.map((edu) => (
+          {degrees.map((edu, index) => (
             <div key={edu.degree} className="education-card">
-              <div className="edu-icon">{edu.icon}</div>
+              <div className="edu-icon">
+                <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  {index === 0 && <rect x="12" y="12" width="24" height="24" fill="currentColor" />}
+                  {index === 1 && <polygon points="24,12 36,36 12,36" fill="currentColor" />}
+                  {index === 2 && <circle cx="24" cy="24" r="12" fill="currentColor" />}
+                </svg>
+              </div>
               <h3>{edu.degree}</h3>
               <p className="edu-school">{edu.school}</p>
               <p className="edu-period">{edu.period}</p>

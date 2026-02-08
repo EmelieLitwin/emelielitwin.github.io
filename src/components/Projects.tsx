@@ -75,7 +75,7 @@ export default function Projects() {
       company: 'Scania Group',
       period: '2022 - Present',
       description: 'Leading the Tegel Design System development with StencilJS and TypeScript. Creating reusable web components used across 50+ applications globally.',
-      icon: '▲',
+      icon: 'triangle',
       color: 'var(--color-cyan)',
       details: {
         myRole: 'As Design Technologist, I bridge the gap between design and development, building and maintaining the Tegel Design System. I work cross-functionally with designers, developers, and stakeholders to create a cohesive component library.',
@@ -93,7 +93,7 @@ export default function Projects() {
           'Conduct user interviews to validate solutions',
           'Stepped in as Product Owner during vacations'
         ],
-        tools: ['StencilJS', 'TypeScript', 'Figma', 'CSS', 'Angular', 'React', 'Power Apps', 'Git']
+        tools: ['StencilJS', 'TypeScript', 'Figma', 'CSS', 'Angular', 'React', 'Power Apps', 'AWS']
       }
     },
     {
@@ -101,12 +101,11 @@ export default function Projects() {
       company: 'Arbetsförmedlingen',
       period: '2021 - 2022',
       description: 'Developed and maintained the government design system. Led workshops and created accessible components following WCAG 2.1 guidelines.',
-      icon: '✕',
+      icon: 'cross',
       color: 'var(--color-blue)',
       details: {
         myRole: 'As Design Technologist, I owned the complete lifecycle of components in the government design system, from research and design to implementation and documentation. I ensured WCAG AAA compliance and facilitated cross-agency collaboration.',
         achievements: [
-          'Built multi-brand government design system for multiple agencies',
           'Achieved WCAG AAA compliance across all components',
           'Owned full component lifecycle from research to documentation',
           'Created comprehensive design system documentation'
@@ -118,7 +117,7 @@ export default function Projects() {
           'Test with screen readers and accessibility tools',
           'Document patterns and best practices'
         ],
-        tools: ['React', 'JavaScript', 'Sketch', 'WCAG AAA', 'ARIA']
+        tools: ['Web Components', 'JavaScript', 'Sketch', 'WCAG AAA', 'Figma', 'ARIA']
       }
     },
     {
@@ -126,7 +125,7 @@ export default function Projects() {
       company: 'FRISQ',
       period: '2020',
       description: 'Designed healthcare patient portal experiences. Conducted user research and improved patient engagement by 40% through intuitive interface design.',
-      icon: '●',
+      icon: 'circle',
       color: 'var(--color-magenta)',
       details: {
         myRole: 'UX/UI design consultant',
@@ -142,7 +141,7 @@ export default function Projects() {
           'Prototyping',
           'Creative direction'
         ],
-        tools: ['Figma', 'Photoshop']
+        tools: ['Figma']
       }
     },
     {
@@ -150,7 +149,7 @@ export default function Projects() {
       company: 'Blue Media AB',
       period: '2019',
       description: 'Created meditation app interfaces in collaboration with physicians. Designed complete user journey from onboarding to daily practice.',
-      icon: '■',
+      icon: 'circle',
       color: 'var(--color-cyan)',
       details: {
         myRole: 'As Product Designer, I designed the complete user experience for a meditation app concept, working closely with physicians to ensure content aligned with therapeutic goals. I created the full user journey from onboarding through daily practice.',
@@ -162,7 +161,7 @@ export default function Projects() {
           'Research meditation apps',
           'Design app interface and user flows'
         ],
-        tools: ['Sketch', 'Adobe Creative Suite']
+        tools: ['Adobe Creative Suite']
       }
     },
     {
@@ -170,7 +169,7 @@ export default function Projects() {
       company: 'Litwins Knitwins',
       period: '2019 - Present',
       description: 'Independent knitwear design business selling patterns on international platforms. Creating visually appealing designs and pattern sheets.',
-      icon: '◆',
+      icon: 'diamond',
       color: 'var(--color-magenta)',
       details: {
         myRole: 'As an independent Knitwear Designer, I manage my own design business from concept to publication. I design patterns, create professional product sheets, and maintain an international customer base through digital platforms.',
@@ -204,7 +203,17 @@ export default function Projects() {
               ref={el => { itemRefs.current[index] = el }}
             >
               <div className="timeline-marker" aria-hidden="true">
-                <span className="timeline-icon">{job.icon}</span>
+                <svg className="timeline-icon" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  {job.icon === 'triangle' && <polygon points="10,4 16,16 4,16" fill="currentColor" />}
+                  {job.icon === 'cross' && (
+                    <>
+                      <line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                    </>
+                  )}
+                  {job.icon === 'circle' && <circle cx="10" cy="10" r="6" fill="currentColor" />}
+                  {job.icon === 'diamond' && <rect x="6" y="6" width="8" height="8" transform="rotate(45 10 10)" fill="currentColor" />}
+                </svg>
               </div>
               <button 
                 className="timeline-content"

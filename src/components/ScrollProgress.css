@@ -11,9 +11,10 @@
 .scroll-progress-bar {
   height: 100%;
   background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-secondary));
-  transition: width 0.1s ease-out;
+  transition: width 0.2s linear;
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
   position: relative;
+  will-change: width;
 }
 
 .scroll-progress-bar::after {

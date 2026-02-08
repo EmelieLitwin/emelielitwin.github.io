@@ -92,11 +92,15 @@ code, pre {
   text-rendering: geometricPrecision;
 }
 
-[data-theme="cyberpunk"] h1,
 [data-theme="cyberpunk"] h2,
 [data-theme="cyberpunk"] h3 {
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-weight: var(--font-weight-black);
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+[data-theme="cyberpunk"] h1 {
   font-weight: var(--font-weight-black);
   text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
 }

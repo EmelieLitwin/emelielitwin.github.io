@@ -142,8 +142,18 @@
     0 0 20px var(--color-primary),
     0 0 40px var(--color-primary);
   transition: all 0.4s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
   animation: icon-glow 3s ease-in-out infinite;
+}
+
+.edu-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px currentColor) drop-shadow(0 0 40px currentColor);
 }
 
 .education-card:nth-child(2) .edu-icon {
