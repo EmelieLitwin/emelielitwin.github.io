@@ -235,7 +235,7 @@ strong {
 .hero-description {
   font-size: 1.1rem;
   line-height: 1.8;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   color: var(--color-text-secondary);
   max-width: 550px;
   cursor: default;
