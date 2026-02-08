@@ -198,8 +198,8 @@
   100% { transform: rotate(-20deg); }
 }
 
-.hero-title {
-  font-size: 4rem;
+strong {
+  font-size: 1rem;
   font-weight: 900;
   margin-bottom: 1.5rem;
   line-height: 1.1;
@@ -220,7 +220,7 @@
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   margin-bottom: 1.5rem;
   color: var(--color-text);
   font-weight: 500;

@@ -33,14 +33,13 @@ export default function Hero() {
             Hi, I'm Emelie
           </p>
           
-          <h1 className="hero-title">Design Technologist</h1>
           
           <p className="hero-subtitle">
             I create delightful digital experiences at the intersection of design and code
           </p>
           
           <p className="hero-description">
-            Currently working at <strong>Scania</strong> as a Design Technologist, I bridge 
+            Currently working at Scania as a <strong>DESIGN TECHNOLOGIST</strong>, I bridge 
             the gap between design and development. With a background in UX design, product 
             design, and frontend development, I help teams build products that are both 
             beautiful and functional. I'm passionate about design systems, accessibility, 
