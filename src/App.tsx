@@ -7,6 +7,7 @@ import Skills from './components/Skills'
 import Education from './components/Education'
 import Contact from './components/Contact'
 import ScrollProgress from './components/ScrollProgress'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <About />
         <Contact />
       </main>
+      <Footer />
     </>
   )
 }
