@@ -67,22 +67,18 @@
   max-width: 500px;
   height: auto;
   filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.2));
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   animation: cyber-glitch 8s infinite;
   transform: scaleX(-1); /* Mirror the unicorn horizontally */
-}
-
-.origami-svg:hover {
-  transform: scaleX(-1) scale(1.05) rotate(-2deg); /* Maintain mirror flip */
-  filter: brightness(1.3) drop-shadow(0 0 20px var(--color-primary));
 }
 
 /* Unicorn polygon parts */
 .unicorn-part {
   fill: none;
   stroke-width: 2;
-  transition: stroke 0.3s ease, stroke-width 0.3s ease, filter 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   animation: cyber-scan 3s linear infinite;
+  cursor: pointer;
+  transform-origin: center;
 }
 
 .unicorn-part-1 {
@@ -98,8 +94,25 @@
 }
 
 .unicorn-part:hover {
-  filter: brightness(1.5) drop-shadow(0 0 8px currentColor);
-  stroke-width: 3;
+  filter: brightness(1.5) drop-shadow(0 0 12px currentColor);
+  stroke-width: 4;
+  animation: polygon-pulse 0.6s ease-in-out infinite;
+}
+
+.unicorn-part:active {
+  transform: scale(1.15) rotate(5deg);
+  filter: brightness(2) drop-shadow(0 0 20px currentColor) drop-shadow(0 0 30px currentColor);
+  stroke-width: 5;
+}
+
+@keyframes polygon-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
 }
 
 /* Unicorn gradient stops */

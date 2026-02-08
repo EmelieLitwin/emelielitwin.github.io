@@ -1,4 +1,5 @@
 import './Header.css'
+import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   return (
@@ -48,13 +49,16 @@ export default function Header() {
             <polygon points="743,273 755,194 848,270 853,338" fill="url(#logo-grad-3)" />
           </svg>
         </a>
-        <ul className="nav-links">
-          <li><a href="#work">Work</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#about-me">About Me</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div className="nav-right">
+          <ul className="nav-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#about-me">About Me</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <ThemeToggle />
+        </div>
       </nav>
     </header>
   )
