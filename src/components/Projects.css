@@ -149,7 +149,7 @@
 }
 
 .timeline-company {
-  color: var(--color-primary);
+  color: var(--color-secondary);
   font-weight: var(--font-weight-bold);
   font-size: 1rem;
   margin: 0;
@@ -312,6 +312,13 @@
   margin: 0 0 1rem 0;
   font-family: var(--font-heading);
   font-weight: 700;
+}
+
+.modal-section p {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin: 0;
+  font-size: 1.1rem;
 }
 
 .modal-section ul {

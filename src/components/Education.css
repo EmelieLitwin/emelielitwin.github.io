@@ -2,6 +2,39 @@
   padding: 8rem 2rem;
   background: var(--color-bg-secondary);
   position: relative;
+  overflow: hidden;
+}
+
+.education::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--color-primary) 50%, 
+    transparent 100%);
+  opacity: 0.5;
+}
+
+.education::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+  opacity: 0.03;
+  animation: float-shape 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float-shape {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-50px, 50px) rotate(180deg); }
 }
 
 .education-grid {
@@ -16,35 +49,133 @@
   padding: 2.5rem;
   border-radius: 16px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   border: 2px solid var(--color-border);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    var(--color-primary) 50%,
+    transparent 70%
+  );
+  opacity: 0;
+  transform: rotate(45deg);
+  transition: opacity 0.6s ease;
+}
+
+.education-card:hover::before {
+  animation: shine 1.5s ease-in-out;
+}
+
+@keyframes shine {
+  0% { 
+    opacity: 0;
+    transform: translateX(-100%) rotate(45deg);
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% { 
+    opacity: 0;
+    transform: translateX(100%) rotate(45deg);
+  }
 }
 
 .education-card:hover {
-  transform: translateY(-8px) rotate(2deg) scale(1.05);
+  transform: translateY(-12px) scale(1.02);
   border-color: var(--color-primary);
-  box-shadow: 0 12px 40px var(--color-primary-alpha);
+  box-shadow: 
+    0 20px 40px rgba(0, 240, 255, 0.15),
+    0 0 20px rgba(0, 240, 255, 0.1),
+    inset 0 0 60px rgba(0, 240, 255, 0.05);
+}
+
+.education-card:nth-child(2):hover {
+  border-color: var(--color-secondary);
+  box-shadow: 
+    0 20px 40px rgba(255, 0, 255, 0.15),
+    0 0 20px rgba(255, 0, 255, 0.1),
+    inset 0 0 60px rgba(255, 0, 255, 0.05);
+}
+
+.education-card:nth-child(3):hover {
+  border-color: var(--color-accent);
+  box-shadow: 
+    0 20px 40px rgba(59, 130, 246, 0.15),
+    0 0 20px rgba(59, 130, 246, 0.1),
+    inset 0 0 60px rgba(59, 130, 246, 0.05);
 }
 
 .education-card:hover .edu-icon {
-  animation: icon-spin 0.6s ease-in-out;
-  transform: scale(1.2);
+  animation: icon-pulse 0.8s ease-in-out;
+  filter: brightness(1.5);
 }
 
-@keyframes icon-spin {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.3); }
-  100% { transform: rotate(360deg) scale(1.2); }
+@keyframes icon-pulse {
+  0%, 100% { 
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.3) rotate(-10deg);
+  }
+  75% {
+    transform: scale(1.3) rotate(10deg);
+  }
 }
 
 .edu-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
   color: var(--color-primary);
-  text-shadow: 0 0 20px var(--color-primary);
-  transition: all 0.3s ease;
+  text-shadow: 
+    0 0 20px var(--color-primary),
+    0 0 40px var(--color-primary);
+  transition: all 0.4s ease;
   display: inline-block;
+  animation: icon-glow 3s ease-in-out infinite;
+}
+
+.education-card:nth-child(2) .edu-icon {
+  color: var(--color-secondary);
+  text-shadow: 
+    0 0 20px var(--color-secondary),
+    0 0 40px var(--color-secondary);
+  animation-delay: 1s;
+}
+
+.education-card:nth-child(3) .edu-icon {
+  color: var(--color-accent);
+  text-shadow: 
+    0 0 20px var(--color-accent),
+    0 0 40px var(--color-accent);
+  animation-delay: 2s;
+}
+
+@keyframes icon-glow {
+  0%, 100% {
+    opacity: 0.9;
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 
+      0 0 20px currentColor,
+      0 0 40px currentColor,
+      0 0 60px currentColor;
+  }
 }
 
 .education-card h3 {
@@ -81,6 +212,36 @@
   border-radius: 16px;
   border: 2px solid var(--color-border);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.courses-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 240, 255, 0.05) 50%,
+    transparent 100%
+  );
+  transition: left 0.8s ease;
+}
+
+.courses-section:hover::before {
+  left: 100%;
+}
+
+.courses-section:hover {
+  border-color: var(--color-primary);
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(0, 240, 255, 0.1);
 }
 
 .courses-title {
@@ -89,6 +250,25 @@
   margin-bottom: 1.5rem;
   font-family: var(--font-heading);
   text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.courses-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-primary) 50%,
+    transparent 100%
+  );
 }
 
 .courses-list {
@@ -108,17 +288,58 @@
   gap: 0.8rem;
   border-left: 3px solid var(--color-primary);
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 240, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transition: width 0.4s ease;
+}
+
+.course-item:hover::before {
+  width: 100%;
 }
 
 .course-item:hover {
   background: var(--color-surface);
   border-left-color: var(--color-primary);
-  box-shadow: 0 0 15px var(--color-primary-alpha);
+  box-shadow: 
+    0 4px 15px rgba(0, 240, 255, 0.2),
+    inset 0 0 20px rgba(0, 240, 255, 0.05);
+  transform: translateX(8px);
+}
+
+.course-item:hover .course-bullet {
+  animation: bullet-pulse 0.6s ease;
+  color: var(--color-primary);
+}
+
+@keyframes bullet-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+    text-shadow: 0 0 10px var(--color-primary);
+  }
 }
 
 .course-bullet {
   color: var(--color-primary);
   font-size: 1.2rem;
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 968px) {

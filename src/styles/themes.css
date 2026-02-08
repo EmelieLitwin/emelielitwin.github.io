@@ -1,47 +1,47 @@
-/* Theme System - Design Tokens */
+/* ============================================
+   DESIGN SYSTEM - CYBERPUNK THEME
+   ============================================ */
 
+/* ============================================
+   Global Design Tokens
+   ============================================ */
 :root {
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 0.75rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
+  /* Spacing Scale */
+  --spacing-xs: 0.5rem;    /* 8px */
+  --spacing-sm: 0.75rem;   /* 12px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
   
-  /* Spacing aliases */
-  --space-xs: var(--spacing-xs);
-  --space-sm: var(--spacing-sm);
-  --space-md: var(--spacing-md);
-  --space-lg: var(--spacing-lg);
-  --space-xl: var(--spacing-xl);
-  
-  /* Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
+  /* Border Radius */
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 1rem;       /* 16px */
   
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 300ms ease;
   --transition-slow: 500ms ease;
   
-  /* Z-index */
+  /* Z-index Layers */
   --z-header: 1000;
   --z-modal: 2000;
   
-  /* Motion defaults */
+  /* Motion */
   --motion-hover-translate: -2px;
   --motion-hover-scale: 1.02;
   --motion-active-scale: 0.98;
   --motion-focus-ring-offset: 2px;
   
-  /* Opacity helpers */
+  /* Opacity */
   --opacity-disabled: 0.5;
   --opacity-muted: 0.7;
   --opacity-overlay: 0.9;
 }
 
-/* Respect reduced motion */
+/* ============================================
+   Accessibility - Reduced Motion
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   :root {
     --motion-hover-translate: 0;
@@ -53,93 +53,80 @@
   }
 }
 
-/* CYBERPUNK THEME */
+/* ============================================
+   Cyberpunk Theme Tokens
+   ============================================ */
 [data-theme="cyberpunk"] {
+  /* Typography */
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-ui: var(--font-body);
-  --font-body-alt: var(--font-mono);
-  --font-display: var(--font-heading);
-  --font-caption: var(--font-body);
   
+  /* Font Weights */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-black: 900;
-  --font-weight-regular: 400;
-  --font-weight-book: 450;
   
+  /* Line Heights */
   --line-height-tight: 1.2;
   --line-height-base: 1.6;
   --line-height-relaxed: 1.8;
   
+  /* Letter Spacing */
   --letter-spacing-tight: -0.02em;
   --letter-spacing-normal: 0;
-  --letter-spacing-base: 0;
   --letter-spacing-wide: 0.05em;
   
-  --measure-readable: 65ch;
-  --measure-wide: 85ch;
-  --paragraph-spacing: 1.5em;
+  /* Color Palette */
+  --color-primary: #00F0FF;      /* Cyan */
+  --color-secondary: #FF00FF;    /* Magenta */
+  --color-accent: #3B82F6;       /* Blue */
   
-  --color-primary: #00F0FF;
-  --color-secondary: #FF00FF;
-  --color-accent: #3B82F6;
-  
+  /* Color Alpha Variants */
   --color-primary-alpha: rgba(0, 240, 255, 0.2);
   --color-secondary-alpha: rgba(255, 0, 255, 0.2);
   
+  /* Background Colors */
   --color-bg: #0A0E1A;
   --color-bg-elevated: rgba(30, 41, 59, 0.9);
   --color-bg-secondary: #111827;
   --color-surface: #1E293B;
   
-  --color-bg-base: var(--color-bg);
-  --color-bg-subtle: var(--color-bg-elevated);
-  --color-bg-muted: var(--color-surface);
-  
+  /* Text Colors */
   --color-text: #F1F5F9;
   --color-text-muted: #94A3B8;
   --color-text-secondary: #94A3B8;
+  
+  /* Border Colors */
   --color-border: rgba(0, 240, 255, 0.2);
   
+  /* Surface Colors */
   --color-surface-accent: rgba(0, 240, 255, 0.1);
   --color-surface-selected: rgba(0, 240, 255, 0.15);
-  --color-surface-disabled: rgba(148, 163, 184, 0.1);
   
-  --color-text-on-primary: #0A0E1A;
-  --color-text-on-accent: #F1F5F9;
-  
+  /* Gradients */
   --gradient-primary: linear-gradient(135deg, #00F0FF, #FF00FF);
   
+  /* Elevation Shadows */
   --elevation-sm: 0 4px 12px rgba(0, 240, 255, 0.15);
   --elevation-md: 0 8px 24px rgba(0, 240, 255, 0.25);
   --elevation-lg: 0 16px 48px rgba(0, 240, 255, 0.35);
   
+  /* Effects */
   --effect-outline-focus: 3px solid var(--color-primary);
   --effect-hover-lift: translateY(-4px);
   --effect-active-press: translateY(0) scale(0.96);
-  --effect-divider: 1px solid var(--color-border);
   
+  /* Cyberpunk-specific Motion */
   --motion-hover-translate: -4px;
   --motion-hover-scale: 1.03;
   --motion-active-scale: 0.96;
-  --motion-focus-ring-offset: 3px;
   
-  --logo-filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
-  --logo-hover-filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.6));
-  
-  --unicorn-color-1: #00F0FF;
-  --unicorn-color-2: #FF00FF;
-  --unicorn-color-3: #3B82F6;
-  --unicorn-stroke: 2.5;
-  --unicorn-filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.4));
-  --unicorn-animation-duration: 0.4s;
-  --unicorn-animation-timing: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  
-  --cyberpunk-glow-idle: drop-shadow(0 0 10px rgba(0, 240, 255, 0.2));
-  --cyberpunk-glow-active: drop-shadow(0 0 25px rgba(0, 240, 255, 0.5));
-  --cyberpunk-glow-hover: drop-shadow(0 0 20px rgba(255, 0, 255, 0.4));
+  /* Glow Effects */
+  --glow-idle: drop-shadow(0 0 10px rgba(0, 240, 255, 0.2));
+  --glow-active: drop-shadow(0 0 25px rgba(0, 240, 255, 0.5));
+  --glow-hover: drop-shadow(0 0 20px rgba(255, 0, 255, 0.4));
 }
+

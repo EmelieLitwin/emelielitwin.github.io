@@ -9,6 +9,7 @@ interface Job {
   icon: string
   color: string
   details?: {
+    myRole?: string
     achievements: string[]
     process: string[]
     tools: string[]
@@ -18,6 +19,8 @@ interface Job {
 export default function Projects() {
   const [selectedJob, setSelectedJob] = useState<Job | null>(null)
   const itemRefs = useRef<(HTMLElement | null)[]>([])
+  const modalRef = useRef<HTMLDivElement>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,6 +41,34 @@ export default function Projects() {
     return () => observer.disconnect()
   }, [])
 
+  // Handle modal accessibility
+  useEffect(() => {
+    if (selectedJob) {
+      previousFocusRef.current = document.activeElement as HTMLElement
+      modalRef.current?.focus()
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+      previousFocusRef.current?.focus()
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [selectedJob])
+
+  // Handle Escape key to close modal
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedJob) {
+        setSelectedJob(null)
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [selectedJob])
+
   const timeline: Job[] = [
     {
       role: 'Design Technologist',
@@ -47,10 +78,12 @@ export default function Projects() {
       icon: '▲',
       color: 'var(--color-cyan)',
       details: {
+        myRole: 'As Design Technologist, I bridge the gap between design and development, building and maintaining the Tegel Design System. I work cross-functionally with designers, developers, and stakeholders to create a cohesive component library.',
         achievements: [
-          'Built 50+ web components and CSS components for Tegel Design System',
-          'Created demo pages showcasing design system in Angular and React',
-          'Developed Power Apps component library for internal tools',
+          'Built 30+ web components for Tegel Design System using StencilJS',
+          'Created CSS-only component library as lightweight alternative',
+          'Developed demo pages showcasing design system in Angular and React',
+          'Built Power Apps component library for internal tools',
           'Wrote comprehensive documentation for designers and developers'
         ],
         process: [
@@ -58,7 +91,7 @@ export default function Projects() {
           'Code web components using StencilJS and CSS',
           'Structure design tokens and variable architecture',
           'Conduct user interviews to validate solutions',
-          'Acted as Product Owner for entire design system'
+          'Stepped in as Product Owner during vacations'
         ],
         tools: ['StencilJS', 'TypeScript', 'Figma', 'CSS', 'Angular', 'React', 'Power Apps', 'Git']
       }
@@ -71,6 +104,7 @@ export default function Projects() {
       icon: '✕',
       color: 'var(--color-blue)',
       details: {
+        myRole: 'As Design Technologist, I owned the complete lifecycle of components in the government design system, from research and design to implementation and documentation. I ensured WCAG AAA compliance and facilitated cross-agency collaboration.',
         achievements: [
           'Built multi-brand government design system for multiple agencies',
           'Achieved WCAG AAA compliance across all components',
@@ -95,17 +129,20 @@ export default function Projects() {
       icon: '●',
       color: 'var(--color-magenta)',
       details: {
+        myRole: 'UX/UI design consultant',
         achievements: [
           'Designed patient portal interface',
           'Conducted user interviews with patients',
           'Improved engagement through user-centered design'
         ],
         process: [
-          'User research and interviews',
-          'Design solutions in Figma',
-          'Iterate based on feedback'
+          'User research synthesis',
+          'Ideation',
+          'Wireframing',
+          'Prototyping',
+          'Creative direction'
         ],
-        tools: ['Figma', 'Sketch', 'Miro']
+        tools: ['Figma', 'Photoshop']
       }
     },
     {
@@ -116,6 +153,7 @@ export default function Projects() {
       icon: '■',
       color: 'var(--color-cyan)',
       details: {
+        myRole: 'As Product Designer, I designed the complete user experience for a meditation app concept, working closely with physicians to ensure content aligned with therapeutic goals. I created the full user journey from onboarding through daily practice.',
         achievements: [
           'Designed meditation app concept',
           'Collaborated with physicians on content'
@@ -135,6 +173,7 @@ export default function Projects() {
       icon: '◆',
       color: 'var(--color-magenta)',
       details: {
+        myRole: 'As an independent Knitwear Designer, I manage my own design business from concept to publication. I design patterns, create professional product sheets, and maintain an international customer base through digital platforms.',
         achievements: [
           'Sell knitwear patterns on Ravelry.com internationally',
           'Create product sheets and pattern designs',
@@ -146,46 +185,6 @@ export default function Projects() {
           'Edit visuals in Photoshop and Illustrator'
         ],
         tools: ['Adobe InDesign', 'Photoshop', 'Illustrator']
-      }
-    },
-    {
-      role: 'Requirements Analyst Intern',
-      company: 'Karolinska Universitetssjukhuset',
-      period: '2018',
-      description: 'Worked in requirements analysis team for ILOV project, creating digital scorecards for the hospital\'s new business model.',
-      icon: '✚',
-      color: 'var(--color-blue)',
-      details: {
-        achievements: [
-          'Documented requirements for digital scorecard system',
-          'Created patient report dashboard in Tableau',
-          'Supported stakeholder meetings and documentation'
-        ],
-        process: [
-          'Participate in stakeholder meetings',
-          'Document and analyze requirements',
-          'Build reports in Tableau'
-        ],
-        tools: ['Tableau', 'Requirements Analysis', 'Documentation']
-      }
-    },
-    {
-      role: 'Summer Intern',
-      company: 'Ericsson',
-      period: '2017 - 2018',
-      description: 'Supported eShop operations and internal reporting through design and automation.',
-      icon: '○',
-      color: 'var(--color-cyan)',
-      details: {
-        achievements: [
-          'Created CPI templates for eShop',
-          'Automated internal reports with Excel macros'
-        ],
-        process: [
-          'Design templates in Illustrator',
-          'Write Excel macros for automation'
-        ],
-        tools: ['Adobe Illustrator', 'Excel', 'VBA']
       }
     }
   ]
@@ -228,23 +227,41 @@ export default function Projects() {
       </div>
 
       {selectedJob && (
-        <div className="modal-overlay" onClick={() => setSelectedJob(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div 
+          className="modal-overlay" 
+          onClick={() => setSelectedJob(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        >
+          <div 
+            className="modal-content" 
+            onClick={(e) => e.stopPropagation()}
+            ref={modalRef}
+            tabIndex={-1}
+          >
             <button 
               className="modal-close" 
               onClick={() => setSelectedJob(null)}
-              aria-label="Close modal"
+              aria-label="Close dialog"
             >
               ✕
             </button>
             
             <div className="modal-header">
-              <h2>{selectedJob.role}</h2>
+              <h2 id="modal-title">{selectedJob.role}</h2>
               <p className="modal-company">{selectedJob.company}</p>
               <span className="modal-period">{selectedJob.period}</span>
             </div>
 
             <div className="modal-body">
+              {selectedJob.details?.myRole && (
+                <section className="modal-section">
+                  <h3>My Role</h3>
+                  <p>{selectedJob.details.myRole}</p>
+                </section>
+              )}
+
               <section className="modal-section">
                 <h3>Key Achievements</h3>
                 <ul>
