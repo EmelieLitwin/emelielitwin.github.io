@@ -29,32 +29,32 @@ export default function Skills() {
       color: 'cyan',
       skills: [
         'Design Systems',
-        'UX/UI Design',
-        'Figma & Prototyping',
-        'User Research',
-        'Accessibility'
+        'Product UX',
+        'Interaction Design',
+        'Prototyping',
+        'User Insights'
       ]
     },
     {
       title: 'Development',
       color: 'blue',
       skills: [
-        'TypeScript & JavaScript',
-        'React & Frameworks',
-        'Web Components',
-        'HTML/CSS & Styling',
-        'Git & Version Control'
+        'React',
+        'TypeScript',
+        'UI Architecture',
+        'AI-assisted Development',
+        'Accessibility'
       ]
     },
     {
-      title: 'Team & Process',
+      title: 'Process ',
       color: 'magenta',
       skills: [
-        'Agile & Scrum',
-        'Cross-functional',
-        'Workshops',
-        'Documentation',
-        'Stakeholder Mgmt'
+        'Stakeholder Alignment',
+        'Cross-functional Teams',
+        'Facilitation',
+        'Agile Delivery',
+        'Documentation'
       ]
     }
   ]

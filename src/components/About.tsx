@@ -25,16 +25,17 @@ export default function About() {
             </p>
             
             <p>
-              My career didn't start in tech. I studied to become a dietitian. But I realized 
-              I wanted more growth and variety, so I pivoted to interaction design. The skills 
-              translated perfectly: analyzing user problems and finding solutions, just like 
-              working with patients.
+              My path to tech wasn't traditional. I started as a dietitian, working with patients 
+              to solve complex health challenges. When I discovered UX design, I realized the skills 
+              were the same: understand the problem, empathize with users, and create solutions that 
+              actually work. That foundation still drives how I approach product development today.
             </p>
             
             <p>
-              I'm passionate about design systems that create consistent, user centered experiences 
-              across platforms. Currently, I'm building web components and contributing to the Tegel 
-              Design System at Scania, making design and development accessible to teams worldwide.
+              I enjoy building products that are intuitive, well considered, and hold up in real use. 
+              Whether coding components, prototyping in Figma, or exploring AI tools, I focus on creating 
+              solutions where design and engineering work seamlessly together. Accessibility is always 
+              built in from the start, not added as an afterthought.
             </p>
           </div>
         </div>

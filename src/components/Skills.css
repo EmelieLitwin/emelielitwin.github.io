@@ -161,12 +161,12 @@
 
 .skills-tags {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 0.9rem;
   width: 100%;
   position: relative;
   z-index: 1;
-  justify-content: center;
+  align-items: center;
 }
 
 .skill-tag {

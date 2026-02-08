@@ -3,7 +3,7 @@
    ============================================ */
 
 .about {
-  padding: 6rem 2rem;
+  padding: 6rem 2rem 8rem 2rem;
   background: var(--color-bg);
   position: relative;
   overflow: hidden;
