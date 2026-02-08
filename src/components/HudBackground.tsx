@@ -1,6 +1,21 @@
 import { useEffect, useRef } from 'react';
 import './HudBackground.css';
 
+/**
+ * HudBackground Component
+ * 
+ * A decorative sci-fi HUD (Heads-Up Display) overlay that provides visual interest
+ * without interfering with content accessibility. Features:
+ * - Animated reticle circles and circuit traces
+ * - Live data panels with scroll progress and mouse tracking
+ * - Section detection and hover target identification
+ * 
+ * Accessibility:
+ * - Marked as aria-hidden to prevent screen reader interference
+ * - pointer-events: none to allow interaction with underlying content
+ * - Hidden on light theme for cleaner appearance
+ * - Respects prefers-reduced-motion user preference
+ */
 export default function HudBackground() {
   const hudRef = useRef<HTMLDivElement>(null);
   const targetRef = useRef<HTMLDivElement>(null);
@@ -214,9 +229,14 @@ export default function HudBackground() {
   }, []);
 
   return (
-    <div ref={hudRef} className="hud">
-      {/* Background layer */}
-      <svg className="hud-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+    <div ref={hudRef} className="hud" aria-hidden="true" role="presentation">
+      {/* Background layer - SVG decorative elements */}
+      <svg 
+        className="hud-svg" 
+        viewBox="0 0 1920 1080" 
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden="true"
+      >
         <defs>
           {/* Dot grid pattern */}
           <pattern id="hudDotGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -251,8 +271,40 @@ export default function HudBackground() {
           <circle cx="0" cy="0" r="5" fill="#999" opacity="0.4" />
         </g>
 
-        {/* Orthogonal circuit traces (90-degree paths) */}
-        <g className="hud-circuits" stroke="#999" strokeWidth="0.5" fill="none" strokeLinejoin="round">
+        {/* Circuit traces BEHIND unicorn (z-index: 1) */}
+        <g className="hud-circuits-back" stroke="#999" strokeWidth="0.5" fill="none" strokeLinejoin="round">
+          {/* Circuit 5: Right side path - behind unicorn */}
+          <path d="M 1840,600 L 1700,600 L 1700,800 L 1500,800" className="circuit-trace circuit-delay-4" opacity="0.15" />
+          
+          {/* Circuit 6: Right side vertical down - behind unicorn */}
+          <path d="M 1850,300 L 1750,300 L 1750,550 L 1650,550" className="circuit-trace circuit-delay-1" opacity="0.15" />
+          
+          {/* Circuit 7: Right middle horizontal - behind unicorn */}
+          <path d="M 1900,450 L 1800,450 L 1800,650 L 1700,650" className="circuit-trace circuit-delay-3" opacity="0.15" />
+          
+          {/* NEW: Full width horizontal traces across screen */}
+          {/* Top horizontal spanning full width */}
+          <path d="M 0,150 L 400,150 L 400,180 L 1920,180" className="circuit-trace" opacity="0.15" />
+          
+          {/* Middle horizontal spanning full width */}
+          <path d="M 0,540 L 600,540 L 600,570 L 1920,570" className="circuit-trace circuit-delay-2" opacity="0.15" />
+          
+          {/* Lower horizontal spanning full width */}
+          <path d="M 0,820 L 500,820 L 500,850 L 1920,850" className="circuit-trace circuit-delay-4" opacity="0.15" />
+          
+          {/* Vertical full height traces */}
+          {/* Left vertical */}
+          <path d="M 220,0 L 220,400 L 250,400 L 250,1080" className="circuit-trace circuit-delay-1" opacity="0.15" />
+          
+          {/* Middle vertical */}
+          <path d="M 960,0 L 960,350 L 990,350 L 990,1080" className="circuit-trace circuit-delay-3" opacity="0.15" />
+          
+          {/* Right vertical */}
+          <path d="M 1620,0 L 1620,450 L 1650,450 L 1650,1080" className="circuit-trace circuit-delay-2" opacity="0.15" />
+        </g>
+
+        {/* Circuit traces IN FRONT of unicorn (z-index: 3) */}
+        <g className="hud-circuits-front" stroke="#999" strokeWidth="0.5" fill="none" strokeLinejoin="round">
           {/* Circuit 1: Top-left to center */}
           <path d="M 100,100 L 100,300 L 400,300 L 400,500" className="circuit-trace" opacity="0.15" />
           
@@ -264,15 +316,6 @@ export default function HudBackground() {
           
           {/* Circuit 4: Bottom horizontal */}
           <path d="M 600,1000 L 600,900 L 900,900 L 900,1000" className="circuit-trace circuit-delay-3" opacity="0.15" />
-          
-          {/* Circuit 5: Right side path */}
-          <path d="M 1840,600 L 1700,600 L 1700,800 L 1500,800" className="circuit-trace circuit-delay-4" opacity="0.15" />
-          
-          {/* Circuit 6: Right side vertical down */}
-          <path d="M 1850,300 L 1750,300 L 1750,550 L 1650,550" className="circuit-trace circuit-delay-1" opacity="0.15" />
-          
-          {/* Circuit 7: Right middle horizontal */}
-          <path d="M 1900,450 L 1800,450 L 1800,650 L 1700,650" className="circuit-trace circuit-delay-3" opacity="0.15" />
           
           {/* Circuit 8: Right lower path */}
           <path d="M 1820,900 L 1700,900 L 1700,750 L 1600,750" className="circuit-trace circuit-delay-2" opacity="0.15" />

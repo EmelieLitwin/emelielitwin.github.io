@@ -1,6 +1,23 @@
 import { useState, useEffect } from 'react'
 import './ThemeToggle.css'
 
+/**
+ * ThemeToggle Component
+ * 
+ * Allows users to switch between dark and light themes.
+ * 
+ * Features:
+ * - Persists theme preference to localStorage
+ * - Updates data-theme attribute on document root
+ * - Accessible button with proper ARIA labels
+ * - Visual feedback with sun/moon icons
+ * 
+ * Accessibility:
+ * - aria-label describes the action (not the current state)
+ * - title attribute for tooltip on hover
+ * - High contrast icons with currentColor
+ * - Keyboard accessible (native button element)
+ */
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
 
@@ -27,7 +44,15 @@ export default function ThemeToggle() {
     >
       {theme === 'dark' ? (
         // Sun icon for switching to light mode
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2"
+          aria-hidden="true"
+        >
           <circle cx="12" cy="12" r="5"/>
           <line x1="12" y1="1" x2="12" y2="3"/>
           <line x1="12" y1="21" x2="12" y2="23"/>
@@ -40,7 +65,15 @@ export default function ThemeToggle() {
         </svg>
       ) : (
         // Moon icon for switching to dark mode
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2"
+          aria-hidden="true"
+        >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       )}

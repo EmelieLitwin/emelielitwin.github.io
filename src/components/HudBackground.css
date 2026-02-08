@@ -20,6 +20,15 @@
   height: 100%;
 }
 
+/* All HUD elements behind unicorn (z-index: 1) */
+.hud-circuits-back,
+.hud-circuits-front,
+.hud-reticle,
+.hud-scanline {
+  position: relative;
+  z-index: 1;
+}
+
 /* ============================================
    ANIMATIONS - Subtle motion
    ============================================ */
@@ -57,9 +66,9 @@
 .circuit-delay-4 { animation-delay: 6.4s; }
 
 @keyframes circuit-signal {
-  0% { stroke-dashoffset: 400; opacity: 0.4; }
-  50% { opacity: 0.5; }
-  100% { stroke-dashoffset: 0; opacity: 0.4; }
+  0% { stroke-dashoffset: 400; opacity: 0.5; }
+  50% { opacity: 0.6; }
+  100% { stroke-dashoffset: 0; opacity: 0.5; }
 }
 
 /* Scanline shimmer with glitch effect */

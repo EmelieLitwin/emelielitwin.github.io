@@ -1,6 +1,21 @@
 import './Header.css'
 import ThemeToggle from './ThemeToggle'
 
+/**
+ * Header Component
+ * 
+ * Site-wide navigation header with:
+ * - Skip link for keyboard navigation (WCAG 2.4.1)
+ * - Accessible SVG logo with proper labeling
+ * - Main navigation with semantic HTML
+ * - Theme toggle integration
+ * 
+ * Accessibility features:
+ * - Skip to main content link (hidden until focused)
+ * - aria-label on navigation for screen readers
+ * - Semantic <nav> and <header> elements
+ * - SVG role="img" with descriptive title
+ */
 export default function Header() {
   return (
     <header className="header">

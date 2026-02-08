@@ -1,6 +1,21 @@
 import { useEffect, useState } from 'react';
 import './ScrollProgress.css';
 
+/**
+ * ScrollProgress Component
+ * 
+ * Visual indicator showing page scroll progress as a horizontal bar.
+ * 
+ * Features:
+ * - RequestAnimationFrame for smooth 60fps updates
+ * - Passive event listener for better scroll performance
+ * - Calculates progress as percentage of total scrollable height
+ * 
+ * Accessibility:
+ * - Purely decorative (aria-hidden)
+ * - Does not interfere with keyboard navigation
+ * - Respects reduced-motion preferences via CSS
+ */
 const ScrollProgress = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -26,7 +41,7 @@ const ScrollProgress = () => {
   }, []);
 
   return (
-    <div className="scroll-progress-container">
+    <div className="scroll-progress-container" aria-hidden="true" role="presentation">
       <div 
         className="scroll-progress-bar" 
         style={{ width: `${scrollProgress}%` }}
