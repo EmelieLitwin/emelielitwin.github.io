@@ -69,10 +69,11 @@
 .logo-svg {
   filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.3));
   transition: all var(--transition-normal);
+  transform: scaleX(-1); /* Mirror the unicorn horizontally */
 }
 
 .logo:hover .logo-svg {
-  transform: scale(1.1) rotate(-5deg);
+  transform: scaleX(-1) scale(1.1) rotate(5deg); /* Maintain mirror flip */
   filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.6))
           drop-shadow(0 0 20px rgba(255, 0, 255, 0.4));
 }
