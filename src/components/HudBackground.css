@@ -1,0 +1,309 @@
+/* ============================================
+   HUD BACKGROUND - Sci-Fi UI Layer
+   Global fixed overlay across all sections
+   ============================================ */
+
+.hud {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  z-index: 1;
+  pointer-events: none;
+  color: var(--hud-ink-2, #71717a);
+  overflow: hidden;
+}
+
+.hud-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================
+   ANIMATIONS - Subtle motion
+   ============================================ */
+
+/* Reticle micro drift + slow rotation */
+.hud-reticle {
+  animation: 
+    hud-drift 8s ease-in-out infinite,
+    hud-rotate 90s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes hud-drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(1px, -0.5px) rotate(0deg); }
+  50% { transform: translate(-0.5px, 1px) rotate(0deg); }
+  75% { transform: translate(0.5px, 0.5px) rotate(0deg); }
+}
+
+@keyframes hud-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Circuit trace signal animation */
+.circuit-trace {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: circuit-signal 8s linear infinite;
+}
+
+.circuit-delay-1 { animation-delay: 1.6s; }
+.circuit-delay-2 { animation-delay: 3.2s; }
+.circuit-delay-3 { animation-delay: 4.8s; }
+.circuit-delay-4 { animation-delay: 6.4s; }
+
+@keyframes circuit-signal {
+  0% { stroke-dashoffset: 400; opacity: 0.4; }
+  50% { opacity: 0.5; }
+  100% { stroke-dashoffset: 0; opacity: 0.4; }
+}
+
+/* Scanline shimmer with glitch effect */
+.hud-scanline {
+  animation: hud-scan 6s linear infinite, scanline-glitch 3s ease-in-out infinite;
+}
+
+@keyframes hud-scan {
+  from { transform: translateY(-60px); }
+  to { transform: translateY(1140px); }
+}
+
+@keyframes scanline-glitch {
+  0%, 100% { 
+    opacity: 0.04;
+    transform: translateY(0) scaleX(1);
+  }
+  10% { 
+    opacity: 0.08;
+    transform: translateY(0) scaleX(1.02);
+  }
+  11% { 
+    opacity: 0.04;
+    transform: translateY(2px) scaleX(0.98);
+  }
+  12% { 
+    opacity: 0.06;
+    transform: translateY(-2px) scaleX(1.01);
+  }
+  13% { 
+    opacity: 0.04;
+    transform: translateY(0) scaleX(1);
+  }
+  45% { 
+    opacity: 0.04;
+  }
+  46% { 
+    opacity: 0.1;
+    transform: translateY(0) scaleX(1.05);
+  }
+  47% { 
+    opacity: 0.02;
+    transform: translateY(-3px) scaleX(0.95);
+  }
+  48% { 
+    opacity: 0.06;
+    transform: translateY(1px) scaleX(1.02);
+  }
+  49% { 
+    opacity: 0.04;
+    transform: translateY(0) scaleX(1);
+  }
+}
+
+/* Disable animations for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hud-reticle,
+  .circuit-trace,
+  .hud-scanline {
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   HUD PANELS - Live data displays
+   ============================================ */
+
+.hud-panel {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(102, 102, 102, 0.3);
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--hud-ink-1, #3f3f46);
+  opacity: 0.7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 1001;
+}
+
+.panel-label {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 9px;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+.panel-value {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  opacity: 0.9;
+}
+
+.panel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.panel-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Panel positioning - safe zones to avoid text */
+.hud-panel-tl {
+  top: 100px;
+  left: 20px;
+  min-width: 140px;
+  max-width: 180px;
+}
+
+.hud-panel-tr {
+  top: 100px;
+  right: 20px;
+  min-width: 120px;
+}
+
+.hud-panel-mr {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  min-width: 140px;
+}
+
+.hud-panel-bl {
+  bottom: 40px;
+  left: 20px;
+  min-width: 100px;
+  max-width: 120px;
+  padding: 6px 10px;
+}
+
+/* Progress bar */
+.panel-bar {
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.panel-bar-fill {
+  height: 100%;
+  background: currentColor;
+  width: calc(var(--hud-scroll, 0) * 1%);
+  transition: width 0.3s ease;
+}
+
+/* Mouse coordinates - larger and more visible */
+.panel-sublabel {
+  margin-top: 8px;
+  font-size: 10px;
+  opacity: 0.85;
+  font-family: 'Courier New', monospace;
+  color: var(--hud-ink-1, #3f3f46);
+  font-weight: 600;
+}
+
+.panel-coords {
+  display: flex;
+  gap: 12px;
+}
+
+.panel-coords span {
+  color: var(--hud-ink-1, #3f3f46);
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+/* Pulse animation when locked on target */
+@keyframes target-pulse {
+  0%, 100% { 
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+.hud-panel-tl:has(.panel-target::after:not([content*="SCANNING"])) {
+  animation: target-pulse 1.5s ease-in-out infinite;
+  border-color: currentColor;
+}
+
+/* Signal quality indicator color */
+.panel-focus {
+  position: relative;
+}
+
+.panel-focus::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: calc(var(--hud-signal, 100) / 100);
+  animation: signal-blink 2s ease-in-out infinite;
+}
+
+@keyframes signal-blink {
+  0%, 100% { opacity: calc(var(--hud-signal, 100) / 100); }
+  50% { opacity: calc(var(--hud-signal, 100) / 150); }
+}
+
+/* ============================================
+   RESPONSIVE - Hide/simplify on small screens
+   ============================================ */
+
+@media (max-width: 1500px) {
+  .hud-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 968px) {
+  .hud-circuits,
+  .hud-reticle {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 640px) {
+  .hud {
+    display: none;
+  }
+}
+
+/* ============================================
+   DARK MODE - Hide HUD completely
+   ============================================ */
+
+[data-theme="dark"] .hud {
+  display: none;
+}

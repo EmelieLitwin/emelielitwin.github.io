@@ -1,0 +1,191 @@
+/* Global HUD - Fixed overlay across all sections */
+.global-hud {
+  position: fixed;
+  inset: 0;
+  top: 80px;
+  pointer-events: none;
+  z-index: 5;
+  color: #666;
+}
+
+/* HUD Panels */
+.hud-panel {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(102, 102, 102, 0.4);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  opacity: 0.85;
+  backdrop-filter: blur(12px);
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  animation: panel-fade-in 0.4s ease-out;
+}
+
+@keyframes panel-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
+}
+
+.hud-panel:hover {
+  opacity: 0.95;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.panel-label {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 9px;
+  opacity: 1;
+  margin-bottom: 2px;
+  color: #323232;
+}
+
+.panel-value {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: #555;
+}
+
+.panel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.panel-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Panel positioning */
+.hud-panel-tl {
+  top: 100px;
+  left: 20px;
+  min-width: 160px;
+}
+
+.hud-panel-tr {
+  top: 100px;
+  right: 20px;
+  min-width: 120px;
+}
+
+.hud-panel-mr {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  min-width: 140px;
+}
+
+.hud-panel-bl {
+  bottom: 40px;
+  left: 20px;
+  min-width: 120px;
+}
+
+/* Progress bar */
+.panel-bar {
+  height: 4px;
+  background: rgba(102, 102, 102, 0.2);
+  border-radius: 2px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+/* Progress bar fill based on scroll */
+.panel-bar-fill {
+  height: 100%;
+  background: #666;
+  width: calc(var(--hud-scroll, 0) * 1%);
+  opacity: 0.7;
+  transition: width 0.1s ease-out;
+}
+
+/* Mouse coordinates - larger and more visible */
+.panel-sublabel {
+  margin-top: 6px;
+  font-size: 9px;
+  opacity: 0.7;
+  font-family: 'Courier New', monospace;
+  color: #666;
+  font-weight: 600;
+}
+
+.panel-coords {
+  display: flex;
+  gap: 12px;
+}
+
+.panel-coords span {
+  color: #555;
+  font-size: 10px;
+}
+
+.panel-mouse-x,
+.panel-mouse-y {
+  font-weight: 700;
+  color: #444;
+}
+
+/* Pulse when locked on target */
+@keyframes target-pulse {
+  0%, 100% { 
+    opacity: 0.9;
+    box-shadow: 0 0 12px rgba(26, 26, 26, 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(26, 26, 26, 0.5);
+    transform: scale(1.02);
+  }
+}
+
+.hud-panel-tl:has(.panel-target:not(:contains("SCANNING"))) {
+  animation: target-pulse 1.5s ease-in-out infinite;
+}
+
+/* Signal indicator - static dot */
+.panel-focus {
+  position: relative;
+}
+
+.panel-focus::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #666;
+  opacity: 0.6;
+}
+
+/* MODE indicator */
+.panel-mode {
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .hud-panel {
+    display: none;
+  }
+}
+
+/* Dark mode */
+[data-theme="dark"] .global-hud {
+  display: none;
+}

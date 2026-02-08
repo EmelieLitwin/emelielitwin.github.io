@@ -73,6 +73,42 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.08);
+
+  /* ============================================
+     HUD OVERLAY TOKENS - Sci-Fi Instrument Overlay
+     Strict token system for cohesive design
+     ============================================ */
+  
+  /* Ink levels - strict grayscale hierarchy */
+  --hud-ink-1: #0b0c0f;            /* content + important strokes */
+  --hud-ink-2: rgba(11,12,15,.72); /* normal HUD elements */
+  --hud-ink-3: rgba(11,12,15,.32); /* faint details */
+  --hud-ink-4: rgba(11,12,15,.12); /* grid background */
+
+  /* Line weights - strict system */
+  --hud-lw-strong: 2.5px;
+  --hud-lw: 1.5px;
+  --hud-lw-hair: 1px;
+
+  /* Panel design tokens */
+  --hud-panel-r: 10px;
+  --hud-panel-pad: 14px;
+  --hud-shadow: 0 8px 24px rgba(0,0,0,.06);
+
+  /* HUD effects */
+  --hud-grid-opacity: .08;
+  --hud-scan-opacity: .05;
+
+  /* Animation speeds */
+  --hud-scan-speed: 11s;
+  --hud-trace-speed: 8s;
+  --hud-jitter-speed: 0.15s;
+
+  /* Typography */
+  --hud-font-label: 'IBM Plex Sans Condensed', 'Chakra Petch', sans-serif;
+  --hud-font-data: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  --hud-font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --hud-font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
 }
 
 /* ============================================

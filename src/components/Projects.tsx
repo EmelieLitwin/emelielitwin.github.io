@@ -75,7 +75,7 @@ export default function Projects() {
       company: 'Scania Group',
       period: '2022 - Present',
       description: 'Leading the Tegel Design System development with StencilJS and TypeScript. Creating reusable web components used across 50+ applications globally.',
-      icon: 'triangle',
+      icon: 'circle',
       color: 'var(--color-cyan)',
       details: {
         myRole: 'As Design Technologist, I bridge the gap between design and development, building and maintaining the Tegel Design System. I work cross-functionally with designers, developers, and stakeholders to create a cohesive component library.',
@@ -125,7 +125,7 @@ export default function Projects() {
       company: 'FRISQ',
       period: '2020',
       description: 'Designed healthcare patient portal experiences. Conducted user research and improved patient engagement by 40% through intuitive interface design.',
-      icon: 'circle',
+      icon: 'triangle',
       color: 'var(--color-magenta)',
       details: {
         myRole: 'UX/UI design consultant',
@@ -149,7 +149,7 @@ export default function Projects() {
       company: 'Blue Media AB',
       period: '2019',
       description: 'Created meditation app interfaces in collaboration with physicians. Designed complete user journey from onboarding to daily practice.',
-      icon: 'circle',
+      icon: 'diamond',
       color: 'var(--color-cyan)',
       details: {
         myRole: 'As Product Designer, I designed the complete user experience for a meditation app concept, working closely with physicians to ensure content aligned with therapeutic goals. I created the full user journey from onboarding through daily practice.',
@@ -169,7 +169,7 @@ export default function Projects() {
       company: 'Litwins Knitwins',
       period: '2019 - Present',
       description: 'Independent knitwear design business selling patterns on international platforms. Creating visually appealing designs and pattern sheets.',
-      icon: 'diamond',
+      icon: 'circle',
       color: 'var(--color-magenta)',
       details: {
         myRole: 'As an independent Knitwear Designer, I manage my own design business from concept to publication. I design patterns, create professional product sheets, and maintain an international customer base through digital platforms.',
