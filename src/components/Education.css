@@ -14,9 +14,17 @@
   height: 1px;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    var(--color-primary) 50%, 
+    rgba(0, 240, 255, 0.8) 50%, 
     transparent 100%);
   opacity: 0.5;
+}
+
+[data-theme="light"] .education::before {
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--color-border) 50%, 
+    transparent 100%);
+  opacity: 0.3;
 }
 
 .education::after {
@@ -26,10 +34,14 @@
   right: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
-  opacity: 0.03;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.5) 0%, transparent 70%);
+  opacity: 0.06;
   animation: float-shape 20s ease-in-out infinite;
   pointer-events: none;
+}
+
+[data-theme="light"] .education::after {
+  display: none;
 }
 
 @keyframes float-shape {

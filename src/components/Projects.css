@@ -65,7 +65,7 @@
 
 .timeline-marker {
   position: absolute;
-  left: -80px;
+  left: -60px;
   top: 0;
   width: 40px;
   height: 40px;
@@ -78,16 +78,17 @@
   box-shadow: 0 0 20px var(--color-primary);
   z-index: 2;
   animation: markerPulse 2s ease-in-out infinite;
+  transform: translateX(-50%);
 }
 
 @keyframes markerPulse {
   0%, 100% {
     box-shadow: 0 0 20px var(--color-primary);
-    transform: scale(1);
+    transform: translateX(-50%) scale(1);
   }
   50% {
     box-shadow: 0 0 30px var(--color-primary), 0 0 40px var(--color-primary);
-    transform: scale(1.05);
+    transform: translateX(-50%) scale(1.05);
   }
 }
 

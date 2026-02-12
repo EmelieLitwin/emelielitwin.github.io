@@ -26,7 +26,6 @@ export default function Education() {
   ]
 
   const courses = [
-    'Programming with JavaScript, HTML & CSS',
     'Programming and problem solving with Python',
     'Introduction to Java',
     'Introduction to eHealth'

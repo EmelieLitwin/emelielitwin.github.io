@@ -169,14 +169,12 @@
   color: #FFFFFF;
 }
 
-/* REMOVED ALL TYPOGRAPHY OVERRIDES TO TEST HEADER HEIGHT */
 
 /* Links - interaction through weight and underline animation */
 [data-theme="light"] a {
   font-weight: var(--font-weight-body);
   color: var(--text-primary);
   text-decoration: none;
-  position: relative;
   transition: font-weight var(--motion-quick) var(--motion-ease-soft),
               letter-spacing var(--motion-quick) var(--motion-ease-soft);
 }
@@ -641,7 +639,7 @@
 
 /* Hero CTA buttons - more spacing */
 [data-theme="light"] .hero-cta {
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 /* Project cards */

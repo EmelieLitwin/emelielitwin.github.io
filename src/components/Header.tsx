@@ -1,5 +1,6 @@
 import './Header.css'
 import ThemeToggle from './ThemeToggle'
+import { useState } from 'react'
 
 /**
  * Header Component
@@ -8,6 +9,7 @@ import ThemeToggle from './ThemeToggle'
  * - Skip link for keyboard navigation (WCAG 2.4.1)
  * - Accessible SVG logo with proper labeling
  * - Main navigation with semantic HTML
+ * - Mobile hamburger menu with slide-in navigation
  * - Theme toggle integration
  * 
  * Accessibility features:
@@ -15,13 +17,43 @@ import ThemeToggle from './ThemeToggle'
  * - aria-label on navigation for screen readers
  * - Semantic <nav> and <header> elements
  * - SVG role="img" with descriptive title
+ * - Mobile menu keyboard accessible with Escape to close
  */
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen)
+  }
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false)
+  }
+
+  // Close menu on Escape key
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape' && mobileMenuOpen) {
+      closeMobileMenu()
+    }
+  }
   return (
-    <header className="header">
+    <header className="header" onKeyDown={handleKeyDown}>
       <a href="#main" className="skip-link">Skip to main content</a>
       <nav className="nav" aria-label="Main navigation">
-        <a href="#hero" className="logo" aria-label="Emelie Litwin - Home">
+        {/* Mobile hamburger button - replaces logo on mobile */}
+        <button 
+          className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileMenuOpen}
+        >
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+        </button>
+        
+        {/* Desktop logo - hidden on mobile */}
+        <a href="#hero" className="logo logo-desktop" aria-label="Emelie Litwin - Home" onClick={closeMobileMenu}>
           <svg 
             className="logo-svg" 
             width="60" 
@@ -64,17 +96,46 @@ export default function Header() {
             <polygon points="743,273 755,194 848,270 853,338" fill="url(#logo-grad-3)" />
           </svg>
         </a>
+        
         <div className="nav-right">
-          <ul className="nav-links">
+          {/* Desktop navigation */}
+          <ul className="nav-links nav-links-desktop">
             <li><a href="#work">Work</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#about-me">About Me</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
+          
           <ThemeToggle />
         </div>
       </nav>
+      
+      {/* Mobile slide-in menu */}
+      <div 
+        className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation"
+      >
+        <ul className="mobile-menu-links">
+          <li><a href="#hero" onClick={closeMobileMenu}>Home</a></li>
+          <li><a href="#work" onClick={closeMobileMenu}>Work</a></li>
+          <li><a href="#skills" onClick={closeMobileMenu}>Skills</a></li>
+          <li><a href="#education" onClick={closeMobileMenu}>Education</a></li>
+          <li><a href="#about-me" onClick={closeMobileMenu}>About Me</a></li>
+          <li><a href="#contact" onClick={closeMobileMenu}>Contact</a></li>
+        </ul>
+      </div>
+      
+      {/* Overlay backdrop */}
+      {mobileMenuOpen && (
+        <div 
+          className="mobile-menu-overlay" 
+          onClick={closeMobileMenu}
+          aria-hidden="true"
+        />
+      )}
     </header>
   )
 }

@@ -360,40 +360,239 @@ strong {
    Responsive Design
    ============================================ */
 @media (max-width: 968px) {
+  .hero {
+    padding: 0 2rem;
+    min-height: auto;
+    padding-top: 140px;
+    padding-bottom: 5rem;
+  }
+  
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem 0;
+    gap: 3rem;
+    padding: 0;
+  }
+  
+  .hero-text {
+    text-align: center;
   }
   
   .hero-visual {
     order: -1;
+    margin-bottom: 1rem;
   }
   
   .origami-svg {
-    max-width: 300px;
+    max-width: 250px;
   }
   
-  .hero-title {
-    font-size: 2.5rem;
-    line-height: 1.1;
+  .hero-greeting {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .wave-icon {
+    width: 24px;
+    height: 24px;
   }
   
   .hero-subtitle {
     font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 100%;
+    line-height: 1.5;
+    margin-bottom: 2rem;
   }
   
   .hero-description {
     font-size: 0.95rem;
-    line-height: 1.7;
-    max-width: 100%;
+    line-height: 1.75;
+    margin-bottom: 3.5rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    padding: 1.1rem 2rem;
   }
 }
 
-@media (max-width: 768px) {
-  .hero-visual {
-    display: none;
+@media (max-width: 640px) {
+  .hero {
+    padding: 0 1.5rem;
+    padding-top: 100px;
+    padding-bottom: 3rem;
+  }
+  
+  .hero-content {
+    gap: 2.5rem;
+  }
+  
+  .hero-greeting {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .wave-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+  
+  .origami-svg {
+    max-width: 200px;
+  }
+  
+  .hero-cta {
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 0 1.25rem;
+    padding-top: 100px;
+    padding-bottom: 3rem;
+  }
+  
+  .hero-content {
+    gap: 2rem;
+  }
+  
+  .hero-greeting {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    margin-bottom: 2.5rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   DARK MODE ONLY - Extra spacing for mobile
+   ============================================ */
+@media (max-width: 968px) {
+  :root:not([data-theme="light"]) .hero {
+    padding-top: 160px;
+    padding-bottom: 6rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-content {
+    gap: 4rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-visual {
+    margin-bottom: 2rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-greeting {
+    margin-bottom: 2rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-subtitle {
+    margin-bottom: 2.5rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-description {
+    line-height: 1.85;
+    margin-bottom: 4rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-cta {
+    gap: 1.25rem;
+  }
+  
+  :root:not([data-theme="light"]) .btn-primary,
+  :root:not([data-theme="light"]) .btn-secondary {
+    padding: 1.25rem 2.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root:not([data-theme="light"]) .hero {
+    padding: 0 2rem;
+    padding-top: 120px;
+    padding-bottom: 4rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-content {
+    gap: 3rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-greeting {
+    margin-bottom: 1.75rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-subtitle {
+    margin-bottom: 2.25rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-description {
+    line-height: 1.8;
+    margin-bottom: 3.5rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-cta {
+    gap: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root:not([data-theme="light"]) .hero {
+    padding: 0 1.75rem;
+    padding-top: 130px;
+    padding-bottom: 4rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-content {
+    gap: 2.5rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-greeting {
+    margin-bottom: 1.5rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-subtitle {
+    margin-bottom: 2rem;
+  }
+  
+  :root:not([data-theme="light"]) .hero-description {
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+  
+  :root:not([data-theme="light"]) .btn-primary,
+  :root:not([data-theme="light"]) .btn-secondary {
+    padding: 1rem 1.75rem;
   }
 }
