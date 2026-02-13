@@ -1,7 +1,7 @@
 import './About.css'
 import { useState, useEffect } from 'react'
-import profileImage from '../assets/profile-cyberpunk.png'
-import profileImageLight from '../assets/profile-cyberpunk-light.png'
+import profileImage from '../../assets/profile-cyberpunk.png'
+import profileImageLight from '../../assets/profile-cyberpunk-light.png'
 
 export default function About() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
@@ -12,8 +12,8 @@ export default function About() {
     setTheme(currentTheme)
 
     // Listen for theme changes
-    const observer = new MutationObserver((mutations: MutationRecord[]) => {
-      mutations.forEach((mutation: MutationRecord) => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
         if (mutation.attributeName === 'data-theme') {
           const newTheme = document.documentElement.getAttribute('data-theme') as 'dark' | 'light' || 'dark'
           setTheme(newTheme)

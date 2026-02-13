@@ -1,5 +1,5 @@
 import './Header.css'
-import ThemeToggle from './ThemeToggle'
+import ThemeToggle from '../ui/ThemeToggle'
 import { useState } from 'react'
 
 /**

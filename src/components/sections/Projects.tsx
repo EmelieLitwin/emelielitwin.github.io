@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import './Projects.css';
 
 // Import images
-import scaniaImg from '../assets/scania.jpg';
-import arbetsformedlingenImg from '../assets/arbetsformedligen.jpeg';
-import frisqImg from '../assets/frisq.png';
+import scaniaImg from '../../assets/scania.jpg';
+import arbetsformedlingenImg from '../../assets/arbetsformedligen.jpeg';
+import frisqImg from '../../assets/frisq.png';
 
 interface Job {
   role: string

@@ -1,3 +1,8 @@
+/* ============================================
+   BASE APP STYLES
+   Global box-sizing and layout reset
+   ============================================ */
+
 * {
   box-sizing: border-box;
 }
@@ -24,10 +29,5 @@ body {
 }
 
 main {
-  /*padding-top: 80px;*/
   background: transparent;
-}
-
-html {
-  scroll-behavior: smooth;
 }

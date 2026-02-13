@@ -1,5 +1,5 @@
 import './Contact.css'
-import resumePdf from '../assets/Emelie Litwin Resume 2026 FE.pdf'
+import resumePdf from '../../assets/Emelie Litwin Resume 2026 FE.pdf'
 
 export default function Contact() {
   return (
