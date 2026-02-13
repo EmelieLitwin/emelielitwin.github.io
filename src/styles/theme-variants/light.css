@@ -1014,7 +1014,8 @@
   background: #FFFFFF !important;
   border: 2px solid #E0E0E0 !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
-  padding: 3rem 2.5rem !important;
+  padding: var(--spacing-lg) var(--spacing-lg) !important;
+  gap: var(--spacing-md) !important;
 }
 
 [data-theme="light"] .contact-link:hover,
@@ -1032,6 +1033,7 @@
   color: #000000 !important;
   text-shadow: none !important;
   filter: none !important;
+  font-size: 2rem !important;
 }
 
 [data-theme="light"] .contact-link:hover .contact-icon {
@@ -1049,10 +1051,12 @@
 
 [data-theme="light"] .link-label {
   color: #000000 !important;
+  font-size: 0.75rem !important;
 }
 
 [data-theme="light"] .link-value {
   color: #000000 !important;
+  font-size: 1rem !important;
 }
 
 /* Footer */

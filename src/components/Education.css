@@ -1,5 +1,5 @@
 .education {
-  padding: 8rem 2rem;
+  padding: 8rem var(--spacing-xl);
   background: var(--color-bg-secondary);
   position: relative;
   overflow: hidden;
@@ -15,17 +15,9 @@
   height: 1px;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    rgba(0, 240, 255, 0.8) 50%, 
+    var(--color-primary-alpha-80) 50%, 
     transparent 100%);
   opacity: 0.5;
-}
-
-[data-theme="light"] .education::before {
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--color-border) 50%, 
-    transparent 100%);
-  opacity: 0.3;
 }
 
 .education::after {
@@ -35,14 +27,10 @@
   right: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.5) 0%, transparent 70%);
+  background: var(--gradient-radial-primary-glow);
   opacity: 0.06;
   animation: float-shape 20s ease-in-out infinite;
   pointer-events: none;
-}
-
-[data-theme="light"] .education::after {
-  display: none;
 }
 
 @keyframes float-shape {
@@ -109,25 +97,25 @@
   transform: translateY(-12px) scale(1.02);
   border-color: var(--color-primary);
   box-shadow: 
-    0 20px 40px rgba(0, 240, 255, 0.15),
-    0 0 20px rgba(0, 240, 255, 0.1),
-    inset 0 0 60px rgba(0, 240, 255, 0.05);
+    0 20px 40px var(--color-primary-alpha-15),
+    0 0 20px var(--color-primary-alpha-10),
+    inset 0 0 60px var(--color-primary-alpha-05);
 }
 
 .education-card:nth-child(2):hover {
   border-color: var(--color-secondary);
   box-shadow: 
-    0 20px 40px rgba(255, 0, 255, 0.15),
-    0 0 20px rgba(255, 0, 255, 0.1),
-    inset 0 0 60px rgba(255, 0, 255, 0.05);
+    0 20px 40px var(--color-secondary-alpha-15),
+    0 0 20px var(--color-secondary-alpha-10),
+    inset 0 0 60px var(--color-secondary-alpha-05);
 }
 
 .education-card:nth-child(3):hover {
   border-color: var(--color-accent);
   box-shadow: 
-    0 20px 40px rgba(59, 130, 246, 0.15),
-    0 0 20px rgba(59, 130, 246, 0.1),
-    inset 0 0 60px rgba(59, 130, 246, 0.05);
+    0 20px 40px var(--color-accent-alpha-15),
+    0 0 20px var(--color-accent-alpha-10),
+    inset 0 0 60px var(--color-accent-alpha-05);
 }
 
 .education-card:hover .edu-icon {
@@ -250,7 +238,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 240, 255, 0.05) 50%,
+    var(--color-primary-alpha-05) 50%,
     transparent 100%
   );
   transition: left 0.8s ease;
@@ -264,7 +252,7 @@
   border-color: var(--color-primary);
   box-shadow: 
     0 8px 30px rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(0, 240, 255, 0.1);
+    0 0 20px var(--color-primary-alpha-10);
 }
 
 .courses-title {
@@ -325,7 +313,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 240, 255, 0.1) 50%,
+    var(--color-primary-alpha-10) 50%,
     transparent 100%
   );
   transition: width 0.4s ease;
@@ -339,8 +327,8 @@
   background: var(--color-surface);
   border-left-color: var(--color-primary);
   box-shadow: 
-    0 4px 15px rgba(0, 240, 255, 0.2),
-    inset 0 0 20px rgba(0, 240, 255, 0.05);
+    0 4px 15px var(--color-primary-alpha-20),
+    inset 0 0 20px var(--color-primary-alpha-05);
   transform: translateX(8px);
 }
 

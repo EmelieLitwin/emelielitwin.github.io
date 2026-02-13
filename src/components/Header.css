@@ -68,30 +68,30 @@
 .logo-image {
   height: 60px;
   width: auto;
-  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.3));
+  filter: drop-shadow(0 0 8px var(--color-primary-alpha-30));
   transition: all var(--transition-normal);
   transform: scale(1.3);
 }
 
 .logo:hover .logo-image {
   transform: scale(1.4);
-  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.6))
-          drop-shadow(0 0 20px rgba(255, 0, 255, 0.4));
+  filter: drop-shadow(0 0 15px var(--color-primary-alpha-60))
+          drop-shadow(0 0 20px var(--color-secondary-alpha-40));
 }
 
 /* Legacy SVG logo styles - keep for reference */
 .logo-svg {
   height: 60px;
   width: 60px;
-  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.3));
+  filter: drop-shadow(0 0 8px var(--color-primary-alpha-30));
   transition: all var(--transition-normal);
   transform: scaleX(-1);
 }
 
 .logo:hover .logo-svg {
   transform: scaleX(-1) scale(1.1) rotate(5deg); /* Maintain mirror flip */
-  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.6))
-          drop-shadow(0 0 20px rgba(255, 0, 255, 0.4));
+  filter: drop-shadow(0 0 15px var(--color-primary-alpha-60))
+          drop-shadow(0 0 20px var(--color-secondary-alpha-40));
 }
 
 .logo-stop-1 {

@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 var(--spacing-xl);
   background: var(--color-bg);
   position: relative;
   overflow: hidden;
@@ -18,7 +18,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem;
+  gap: var(--spacing-3xl);
   align-items: center;
   position: relative;
   z-index: 2;
@@ -42,7 +42,7 @@
 .unicorn-glow {
   position: absolute;
   inset: -20%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--color-primary-alpha-30) 0%, transparent 70%);
   filter: blur(40px);
   animation: pulse-glow 4s ease-in-out infinite;
   pointer-events: none;
@@ -67,7 +67,7 @@
   width: 100%;
   max-width: 500px;
   height: auto;
-  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.2));
+  filter: var(--drop-shadow-glow-sm);
   animation: cyber-glitch 8s infinite;
   transform: scaleX(-1); /* Mirror the unicorn horizontally */
 }
@@ -181,8 +181,8 @@
   margin-right: 0.5rem;
   animation: wave 2.5s infinite;
   transform-origin: 70% 70%;
-  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6)) 
-          drop-shadow(0 0 12px rgba(255, 0, 255, 0.4));
+  filter: drop-shadow(0 0 8px var(--color-primary-alpha-60)) 
+          drop-shadow(0 0 12px var(--color-secondary-alpha-40));
   cursor: pointer;
   transition: all 0.3s ease;
   vertical-align: middle;
@@ -190,9 +190,9 @@
 
 .wave-icon:hover {
   animation: wave-crazy 0.5s ease-in-out 3;
-  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8))
-          drop-shadow(0 0 20px rgba(255, 0, 255, 0.8))
-          drop-shadow(0 0 25px rgba(59, 130, 246, 0.6));
+  filter: drop-shadow(0 0 15px var(--color-primary-alpha-80))
+          drop-shadow(0 0 20px var(--color-secondary-alpha-80))
+          drop-shadow(0 0 25px var(--color-accent-alpha));
   transform: scale(1.3);
 }
 
@@ -320,7 +320,7 @@ strong {
 .btn-primary {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   color: white;
-  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+  box-shadow: 0 4px 15px var(--color-primary-alpha-30);
   padding: 1.2rem 2.8rem;
   font-size: 1.15rem;
 }
@@ -328,7 +328,7 @@ strong {
 .btn-primary:hover,
 .btn-primary:focus {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.5);
+  box-shadow: 0 8px 25px var(--color-primary-alpha-50);
 }
 
 .btn-primary:focus-visible {

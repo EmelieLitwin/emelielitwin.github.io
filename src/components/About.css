@@ -3,7 +3,7 @@
    ============================================ */
 
 .about {
-  padding: 6rem 2rem 8rem 2rem;
+  padding: var(--spacing-3xl) var(--spacing-xl) 8rem var(--spacing-xl);
   background: var(--color-bg);
   position: relative;
   overflow: hidden;
@@ -18,7 +18,7 @@
 .about-heading {
   font-size: 3rem;
   font-weight: 900;
-  margin-bottom: 4rem;
+  margin-bottom: var(--spacing-3xl);
   text-align: center;
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;
@@ -33,7 +33,7 @@
 .about-content {
   display: grid;
   grid-template-columns: 400px 1fr;
-  gap: 4rem;
+  gap: var(--spacing-3xl);
   align-items: start;
 }
 
@@ -50,7 +50,7 @@
 .about-image-glow {
   position: absolute;
   inset: -10%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.3) 0%, rgba(255, 0, 255, 0.2) 50%, transparent 70%);
+  background: radial-gradient(circle, var(--color-primary-alpha-30) 0%, var(--color-secondary-alpha-20) 50%, transparent 70%);
   filter: blur(40px);
   animation: pulse-glow 4s ease-in-out infinite;
   pointer-events: none;
@@ -68,8 +68,8 @@
   background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
               linear-gradient(135deg, var(--color-primary), var(--color-secondary)) border-box;
   box-shadow: 
-    0 0 20px rgba(0, 240, 255, 0.3),
-    0 0 40px rgba(255, 0, 255, 0.2);
+    0 0 20px var(--color-primary-alpha-30),
+    0 0 40px var(--color-secondary-alpha-20);
   transition: all 0.4s ease;
   z-index: 1;
 }
@@ -79,7 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(255, 0, 255, 0.1)) padding-box,
+  background: linear-gradient(135deg, var(--color-primary-alpha-10), var(--color-secondary-alpha-10)) padding-box,
               linear-gradient(135deg, var(--color-primary), var(--color-secondary)) border-box;
 }
 
@@ -93,8 +93,8 @@
 .about-image-placeholder:hover {
   transform: scale(1.05);
   box-shadow: 
-    0 0 30px rgba(0, 240, 255, 0.5),
-    0 0 60px rgba(255, 0, 255, 0.4);
+    0 0 30px var(--color-primary-alpha-50),
+    0 0 60px var(--color-secondary-alpha-40);
 }
 
 /* ============================================
@@ -103,7 +103,7 @@
 .about-text {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--spacing-lg);
 }
 
 .about-text p {
@@ -118,7 +118,7 @@
   color: var(--color-text);
   font-weight: 500;
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: var(--spacing-lg);
 }
 
 .about-intro::before {

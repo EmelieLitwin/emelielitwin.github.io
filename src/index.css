@@ -6,9 +6,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Shadows+Into+Light&family=Handlee&family=Indie+Flower&family=Courier+Prime:wght@400;700&display=swap');
 
-@import './styles/themes.css';
+@import './styles/design-tokens.css';
+@import './styles/mixins.css';
+@import './styles/utilities.css';
 
-/* Base Styles - Theme variables are loaded from themes.css */
+/* Base Styles - Theme variables are loaded from design-tokens.css */
 :root {
   font-family: var(--font-body);
   line-height: var(--line-height-base);
