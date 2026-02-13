@@ -35,15 +35,15 @@ export default function Hero() {
           
           
           <p className="hero-subtitle">
-            I create delightful digital experiences at the intersection of design and code
-          </p>
+I take ideas from concept to interface, making sure design intent survives implementation.     </p>
           
           <p className="hero-description">
-            Currently working at Scania as a <strong>DESIGN TECHNOLOGIST</strong>, I bridge 
-            the gap between design and development. With a background in UX design, product 
-            design, and frontend development, I help teams build products that are both 
-            beautiful and functional. I'm passionate about design systems, accessibility, 
-            and creating intuitive user experiences that solve real problems.
+            I am a multi-talented <strong>DESIGN TECHNOLOGIST</strong> with expertise in both 
+            UX/UI design and frontend development. I bridge the gap between design and code, 
+            creating consistent and user-centered experiences across platforms and devices. 
+            I'm enthusiastic about tech-agnostic design systems and committed to delivering 
+            solutions that are both beautiful and functional, always keeping up with the latest 
+            trends to bring innovative approaches to every project.
           </p>
           
           <div className="hero-cta">
