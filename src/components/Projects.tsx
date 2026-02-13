@@ -307,7 +307,6 @@ export default function Projects() {
               onClick={() => setSelectedJob(null)}
               aria-label="Close dialog"
             >
-              ✕
             </button>
             
             <div className="modal-header">

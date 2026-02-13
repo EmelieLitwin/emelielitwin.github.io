@@ -35,7 +35,8 @@ export default function Hero() {
           
           
           <p className="hero-subtitle">
-I take ideas from concept to interface, making sure design intent survives implementation.     </p>
+           I take ideas from concept to interface, start to finish.
+          </p>
           
           <p className="hero-description">
             I am a multi-talented <strong>DESIGN TECHNOLOGIST</strong> with expertise in both 
