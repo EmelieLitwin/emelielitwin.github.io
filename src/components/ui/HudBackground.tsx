@@ -62,14 +62,21 @@ export default function HudBackground() {
       else if (timeSinceMove < 2000) mode = 'SCAN';
       
       // Current section (find which section is in viewport)
-      const sections = ['hero', 'projects', 'skills', 'education', 'about', 'contact'];
+      const sections = [
+        { id: 'hero', label: 'HERO' },
+        { id: 'work', label: 'WORK' },
+        { id: 'skills', label: 'SKILLS' },
+        { id: 'education', label: 'EDUCATION' },
+        { id: 'about-me', label: 'ABOUT' },
+        { id: 'contact', label: 'CONTACT' }
+      ];
       let currentSection = 'HERO';
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
+      for (const section of sections) {
+        const el = document.getElementById(section.id);
         if (el) {
           const rect = el.getBoundingClientRect();
           if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-            currentSection = sectionId.toUpperCase();
+            currentSection = section.label;
             break;
           }
         }
@@ -114,7 +121,7 @@ export default function HudBackground() {
       if (timelineItem) {
         const company = timelineItem.querySelector('.timeline-company')?.textContent?.toUpperCase();
         if (company) {
-          hoverTarget = `🏢 ${company}`;
+          hoverTarget = `${company}`;
         } else {
           hoverTarget = '💼 WORK';
         }
@@ -210,7 +217,7 @@ export default function HudBackground() {
       }
       // Footer
       else if (target.closest('footer')) {
-        hoverTarget = '📄 FOOTER';
+        hoverTarget = 'FOOTER';
       }
       else {
         hoverTarget = '';
@@ -351,12 +358,6 @@ export default function HudBackground() {
       <div className="hud-panel hud-panel-tl">
         <div className="panel-label">TARGET LOCK</div>
         <div className="panel-value panel-target" ref={targetRef}>SCANNING...</div>
-        <div className="panel-sublabel">
-          <div className="panel-coords">
-            <span ref={mouseXRef}>X: 0.0%</span>
-            <span ref={mouseYRef}>Y: 0.0%</span>
-          </div>
-        </div>
       </div>
 
       <div className="hud-panel hud-panel-tr">
@@ -370,6 +371,14 @@ export default function HudBackground() {
       <div className="hud-panel hud-panel-bl">
         <div className="panel-label">SECTOR</div>
         <div className="panel-value panel-section" ref={sectionRef}>HERO</div>
+      </div>
+
+      <div className="hud-panel hud-panel-br">
+        <div className="panel-label">COORDINATES</div>
+        <div className="panel-coords">
+          <span ref={mouseXRef}>X: 0.0%</span>
+          <span ref={mouseYRef}>Y: 0.0%</span>
+        </div>
       </div>
     </div>
   );

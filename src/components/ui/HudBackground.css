@@ -155,15 +155,18 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-size: 9px;
-  opacity: 0.8;
-  margin-bottom: 2px;
+  font-weight: 700;
+  opacity: 1;
+  margin-bottom: 3px;
+  color: var(--hud-ink-1, #1a1a1a);
 }
 
 .panel-value {
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.3px;
-  opacity: 0.9;
+  opacity: 0.95;
+  color: var(--hud-ink-1, #2a2a2a);
 }
 
 .panel-row {
@@ -207,6 +210,13 @@
   padding: 6px 10px;
 }
 
+.hud-panel-br {
+  bottom: 40px;
+  right: 20px;
+  min-width: 140px;
+  padding: 8px 12px;
+}
+
 /* Progress bar */
 .panel-bar {
   height: 4px;
@@ -223,19 +233,12 @@
   transition: width 0.3s ease;
 }
 
-/* Mouse coordinates - larger and more visible */
-.panel-sublabel {
-  margin-top: 8px;
-  font-size: 10px;
-  opacity: 0.85;
-  font-family: 'Courier New', monospace;
-  color: var(--hud-ink-1, #3f3f46);
-  font-weight: 600;
-}
-
+/* Mouse coordinates */
 .panel-coords {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
 }
 
 .panel-coords span {
@@ -243,6 +246,7 @@
   font-size: 11px;
   font-weight: 700;
   opacity: 0.85;
+  font-family: 'Courier New', monospace;
 }
 
 /* Pulse animation when locked on target */

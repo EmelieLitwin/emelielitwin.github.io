@@ -36,7 +36,7 @@ export default function Skills() {
       ]
     },
     {
-      title: 'Development',
+      title: 'Code',
       color: 'blue',
       skills: [
         'React',
