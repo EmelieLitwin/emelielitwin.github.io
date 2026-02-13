@@ -972,7 +972,7 @@
 [data-theme="light"] .contact {
   background: #FFFFFF !important;
   color: #000000 !important;
-  padding: 10rem 2rem 6rem 2rem !important;
+  padding: 6rem 2rem 6rem 2rem !important;
 }
 
 [data-theme="light"] .contact::before {

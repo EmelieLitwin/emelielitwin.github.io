@@ -3,6 +3,7 @@
   background: var(--color-bg-secondary);
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 20px;
 }
 
 .education::before {
@@ -381,5 +382,43 @@
   
   .education-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .education-card {
+    padding: 1rem 1.5rem;
+  }
+  
+  .edu-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .edu-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .education-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .edu-school {
+    font-size: 0.95rem;
+    margin-bottom: 0.15rem;
+  }
+  
+  .edu-period {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+  
+  .edu-description {
+    display: none;
+  }
+  
+  .courses-section {
+    display: none;
   }
 }

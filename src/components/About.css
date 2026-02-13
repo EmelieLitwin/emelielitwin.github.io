@@ -7,7 +7,7 @@
   background: var(--color-bg);
   position: relative;
   overflow: hidden;
-  scroll-margin-top: 100px; /* Account for fixed header when scrolling to section */
+  scroll-margin-top: 20px;
 }
 
 .about-container {
@@ -132,6 +132,11 @@
   border-radius: 2px;
 }
 
+.about-intro-mobile,
+.about-paragraph-mobile {
+  display: none;
+}
+
 .about-closing {
   font-style: italic;
   color: var(--color-text-muted);
@@ -190,11 +195,30 @@
     padding: 4rem 1.5rem;
   }
   
+  .about-content {
+    gap: 2rem !important;
+  }
+  
   .about-image-wrapper {
-    max-width: 250px;
+    max-width: 180px;
   }
   
   .about-heading {
     font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .about-intro-full,
+  .about-paragraph-full {
+    display: none;
+  }
+  
+  .about-intro-mobile,
+  .about-paragraph-mobile {
+    display: block;
+  }
+  
+  .about-text p {
+    font-size: 1rem;
   }
 }

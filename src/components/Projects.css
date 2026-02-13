@@ -497,6 +497,10 @@
     padding: 1.5rem;
   }
   
+  .timeline-description {
+    display: none;
+  }
+  
   .timeline-header {
     flex-direction: column;
     gap: 0.5rem;
@@ -505,22 +509,38 @@
   .timeline-period {
     white-space: normal;
   }
+  
+  .view-more {
+    font-size: 0.75rem;
+    margin-top: 0;
+  }
 
   .modal-overlay {
     padding: 1rem;
   }
 
   .modal-content {
-    padding: 2rem;
+    padding: 1.5rem;
     max-height: 90vh;
+  }
+  
+  .modal-header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
   }
 
   .modal-header h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
   }
 
   .modal-company {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .modal-period {
+    font-size: 0.85rem;
   }
 
   .modal-close {
@@ -530,14 +550,58 @@
     height: 36px;
     font-size: 1.3rem;
   }
+  
+  .modal-body {
+    gap: 1.25rem;
+  }
 
   .modal-section h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .modal-section p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .modal-section li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding-left: 1.2rem;
+  }
+  
+  .modal-section ul {
+    gap: 0.5rem;
+  }
+  
+  .tool-tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    border-radius: 12px;
+  }
+  
+  .modal-tools {
+    gap: 0.5rem;
   }
 
   .modal-image-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+  
+  .modal-image-item figcaption {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .project-link {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
+  }
+  
+  .modal-links {
+    gap: 0.6rem;
   }
 }
 

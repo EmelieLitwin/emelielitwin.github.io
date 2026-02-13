@@ -7,10 +7,13 @@ export default function Contact() {
       <div className="container">
         <h2 className="section-title">Let's Connect</h2>
         <div className="contact-content">
-          <p className="contact-intro">
+          <p className="contact-intro contact-intro-full">
             Want to bridge design and development? Whether it is building design systems, 
             crafting web components, or exploring innovative solutions, let us create something 
             amazing together.
+          </p>
+          <p className="contact-intro contact-intro-mobile">
+            Let's create something amazing together.
           </p>
           <div className="contact-methods">
             <a 
