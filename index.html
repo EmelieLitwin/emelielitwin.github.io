@@ -2,8 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    
+    <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     
     <!-- Google Fonts - Dual Typography System -->
     <!-- Dark mode: Space Grotesk (soft/organic) + Inter (humanist) -->
@@ -20,25 +30,48 @@
     <meta name="author" content="Emelie Litwin" />
     <meta name="keywords" content="Design Technologist, Design Systems, Accessibility, WCAG, Web Components, React, TypeScript, UI/UX, Frontend Development, Emelie Litwin" />
     
+    <!-- Mobile App Capable -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Emelie Litwin" />
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://emelielitwin.se/" />
     <meta property="og:title" content="Emelie Litwin - Design Technologist" />
     <meta property="og:description" content="Design Technologist specializing in design systems, web components, and accessible digital experiences." />
-    <meta property="og:image" content="https://emelielitwin.se/og-image.png" />
+    <meta property="og:image" content="https://emelielitwin.se/images/og-image.png" />
+    <meta property="og:image:alt" content="Emelie Litwin - Design Technologist Portfolio" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Emelie Litwin Portfolio" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://emelielitwin.se/" />
     <meta property="twitter:title" content="Emelie Litwin - Design Technologist" />
     <meta property="twitter:description" content="Design Technologist specializing in design systems, web components, and accessible digital experiences." />
-    <meta property="twitter:image" content="https://emelielitwin.se/og-image.png" />
+    <meta property="twitter:image" content="https://emelielitwin.se/images/og-image.png" />
+    <meta property="twitter:image:alt" content="Emelie Litwin - Design Technologist Portfolio" />
+    <meta name="twitter:creator" content="@emelielitwin" />
     
     <!-- Additional SEO -->
     <link rel="canonical" href="https://emelielitwin.se/" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
-    <meta name="theme-color" content="#0A0E1A" />
+    <meta name="theme-color" content="#0A0E1A" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    
+    <!-- DNS Prefetch & Preconnect for Performance -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
+    <!-- Security -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     
     <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
@@ -73,6 +106,22 @@
         "@type": "EducationalOrganization",
         "name": "Hyper Island"
       }
+    }
+    </script>
+    
+    <!-- WebSite Schema for Search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Emelie Litwin Portfolio",
+      "url": "https://emelielitwin.se",
+      "description": "Portfolio website showcasing design and development work",
+      "author": {
+        "@type": "Person",
+        "name": "Emelie Litwin"
+      },
+      "inLanguage": "en-US"
     }
     </script>
     
