@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 import './HudBackground.css';
 
 /**
@@ -17,60 +18,53 @@ import './HudBackground.css';
  * - Respects prefers-reduced-motion user preference
  */
 export default function HudBackground() {
+  const { t } = useTranslation();
   const hudRef = useRef<HTMLDivElement>(null);
   const targetRef = useRef<HTMLDivElement>(null);
   const mouseXRef = useRef<HTMLSpanElement>(null);
   const mouseYRef = useRef<HTMLSpanElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const latRef = useRef<HTMLSpanElement>(null);
-  const sigRef = useRef<HTMLSpanElement>(null);
-  const modeRef = useRef<HTMLSpanElement>(null);
+  const clicksRef = useRef<HTMLSpanElement>(null);
+  const sessionRef = useRef<HTMLSpanElement>(null);
+  const sectionsRef = useRef<HTMLSpanElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let rafId: number;
     let lastMouseX = 0;
     let lastMouseY = 0;
-    let lastMoveTime = 0;
+    let lastMoveTime = Date.now();
+    let lastClickTime = Date.now();
     let velocity = 0;
     let hoverTarget = '';
+    
+    // Telemetry tracking
+    const sessionStart = Date.now();
+    let clickCount = 0;
+    const visitedSections = new Set<string>();
+
+    const formatTime = (ms: number): string => {
+      const totalSeconds = Math.floor(ms / 1000);
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    };
 
     const updateHudMetrics = () => {
-      // Calculate scroll percentage
-      const scrollPct = Math.min(100, (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
-      
-      // Calculate focus (inverse of velocity, 0-1 range)
       const now = Date.now();
-      const timeSinceMove = now - lastMoveTime;
-      const focus = timeSinceMove > 1000 ? 1.0 : Math.max(0, 1 - (velocity / 50));
       
-      // Calculate velocity status
-      let velocityStatus = 'IDLE';
-      if (velocity > 30) velocityStatus = 'FAST';
-      else if (velocity > 15) velocityStatus = 'ACTIVE';
-      else if (velocity > 5) velocityStatus = 'MOVING';
-      
-      // Calculate focus level
-      let focusLevel = 'LOW';
-      if (focus > 0.8) focusLevel = 'HIGH';
-      else if (focus > 0.5) focusLevel = 'MED';
-      
-      // Mode based on recent mouse activity and hover
-      let mode = 'IDLE';
-      if (hoverTarget) mode = 'LOCK';
-      else if (timeSinceMove < 500) mode = 'TRACK';
-      else if (timeSinceMove < 2000) mode = 'SCAN';
+      // Session time (total time since page load)
+      const sessionTime = now - sessionStart;
       
       // Current section (find which section is in viewport)
       const sections = [
-        { id: 'hero', label: 'HERO' },
-        { id: 'work', label: 'WORK' },
-        { id: 'skills', label: 'SKILLS' },
-        { id: 'education', label: 'EDUCATION' },
-        { id: 'about-me', label: 'ABOUT' },
-        { id: 'contact', label: 'CONTACT' }
+        { id: 'hero', label: t.hud.hero },
+        { id: 'work', label: t.hud.work },
+        { id: 'skills', label: t.hud.skills },
+        { id: 'education', label: t.hud.education },
+        { id: 'about-me', label: t.hud.about },
+        { id: 'contact', label: t.hud.contact }
       ];
-      let currentSection = 'HERO';
+      let currentSection: string = t.hud.hero;
       for (const section of sections) {
         const el = document.getElementById(section.id);
         if (el) {
@@ -82,19 +76,16 @@ export default function HudBackground() {
         }
       }
       
-      // Signal quality (0-100) based on focus
-      const signal = Math.round(65 + focus * 30 + Math.random() * 5);
+      // Track visited sections
+      visitedSections.add(currentSection);
       
-      // Update DOM directly via refs
-      if (scrollRef.current) scrollRef.current.textContent = `${scrollPct.toFixed(0)}%`;
-      if (latRef.current) latRef.current.textContent = velocityStatus;
-      if (sigRef.current) sigRef.current.textContent = focusLevel;
-      if (modeRef.current) modeRef.current.textContent = mode;
       if (sectionRef.current) sectionRef.current.textContent = currentSection;
-      if (targetRef.current) targetRef.current.textContent = hoverTarget || 'SCANNING...';
+      if (targetRef.current) targetRef.current.textContent = hoverTarget || t.hud.scanning;
       
-      // Update CSS variables for progress bar
-      document.documentElement.style.setProperty('--hud-scroll', scrollPct.toFixed(0));
+      // Update telemetry display
+      if (clicksRef.current) clicksRef.current.textContent = String(clickCount);
+      if (sessionRef.current) sessionRef.current.textContent = formatTime(sessionTime);
+      if (sectionsRef.current) sectionsRef.current.textContent = `${visitedSections.size}/6`;
       
       rafId = requestAnimationFrame(updateHudMetrics);
     };
@@ -123,34 +114,34 @@ export default function HudBackground() {
         if (company) {
           hoverTarget = `${company}`;
         } else {
-          hoverTarget = '💼 WORK';
+          hoverTarget = t.hud.workTarget;
         }
       }
       // Easter eggs for specific elements
       else if (target.closest('.hero-visual') || target.closest('img[alt*="nicorn"]')) {
-        hoverTarget = '🦄 UX UNICORN';
+        hoverTarget = t.hud.unicorn;
       } 
       else if (target.textContent?.includes('Emelie') || target.textContent?.includes('EMELIE')) {
-        hoverTarget = '👋 HELLO';
+        hoverTarget = t.hud.hello;
       } else if (target.closest('.wave-icon') || target.textContent?.includes('👋')) {
-        hoverTarget = '👋 HIGH FIVE';
+        hoverTarget = t.hud.highFive;
       } else if (target.closest('[data-theme-toggle]') || target.closest('.theme-toggle')) {
-        hoverTarget = '🌓 THEME';
+        hoverTarget = t.hud.theme;
       } else if (target.closest('.unicorn, [class*="unicorn"]')) {
-        hoverTarget = '🦄 UX UNICORN';
+        hoverTarget = t.hud.unicorn;
       }
       // Hero buttons - special messages
       else if (target.closest('.hero-cta') || target.closest('.hero')) {
         if (target.tagName === 'BUTTON' || target.tagName === 'A') {
           const text = target.textContent?.toUpperCase() || '';
-          if (text.includes('VIEW') && text.includes('WORK')) {
-            hoverTarget = '🚀 RESUME';
-          } else if (text.includes('LET') && text.includes('TALK')) {
-            hoverTarget = '📡 SAY HELLO';
-          } else if (text.includes('CONTACT')) {
-            hoverTarget = '💬 CONTACT';
-          } else if (text.includes('WORK')) {
-            hoverTarget = '💼 WORK';
+          if (text.includes('VIEW') && text.includes('WORK') || text.includes('SE') && text.includes('ARBETE')) {
+            hoverTarget = t.hud.resume;
+          } else if (text.includes('LET') && text.includes('TALK') || text.includes('LÅT') && text.includes('PRATA')) {
+            hoverTarget = t.hud.sayHello;
+          } else if (text.includes('CONTACT') || text.includes('KONTAKT')) {
+            hoverTarget = t.hud.contactTarget;
+          } else if (text.includes('WORK') || text.includes('ARBETE')) {
+            hoverTarget = t.hud.workTarget;
           } else {
             hoverTarget = `⚡ ${text.slice(0, 10)}`;
           }
@@ -161,18 +152,18 @@ export default function HudBackground() {
       // Other Buttons
       else if (target.tagName === 'BUTTON') {
         const text = target.textContent?.toUpperCase().slice(0, 10) || 'BTN';
-        if (text.includes('WORK')) hoverTarget = '💼 WORK';
-        else if (text.includes('TALK') || text.includes('CONTACT')) hoverTarget = '💬 CONTACT';
+        if (text.includes('WORK') || text.includes('ARBETE')) hoverTarget = t.hud.workTarget;
+        else if (text.includes('TALK') || text.includes('CONTACT') || text.includes('PRATA') || text.includes('KONTAKT')) hoverTarget = t.hud.contactTarget;
         else hoverTarget = `⚡ ${text}`;
       }
       // Navigation
       else if (target.tagName === 'A' && target.closest('header')) {
         const navText = target.textContent?.toUpperCase() || 'NAV';
-        if (navText.includes('WORK')) hoverTarget = '💼 WORK';
-        else if (navText.includes('SKILL')) hoverTarget = '🛠️ SKILLS';
-        else if (navText.includes('EDUCATION')) hoverTarget = '🎓 EDU';
-        else if (navText.includes('ABOUT')) hoverTarget = '👤 ABOUT';
-        else if (navText.includes('CONTACT')) hoverTarget = '📡 CONTACT';
+        if (navText.includes('WORK') || navText.includes('ARBETE')) hoverTarget = t.hud.workTarget;
+        else if (navText.includes('SKILL') || navText.includes('KOMPETENS')) hoverTarget = t.hud.skillsTarget;
+        else if (navText.includes('EDUCATION') || navText.includes('UTBILDNING')) hoverTarget = t.hud.eduTarget;
+        else if (navText.includes('ABOUT') || navText.includes('OM')) hoverTarget = t.hud.aboutTarget;
+        else if (navText.includes('CONTACT') || navText.includes('KONTAKT')) hoverTarget = t.hud.contactNav;
         else hoverTarget = `→ ${navText.slice(0, 8)}`;
       }
       // Project cards
@@ -185,55 +176,67 @@ export default function HudBackground() {
       else if (target.closest('.skill-category')) {
         const cat = target.closest('.skill-category');
         const title = cat?.querySelector('h3')?.textContent?.toUpperCase();
-        if (title?.includes('DESIGN')) hoverTarget = '🎨 DESIGN';
-        else if (title?.includes('CODE')) hoverTarget = '💻 CODE';
-        else if (title?.includes('TOOL')) hoverTarget = '🔧 TOOLS';
+        if (title?.includes('DESIGN')) hoverTarget = t.hud.design;
+        else if (title?.includes('CODE') || title?.includes('KOD')) hoverTarget = t.hud.code;
+        else if (title?.includes('TOOL') || title?.includes('VERKTYG') || title?.includes('PROCESS')) hoverTarget = t.hud.tools;
         else hoverTarget = `⚙️ ${title?.slice(0, 8) || 'SKILL'}`;
       }
       // Education
       else if (target.closest('.education-card')) {
         const card = target.closest('.education-card');
         const degree = card?.querySelector('h3')?.textContent;
-        if (degree?.includes('Frontend')) hoverTarget = '💻 FRONTEND';
-        else if (degree?.includes('Interaction')) hoverTarget = '🎨 UX';
-        else if (degree?.includes('Nutrition')) hoverTarget = '🥗 NUTRITION';
-        else hoverTarget = '🎓 DEGREE';
+        if (degree?.includes('Frontend')) hoverTarget = t.hud.frontend;
+        else if (degree?.includes('Interaction') || degree?.includes('Interaktionsdesign')) hoverTarget = t.hud.ux;
+        else if (degree?.includes('Nutrition')) hoverTarget = t.hud.nutrition;
+        else hoverTarget = t.hud.degree;
       }
       // Contact form
       else if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
-        hoverTarget = '⌨️ INPUT';
+        hoverTarget = t.hud.input;
       }
       // Social links
       else if (target.closest('a[href*="linkedin"]')) {
-        hoverTarget = '💼 LINKEDIN';
+        hoverTarget = t.hud.linkedin;
       } else if (target.closest('a[href*="github"]')) {
-        hoverTarget = '🐙 GITHUB';
+        hoverTarget = t.hud.github;
       } else if (target.closest('a[href*="mail"]')) {
-        hoverTarget = '📧 EMAIL';
+        hoverTarget = t.hud.email;
       }
       // Logo/brand
       else if (target.closest('.logo') || target.closest('header img')) {
-        hoverTarget = '🏠 HOME';
+        hoverTarget = t.hud.home;
       }
       // Footer
       else if (target.closest('footer')) {
-        hoverTarget = 'FOOTER';
+        hoverTarget = t.hud.footer;
       }
       else {
         hoverTarget = '';
       }
     };
 
+    const handleClick = () => {
+      clickCount++;
+      lastClickTime = Date.now();
+    };
+
+    const handleScroll = () => {
+      // Scroll event handler
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', () => {}, { passive: true });
+    window.addEventListener('click', handleClick);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     rafId = requestAnimationFrame(updateHudMetrics);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('click', handleClick);
+      window.removeEventListener('scroll', handleScroll);
       cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [t]);
 
   return (
     <div ref={hudRef} className="hud" aria-hidden="true" role="presentation">
@@ -356,25 +359,35 @@ export default function HudBackground() {
 
       {/* HTML Panels with live data */}
       <div className="hud-panel hud-panel-tl">
-        <div className="panel-label">TARGET LOCK</div>
-        <div className="panel-value panel-target" ref={targetRef}>SCANNING...</div>
+        <div className="panel-label">{t.hud.targetLock}</div>
+        <div className="panel-value panel-target" ref={targetRef}>{t.hud.scanning}</div>
       </div>
 
       <div className="hud-panel hud-panel-tr">
-        <div className="panel-label">SCROLL</div>
-        <div className="panel-value panel-scroll" ref={scrollRef}>0%</div>
-        <div className="panel-bar">
-          <div className="panel-bar-fill"></div>
+        <div className="panel-label">{t.hud.user}</div>
+        <div className="panel-telemetry">
+          <div className="telemetry-row">
+            <span className="telemetry-label">{t.hud.clicks}</span>
+            <span className="telemetry-value" ref={clicksRef}>0</span>
+          </div>
+          <div className="telemetry-row">
+            <span className="telemetry-label">{t.hud.session}</span>
+            <span className="telemetry-value" ref={sessionRef}>00:00</span>
+          </div>
+          <div className="telemetry-row">
+            <span className="telemetry-label">{t.hud.sections}</span>
+            <span className="telemetry-value" ref={sectionsRef}>0/6</span>
+          </div>
         </div>
       </div>
 
       <div className="hud-panel hud-panel-bl">
-        <div className="panel-label">SECTOR</div>
-        <div className="panel-value panel-section" ref={sectionRef}>HERO</div>
+        <div className="panel-label">{t.hud.sector}</div>
+        <div className="panel-value panel-section" ref={sectionRef}>{t.hud.hero}</div>
       </div>
 
       <div className="hud-panel hud-panel-br">
-        <div className="panel-label">COORDINATES</div>
+        <div className="panel-label">{t.hud.coordinates}</div>
         <div className="panel-coords">
           <span ref={mouseXRef}>X: 0.0%</span>
           <span ref={mouseYRef}>Y: 0.0%</span>

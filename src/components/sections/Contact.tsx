@@ -1,19 +1,20 @@
 import './Contact.css'
+import { useTranslation } from '../../hooks/useTranslation'
 import resumePdf from '../../assets/Emelie Litwin Resume 2026 FE.pdf'
 
 export default function Contact() {
+  const { t } = useTranslation()
+  
   return (
     <section className="contact" id="contact">
       <div className="container">
-        <h2 className="section-title">Let's Connect</h2>
+        <h2 className="section-title">{t.contact.title}</h2>
         <div className="contact-content">
           <p className="contact-intro contact-intro-full">
-            Want to bridge design and development? Whether it is building design systems, 
-            crafting web components, or exploring innovative solutions, let us create something 
-            amazing together.
+            {t.contact.introFull}
           </p>
           <p className="contact-intro contact-intro-mobile">
-            Let's create something amazing together.
+            {t.contact.introMobile}
           </p>
           <div className="contact-methods">
             <a 
@@ -23,7 +24,7 @@ export default function Contact() {
               <div className="link-glow"></div>
               <span className="contact-icon" aria-hidden="true">✉</span>
               <div className="contact-text">
-                <span className="link-label">Email</span>
+                <span className="link-label">{t.contact.email}</span>
                 <span className="link-value">emelielitwin@gmail.com</span>
               </div>
             </a>
@@ -48,7 +49,7 @@ export default function Contact() {
                 </svg>
               </span>
               <div className="contact-text">
-                <span className="link-label">LinkedIn</span>
+                <span className="link-label">{t.contact.linkedin}</span>
                 <span className="link-value">linkedin.com/in/emelielitwin</span>
               </div>
             </a>
@@ -64,8 +65,8 @@ export default function Contact() {
                 </svg>
               </span>
               <div className="contact-text">
-                <span className="link-label">Resume</span>
-                <span className="link-value">Download my CV (PDF)</span>
+                <span className="link-label">{t.contact.resume}</span>
+                <span className="link-value">{t.contact.downloadCV}</span>
               </div>
             </a>
           </div>

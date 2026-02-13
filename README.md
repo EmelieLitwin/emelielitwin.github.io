@@ -1,44 +1,44 @@
-# 🦄 Emelie Litwin - Portfolio# 🦄 Emelie Litwin - Portfolio# 🦄 Emelie Litwin - Portfolio
+# 🦄 Emelie Litwin - Portfolio# 🦄 Emelie Litwin - Portfolio# 🦄 Emelie Litwin - Portfolio# 🦄 Emelie Litwin - Portfolio
 
 
 
-A modern, accessible portfolio website built with React, TypeScript, and Vite. Features a sci-fi HUD overlay system with real-time data panels.
+A modern, accessible portfolio website built with React, TypeScript, and Vite. Features dual theme system (Dark sci-fi HUD / Light technical blueprint) with bilingual support (Swedish/English).
 
 
 
-## ✨ FeaturesA modern, accessible portfolio website built with React, TypeScript, and Vite. Features a sci-fi HUD overlay system with real-time data panels.A modern, accessible portfolio website built with React, TypeScript, and Vite. Features a sci-fi HUD overlay system with real-time data panels.
+## ✨ FeaturesA modern, accessible portfolio website built with React, TypeScript, and Vite. Features a sci-fi HUD overlay system with real-time data panels.
 
 
 
-- **Sci-Fi HUD Overlay** - Animated HUD with 4 real-time data panels (target lock, scroll progress, sector tracking, mouse coordinates)
+- **Dual Theme System** - Dark sci-fi HUD theme with neon accents / Light monochrome technical blueprint theme
 
-- **Theme Toggle** - Dark/light mode with localStorage persistence
+- **Bilingual Support** - Swedish/English with localStorage persistence
 
-- **Fully Accessible** - WCAG 2.1 AAA compliant (see [ACCESSIBILITY.md](./ACCESSIBILITY.md))## ✨ Features## ✨ Features
+- **Fully Accessible** - WCAG 2.1 AA compliant (see [ACCESSIBILITY.md](./ACCESSIBILITY.md))## ✨ FeaturesA modern, accessible portfolio website built with React, TypeScript, and Vite. Features a sci-fi HUD overlay system with real-time data panels.A modern, accessible portfolio website built with React, TypeScript, and Vite. Features a sci-fi HUD overlay system with real-time data panels.
 
 - **Responsive Design** - Optimized for mobile to 4K displays
 
 - **Design System** - Token-based architecture with CSS custom properties (see [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md))
 
-- **PWA Ready** - Installable as a web app with manifest and icons
+- **SEO Optimized** - Complete metadata, OG images, structured data
 
-- **SEO Optimized** - Complete metadata, OG images, structured data- **Sci-Fi HUD Overlay** - Animated HUD with 4 real-time data panels (target lock, scroll progress, sector tracking, mouse coordinates)- **Sci-Fi HUD Overlay** - Animated HUD with 4 real-time data panels (target lock, scroll progress, sector tracking, mouse coordinates)
+- **Sci-Fi HUD Overlay** - Animated HUD with 4 real-time data panels (target lock, scroll progress, sector tracking, mouse coordinates)
+
+## 🛠️ Tech Stack
+
+- **Theme Toggle** - Dark/light mode with localStorage persistence
+
+- **React 19** + **TypeScript 5.6** + **Vite 7.3**
+
+- **CSS Custom Properties** - Token-based design system- **Fully Accessible** - WCAG 2.1 AAA compliant (see [ACCESSIBILITY.md](./ACCESSIBILITY.md))## ✨ Features## ✨ Features
+
+- **Feature-based Architecture** - Components organized by purpose
+
+- **i18n** - Custom translation system with language toggle- **Responsive Design** - Optimized for mobile to 4K displays
 
 
 
-## 🛠️ Tech Stack- **Theme Toggle** - Dark/light mode with localStorage persistence- **Theme Toggle** - Dark/light mode with localStorage persistence
-
-
-
-- **React 19** + **TypeScript 5.6** + **Vite 7.3**- **Fully Accessible** - WCAG 2.1 AAA compliant (see [ACCESSIBILITY.md](./ACCESSIBILITY.md))- **Fully Accessible** - WCAG 2.1 AAA compliant (see [ACCESSIBILITY.md](./ACCESSIBILITY.md))
-
-- **CSS Custom Properties** - Token-based design system
-
-- **Feature-based Architecture** - Components organized in `layout/`, `sections/`, `ui/`- **Responsive Design** - Optimized for mobile to 4K displays- **Responsive Design** - Optimized for mobile to 4K displays
-
-
-
-## 📁 Project Structure- **Design System** - Token-based architecture with CSS custom properties (see [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md))- **Design System** - Token-based architecture with CSS custom properties (see [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md))
+## 📁 Project Structure- **Design System** - Token-based architecture with CSS custom properties (see [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md))
 
 
 
@@ -46,79 +46,201 @@ A modern, accessible portfolio website built with React, TypeScript, and Vite. F
 
 src/
 
-├── components/- **SEO Optimized** - Complete metadata, OG images, structured data## 🛠️ Tech Stack
+├── components/- **SEO Optimized** - Complete metadata, OG images, structured data- **Sci-Fi HUD Overlay** - Animated HUD with 4 real-time data panels (target lock, scroll progress, sector tracking, mouse coordinates)- **Sci-Fi HUD Overlay** - Animated HUD with 4 real-time data panels (target lock, scroll progress, sector tracking, mouse coordinates)
 
 │   ├── layout/          # Header, Footer
 
 │   ├── sections/        # Hero, About, Projects, Education, Skills, Contact
 
-│   └── ui/              # ThemeToggle, ScrollProgress, HudBackground
+│   └── ui/              # ThemeToggle, LanguageToggle, ScrollProgress, HudBackground
 
-├── styles/## 🛠️ Tech Stack- **React 19** + **TypeScript 5.6** + **Vite 7.3**
+├── styles/## 🛠️ Tech Stack- **Theme Toggle** - Dark/light mode with localStorage persistence- **Theme Toggle** - Dark/light mode with localStorage persistence
 
-│   ├── design-tokens.css    # Color, spacing, shadow tokens
+│   ├── design-tokens.css    # Core design tokens (dark theme)
 
-│   ├── mixins.css           # 40+ reusable CSS patterns- **CSS Custom Properties** - Token-based design system
+│   ├── mixins.css           # Reusable CSS patterns
 
 │   ├── utilities.css        # Utility classes
 
-│   └── theme-variants/- **React 19** + **TypeScript 5.6** + **Vite 7.3**- **Feature-based Architecture** - Components organized in `layout/`, `sections/`, `ui/`
+│   └── theme-variants/- **React 19** + **TypeScript 5.6** + **Vite 7.3**- **Fully Accessible** - WCAG 2.1 AAA compliant (see [ACCESSIBILITY.md](./ACCESSIBILITY.md))- **Fully Accessible** - WCAG 2.1 AAA compliant (see [ACCESSIBILITY.md](./ACCESSIBILITY.md))
 
-│       └── light.css        # Light mode overrides
+│       └── light.css        # Light mode theme overrides
 
-├── assets/              # Images and static files- **CSS Custom Properties** - Token-based design system
+├── translations/- **CSS Custom Properties** - Token-based design system
 
-├── App.tsx              # Main application
+│   └── translations.ts      # Bilingual content (SV/EN)
 
-└── main.tsx             # Entry point- **Feature-based Architecture** - Components organized in `layout/`, `sections/`, `ui/`## � Project Structure
+├── App.tsx              # Main application- **Feature-based Architecture** - Components organized in `layout/`, `sections/`, `ui/`- **Responsive Design** - Optimized for mobile to 4K displays- **Responsive Design** - Optimized for mobile to 4K displays
+
+└── main.tsx             # Entry point
 
 
 
 public/
 
-├── images/
+├── images/## 📁 Project Structure- **Design System** - Token-based architecture with CSS custom properties (see [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md))- **Design System** - Token-based architecture with CSS custom properties (see [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md))
 
-│   ├── og-image.png         # 1200x630 gradient preview## 📁 Project Structure```
+│   ├── og-image.png         # 1200x630 social media preview
 
 │   ├── favicon-16x16.png    # Browser favicons
 
-│   ├── favicon-32x32.pngsrc/
+│   ├── favicon-32x32.png
 
-│   ├── apple-touch-icon.png # iOS home screen (180x180)
+│   └── apple-touch-icon.png # iOS home screen (180x180)```- **PWA Ready** - Installable as a web app with manifest and icons
 
-│   ├── icon-192.png         # PWA icons```├── components/
+├── favicon.svg          # Modern SVG favicon
 
-│   └── icon-512.png
+├── manifest.json        # PWA manifest (future use)src/
 
-├── favicon.svg          # Modern SVG faviconsrc/│   ├── layout/          # Header, Footer
+├── robots.txt          # SEO directives
 
-├── manifest.json        # PWA manifest
-
-├── robots.txt          # SEO directives├── components/│   ├── sections/        # Hero, About, Projects, Education, Skills, Contact
-
-├── sitemap.xml         # Search engine sitemap
-
-└── _headers            # Security & cache headers│   ├── layout/          # Header, Footer│   └── ui/              # ThemeToggle, ScrollProgress, HudBackground
+└── sitemap.xml         # Search engine sitemap├── components/- **SEO Optimized** - Complete metadata, OG images, structured data## 🛠️ Tech Stack
 
 ```
 
-│   ├── sections/        # Hero, About, Projects, Education, Skills, Contact├── styles/
+│   ├── layout/          # Header, Footer
 
 ## 🚀 Getting Started
 
-│   └── ui/              # ThemeToggle, ScrollProgress, HudBackground│   ├── design-tokens.css    # Color, spacing, shadow tokens
+│   ├── sections/        # Hero, About, Projects, Education, Skills, Contact
 
 ```bash
 
-# Install dependencies├── styles/│   ├── mixins.css           # 40+ reusable CSS patterns
+# Install dependencies│   └── ui/              # ThemeToggle, ScrollProgress, HudBackground
 
 npm install
 
-│   ├── design-tokens.css    # Color, spacing, shadow tokens│   ├── utilities.css        # Utility classes
+├── styles/## 🛠️ Tech Stack- **React 19** + **TypeScript 5.6** + **Vite 7.3**
 
 # Start dev server
 
+npm run dev│   ├── design-tokens.css    # Color, spacing, shadow tokens
+
+
+
+# Build for production│   ├── mixins.css           # 40+ reusable CSS patterns- **CSS Custom Properties** - Token-based design system
+
+npm run build
+
+│   ├── utilities.css        # Utility classes
+
+# Preview production build
+
+npm run preview│   └── theme-variants/- **React 19** + **TypeScript 5.6** + **Vite 7.3**- **Feature-based Architecture** - Components organized in `layout/`, `sections/`, `ui/`
+
+```
+
+│       └── light.css        # Light mode overrides
+
+The site will be available at `http://localhost:5173`
+
+├── assets/              # Images and static files- **CSS Custom Properties** - Token-based design system
+
+## 📦 Available Scripts
+
+├── App.tsx              # Main application
+
+```bash
+
+# Development server with HMR└── main.tsx             # Entry point- **Feature-based Architecture** - Components organized in `layout/`, `sections/`, `ui/`## � Project Structure
+
+npm run dev
+
+
+
+# Type-check without emitting files
+
+npm run type-checkpublic/
+
+
+
+# Build for production├── images/
+
+npm run build
+
+│   ├── og-image.png         # 1200x630 gradient preview## 📁 Project Structure```
+
+# Preview production build
+
+npm run preview│   ├── favicon-16x16.png    # Browser favicons
+
+```
+
+│   ├── favicon-32x32.pngsrc/
+
+## 📚 Documentation
+
+│   ├── apple-touch-icon.png # iOS home screen (180x180)
+
+- **[DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)** - Design tokens, theming system, and CSS architecture
+
+- **[ACCESSIBILITY.md](./ACCESSIBILITY.md)** - WCAG 2.1 compliance details│   ├── icon-192.png         # PWA icons```├── components/
+
+- **[TRANSLATIONS.md](./TRANSLATIONS.md)** - Translation system and bilingual content management
+
+│   └── icon-512.png
+
+## 🎨 Design Tokens
+
+├── favicon.svg          # Modern SVG faviconsrc/│   ├── layout/          # Header, Footer
+
+The project uses a comprehensive token system for consistent styling:
+
+├── manifest.json        # PWA manifest
+
+### Dark Theme (Default)
+
+- **Colors**: Cyan (#00F0FF), Magenta (#FF00FF), Blue (#3B82F6)├── robots.txt          # SEO directives├── components/│   ├── sections/        # Hero, About, Projects, Education, Skills, Contact
+
+- **Background**: Dark navy (#0A0E1A)
+
+- **Typography**: Chakra Petch (display), JetBrains Mono (code), system fonts (body)├── sitemap.xml         # Search engine sitemap
+
+
+
+### Light Theme└── _headers            # Security & cache headers│   ├── layout/          # Header, Footer│   └── ui/              # ThemeToggle, ScrollProgress, HudBackground
+
+- **Colors**: Pure black/white with grayscale hierarchy
+
+- **Background**: White (#FFFFFF)```
+
+- **Typography**: Chakra Petch (display), Roboto Mono (body), Orbitron (UI)
+
+│   ├── sections/        # Hero, About, Projects, Education, Skills, Contact├── styles/
+
+## 🌐 SEO & Metadata
+
+## 🚀 Getting Started
+
+- ✅ Open Graph tags (Facebook, LinkedIn)
+
+- ✅ Twitter Cards│   └── ui/              # ThemeToggle, ScrollProgress, HudBackground│   ├── design-tokens.css    # Color, spacing, shadow tokens
+
+- ✅ JSON-LD structured data (Person + WebSite schema)
+
+- ✅ Favicons for all platforms (16px, 32px, 180px)```bash
+
+- ✅ robots.txt and sitemap.xml
+
+# Install dependencies├── styles/│   ├── mixins.css           # 40+ reusable CSS patterns
+
+## 🔗 Links
+
+npm install
+
+- **Live:** [emelielitwin.github.io](https://emelielitwin.github.io)
+
+- **LinkedIn:** [linkedin.com/in/emelielitwin](https://linkedin.com/in/emelielitwin)│   ├── design-tokens.css    # Color, spacing, shadow tokens│   ├── utilities.css        # Utility classes
+
+- **Email:** emelielitwin@gmail.com
+
+# Start dev server
+
+---
+
 npm run dev│   ├── mixins.css           # 40+ reusable CSS patterns│   └── theme-variants/
+
+Built with ❤️ by Emelie Litwin
 
 
 

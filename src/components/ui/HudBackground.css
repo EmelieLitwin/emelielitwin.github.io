@@ -249,6 +249,40 @@
   font-family: 'Courier New', monospace;
 }
 
+/* Telemetry panel */
+.panel-telemetry {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.telemetry-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.telemetry-label {
+  color: var(--hud-ink-1, #3f3f46);
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.85;
+  font-family: 'Courier New', monospace;
+}
+
+.telemetry-value {
+  color: var(--hud-ink-1, #2a2a2a);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  opacity: 0.95;
+  font-family: 'Courier New', monospace;
+  text-align: right;
+  min-width: 45px;
+}
+
 /* Pulse animation when locked on target */
 @keyframes target-pulse {
   0%, 100% { 

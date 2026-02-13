@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react'
+import { useTranslation } from '../../hooks/useTranslation'
 import './Skills.css'
 
 export default function Skills() {
+  const { t } = useTranslation()
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
@@ -25,44 +27,26 @@ export default function Skills() {
 
   const skillCategories = [
     {
-      title: 'Design & UX',
+      title: t.skills.categories.design,
       color: 'cyan',
-      skills: [
-        'Design Systems',
-        'Product UX',
-        'Interaction Design',
-        'Prototyping',
-        'User Insights'
-      ]
+      skills: t.skills.designSkills
     },
     {
-      title: 'Code',
+      title: t.skills.categories.code,
       color: 'blue',
-      skills: [
-        'React',
-        'TypeScript',
-        'UI Architecture',
-        'AI-assisted Development',
-        'Accessibility'
-      ]
+      skills: t.skills.codeSkills
     },
     {
-      title: 'Process ',
+      title: t.skills.categories.process,
       color: 'magenta',
-      skills: [
-        'Stakeholder Alignment',
-        'Cross-functional Teams',
-        'Facilitation',
-        'Agile Delivery',
-        'Documentation'
-      ]
+      skills: t.skills.processSkills
     }
   ]
 
   return (
     <section className="skills" id="skills">
       <div className="container">
-        <h2 className="section-title">Skills & Expertise</h2>
+        <h2 className="section-title">{t.skills.title}</h2>
         <div className="skills-grid">
           {skillCategories.map((category, index) => (
             <div 

@@ -56,8 +56,8 @@
   align-items: center;
   overflow: hidden;
   cursor: default;
-  opacity: 0;
-  transform: translateY(50px);
+  /* opacity: 0; Temporarily disabled for debugging */
+  /* transform: translateY(50px); Temporarily disabled for debugging */
 }
 
 .skill-category.animate-in {
@@ -247,12 +247,6 @@
 .skill-tag.magenta:hover {
   background: var(--color-secondary-alpha);
   box-shadow: 0 6px 20px var(--color-secondary);
-}
-
-@media (max-width: 968px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 768px) {

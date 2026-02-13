@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 import './Projects.css';
 
 // Import images
@@ -15,15 +16,15 @@ interface Job {
   color: string
   details?: {
     myRole?: string
-    achievements: string[]
-    process: string[]
-    tools: string[]
+    achievements: readonly string[]
+    process: readonly string[]
+    tools: readonly string[]
     images?: {
       src: string
       alt: string
       caption?: string
     }[]
-    links?: {
+    links?: readonly {
       url: string
       label: string
     }[]
@@ -31,6 +32,7 @@ interface Job {
 }
 
 export default function Projects() {
+  const { t } = useTranslation()
   const [selectedJob, setSelectedJob] = useState<Job | null>(null)
   const itemRefs = useRef<(HTMLElement | null)[]>([])
   const modalRef = useRef<HTMLDivElement>(null)
@@ -85,29 +87,17 @@ export default function Projects() {
 
   const timeline: Job[] = [
     {
-      role: 'Design Technologist',
-      company: 'Scania Group',
-      period: '2022 - Present',
-      description: 'Leading the Tegel Design System development with StencilJS and TypeScript. Creating reusable web components used across 50+ applications globally.',
+      role: t.work.jobs.scania.role,
+      company: t.work.jobs.scania.company,
+      period: t.work.jobs.scania.period,
+      description: t.work.jobs.scania.description,
       icon: 'circle',
       color: 'var(--color-cyan)',
       details: {
-        myRole: 'As Design Technologist, I bridge the gap between design and development, building and maintaining the Tegel Design System. I work cross-functionally with designers, developers, and stakeholders to create a cohesive component library.',
-        achievements: [
-          'Built 30+ web components for Tegel Design System using StencilJS',
-          'Created CSS-only component library as lightweight alternative',
-          'Developed demo pages showcasing design system in Angular and React',
-          'Built Power Apps component library for internal tools',
-          'Wrote comprehensive documentation for designers and developers'
-        ],
-        process: [
-          'Design and prototype components in Figma',
-          'Code web components using StencilJS and CSS',
-          'Structure design tokens and variable architecture',
-          'Conduct user interviews to validate solutions',
-          'Stepped in as Product Owner during vacations'
-        ],
-        tools: ['StencilJS', 'TypeScript', 'Figma', 'CSS', 'Angular', 'React', 'Power Apps', 'AWS'],
+        myRole: t.work.jobs.scania.myRole,
+        achievements: t.work.jobs.scania.achievements,
+        process: t.work.jobs.scania.process,
+        tools: t.work.jobs.scania.tools,
         images: [
           {
             src: scaniaImg,
@@ -115,36 +105,21 @@ export default function Projects() {
             caption: 'Working with the Tegel Design System at Scania'
           }
         ],
-        links: [
-          {
-            url: 'https://tegel.scania.com',
-            label: 'Visit Tegel Design System'
-          }
-        ]
+        links: t.work.jobs.scania.links
       }
     },
     {
-      role: 'Design Technologist',
-      company: 'Arbetsförmedlingen',
-      period: '2021 - 2022',
-      description: 'Developed and maintained the government design system. Led workshops and created accessible components following WCAG 2.1 guidelines.',
+      role: t.work.jobs.arbetsformedlingen.role,
+      company: t.work.jobs.arbetsformedlingen.company,
+      period: t.work.jobs.arbetsformedlingen.period,
+      description: t.work.jobs.arbetsformedlingen.description,
       icon: 'cross',
       color: 'var(--color-blue)',
       details: {
-        myRole: 'As Design Technologist, I owned the complete lifecycle of components in the government design system, from research and design to implementation and documentation. I ensured WCAG AAA compliance and facilitated cross-agency collaboration.',
-        achievements: [
-          'Achieved WCAG AAA compliance across all components',
-          'Owned full component lifecycle from research to documentation',
-          'Created comprehensive design system documentation'
-        ],
-        process: [
-          'Conduct research and user needs analysis',
-          'Design and prototype accessible components',
-          'Code components with semantic HTML and ARIA',
-          'Test with screen readers and accessibility tools',
-          'Document patterns and best practices'
-        ],
-        tools: ['Web Components', 'JavaScript', 'Sketch', 'WCAG AAA', 'Figma', 'ARIA'],
+        myRole: t.work.jobs.arbetsformedlingen.myRole,
+        achievements: t.work.jobs.arbetsformedlingen.achievements,
+        process: t.work.jobs.arbetsformedlingen.process,
+        tools: t.work.jobs.arbetsformedlingen.tools,
         images: [
           {
             src: arbetsformedlingenImg,
@@ -152,36 +127,21 @@ export default function Projects() {
             caption: 'Government design system with WCAG AAA compliance'
           }
         ],
-        links: [
-          {
-            url: 'https://designsystem.arbetsformedlingen.se/',
-            label: 'Visit Arbetsförmedlingen Design System'
-          }
-        ]
+        links: t.work.jobs.arbetsformedlingen.links
       }
     },
     {
-      role: 'UX Designer',
-      company: 'FRISQ',
-      period: '2020',
-      description: 'Designed healthcare patient portal experiences. Conducted user research and improved patient engagement by 40% through intuitive interface design.',
+      role: t.work.jobs.frisq.role,
+      company: t.work.jobs.frisq.company,
+      period: t.work.jobs.frisq.period,
+      description: t.work.jobs.frisq.description,
       icon: 'triangle',
       color: 'var(--color-magenta)',
       details: {
-        myRole: 'UX/UI Designer',
-        achievements: [
-          'Designed patient portal interface',
-          'Conducted user interviews with patients',
-          'Improved engagement through user-centered design'
-        ],
-        process: [
-          'User research synthesis',
-          'Ideation',
-          'Wireframing',
-          'Prototyping',
-          'Creative direction'
-        ],
-        tools: ['Figma'],
+        myRole: t.work.jobs.frisq.myRole,
+        achievements: t.work.jobs.frisq.achievements,
+        process: t.work.jobs.frisq.process,
+        tools: t.work.jobs.frisq.tools,
         images: [
           {
             src: frisqImg,
@@ -192,51 +152,32 @@ export default function Projects() {
       }
     },
     {
-      role: 'Product Designer',
-      company: 'Blue Media AB',
-      period: '2019',
-      description: 'Created meditation app interfaces in collaboration with physicians. Designed complete user journey from onboarding to daily practice.',
+      role: t.work.jobs.bluemedia.role,
+      company: t.work.jobs.bluemedia.company,
+      period: t.work.jobs.bluemedia.period,
+      description: t.work.jobs.bluemedia.description,
       icon: 'diamond',
       color: 'var(--color-cyan)',
       details: {
-        myRole: 'As Product Designer, I designed the complete user experience for a meditation app concept, working closely with physicians to ensure content aligned with therapeutic goals. I created the full user journey from onboarding through daily practice.',
-        achievements: [
-          'Designed meditation app concept',
-          'Collaborated with physicians on content'
-        ],
-        process: [
-          'Research meditation apps',
-          'Design app interface and user flows'
-        ],
-        tools: ['Adobe Creative Suite']
+        myRole: t.work.jobs.bluemedia.myRole,
+        achievements: t.work.jobs.bluemedia.achievements,
+        process: t.work.jobs.bluemedia.process,
+        tools: t.work.jobs.bluemedia.tools
       }
     },
     {
-      role: 'Knitwear Designer',
-      company: 'Litwins Knitwins',
-      period: '2019 - Present',
-      description: 'Independent knitwear design business selling patterns on international platforms. Creating visually appealing designs and pattern sheets.',
+      role: t.work.jobs.knitwear.role,
+      company: t.work.jobs.knitwear.company,
+      period: t.work.jobs.knitwear.period,
+      description: t.work.jobs.knitwear.description,
       icon: 'circle',
       color: 'var(--color-magenta)',
       details: {
-        myRole: 'As an independent Knitwear Designer, I manage my own design business from concept to publication. I design patterns, create professional product sheets, and maintain an international customer base through digital platforms.',
-        achievements: [
-          'Sell knitwear patterns on Ravelry.com internationally',
-          'Create product sheets and pattern designs',
-          'Building portfolio for future pattern book publication'
-        ],
-        process: [
-          'Design knitwear patterns',
-          'Create product sheets in InDesign',
-          'Edit visuals in Photoshop and Illustrator'
-        ],
-        tools: ['Adobe InDesign', 'Photoshop', 'Illustrator'],
-        links: [
-          {
-            url: 'https://www.ravelry.com/designers/emelie-litwin',
-            label: 'View My Patterns on Ravelry'
-          }
-        ]
+        myRole: t.work.jobs.knitwear.myRole,
+        achievements: t.work.jobs.knitwear.achievements,
+        process: t.work.jobs.knitwear.process,
+        tools: t.work.jobs.knitwear.tools,
+        links: t.work.jobs.knitwear.links
       }
     }
   ]
@@ -244,8 +185,8 @@ export default function Projects() {
   return (
     <section className="projects" id="work">
       <div className="container">
-        <h2 className="section-title">Experience</h2>
-        <p className="section-intro">My journey bridging design and development</p>
+        <h2 className="section-title">{t.work.title}</h2>
+        <p className="section-intro">{t.work.intro}</p>
         
         <div className="timeline">
           {timeline.map((job, index) => (
@@ -271,7 +212,7 @@ export default function Projects() {
               <button 
                 className="timeline-content"
                 onClick={() => setSelectedJob(job)}
-                aria-label={`View details for ${job.role} at ${job.company}`}
+                aria-label={`${t.work.viewDetails} ${job.role} ${t.work.at} ${job.company}`}
               >
                 <div className="timeline-header">
                   <div>
@@ -281,7 +222,7 @@ export default function Projects() {
                   <span className="timeline-period">{job.period}</span>
                 </div>
                 <p className="timeline-description">{job.description}</p>
-                <span className="view-more">View Details →</span>
+                <span className="view-more">{t.work.readMore} →</span>
               </button>
             </article>
           ))}
@@ -305,7 +246,7 @@ export default function Projects() {
             <button 
               className="modal-close" 
               onClick={() => setSelectedJob(null)}
-              aria-label="Close dialog"
+              aria-label={t.work.closeDialog}
             >
             </button>
             
@@ -337,13 +278,13 @@ export default function Projects() {
 
               {selectedJob.details?.myRole && (
                 <section className="modal-section">
-                  <h3>My Role</h3>
+                  <h3>{t.work.myRole}</h3>
                   <p>{selectedJob.details.myRole}</p>
                 </section>
               )}
 
               <section className="modal-section">
-                <h3>Key Achievements</h3>
+                <h3>{t.work.achievements}</h3>
                 <ul>
                   {selectedJob.details?.achievements.map((achievement, i) => (
                     <li key={i}>{achievement}</li>
@@ -352,7 +293,7 @@ export default function Projects() {
               </section>
 
               <section className="modal-section">
-                <h3>Process</h3>
+                <h3>{t.work.process}</h3>
                 <ul>
                   {selectedJob.details?.process.map((step, i) => (
                     <li key={i}>{step}</li>
@@ -361,7 +302,7 @@ export default function Projects() {
               </section>
 
               <section className="modal-section">
-                <h3>Tools & Technologies</h3>
+                <h3>{t.work.tools}</h3>
                 <div className="modal-tools">
                   {selectedJob.details?.tools.map((tool, i) => (
                     <span key={i} className="tool-tag">{tool}</span>
@@ -371,7 +312,7 @@ export default function Projects() {
 
               {selectedJob.details?.links && selectedJob.details.links.length > 0 && (
                 <section className="modal-section">
-                  <h3>Links</h3>
+                  <h3>{t.work.links}</h3>
                   <div className="modal-links">
                     {selectedJob.details.links.map((link, i) => (
                       <a 

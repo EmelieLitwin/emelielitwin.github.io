@@ -50,20 +50,14 @@
   --surface-muted: #f8f8f8;
   --surface-elevated: #fafafa;
   --surface-line: #d0d0d0;
-  --surface-line-light: #e0e0e0;    /* Light borders */
   --surface-line-strong: #9a9a9a;
   --surface-line-interactive: #0f0f0f;
-  --surface-hover: #f8f9fa;          /* Hover backgrounds */
-  --surface-black: #000000;          /* Pure black for high contrast */
-  --surface-white: #ffffff;          /* Pure white for high contrast */
   
   /* Text Hierarchy - Grayscale only */
   --text-primary: #0f0f0f;
   --text-secondary: #4a4a4a;
   --text-tertiary: #6a6a6a;
   --text-muted: #757575;  /* Updated for WCAG AA compliance (4.5:1 contrast) */
-  --text-black: #000000;             /* Pure black text */
-  --text-white: #ffffff;             /* Pure white text */
   
   /* Backwards compatibility */
   --color-bg: var(--surface-bg);
@@ -71,9 +65,8 @@
   --color-text: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-border: var(--surface-line);
-  --color-border-light: var(--surface-line-light);
-  --color-bg-hover: var(--surface-hover);
-  --color-border-hover: var(--text-black);
+  --color-border-hover: var(--surface-line-strong);
+  --color-bg-hover: var(--surface-muted);
   --color-primary: var(--text-primary);
   --color-secondary: var(--text-primary);
   --color-accent: var(--text-primary);
@@ -331,27 +324,6 @@
   outline-offset: 4px;
 }
 
-/* Hamburger menu */
-[data-theme="light"] .hamburger-line {
-  background: var(--text-black);
-}
-
-/* Mobile menu */
-[data-theme="light"] .mobile-menu {
-  background: var(--surface-white);
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="light"] .mobile-menu-links a {
-  color: var(--text-black);
-}
-
-[data-theme="light"] .mobile-menu-links a:hover,
-[data-theme="light"] .mobile-menu-links a:focus {
-  background: var(--text-black);
-  color: var(--text-white);
-}
-
 /* Logo - remove glow effects only */
 [data-theme="light"] .logo-image {
   filter: none;
@@ -374,39 +346,39 @@
 /* Theme toggle button */
 [data-theme="light"] .theme-toggle {
   background: transparent;
-  border: 1px solid var(--surface-line-light);
-  color: var(--text-black);
+  border: 1px solid #E0E0E0;
+  color: #000000;
 }
 
 [data-theme="light"] .theme-toggle:hover {
-  background: var(--surface-hover);
-  border-color: var(--text-black);
+  background: #F8F9FA;
+  border-color: #000000;
 }
 
 [data-theme="light"] .theme-toggle:focus-visible {
-  background: var(--surface-hover);
-  border-color: var(--text-black);
-  outline: 3px solid var(--text-black);
+  background: #F8F9FA;
+  border-color: #000000;
+  outline: 3px solid #000000;
 }
 
 /* Language toggle button */
 [data-theme="light"] .language-toggle {
   background: transparent;
-  border: 1px solid var(--surface-line-light);
-  color: var(--text-black);
+  border: 1px solid #E0E0E0;
+  color: #000000;
 }
 
 [data-theme="light"] .language-toggle:hover {
-  background: var(--surface-hover);
-  border-color: var(--text-black);
-  color: var(--text-black);
+  background: #F8F9FA;
+  border-color: #000000;
+  color: #000000;
 }
 
 [data-theme="light"] .language-toggle:focus-visible {
-  background: var(--surface-hover);
-  border-color: var(--text-black);
-  color: var(--text-black);
-  outline: 3px solid var(--text-black);
+  background: #F8F9FA;
+  border-color: #000000;
+  color: #000000;
+  outline: 3px solid #000000;
 }
 
 [data-theme="light"] .about-image-glow,
@@ -972,6 +944,7 @@
 
 [data-theme="light"] .view-more {
   color: #000000 !important;
+  font-size: 0.85rem;
 }
 
 /* Remove neon animations in light mode */
@@ -1065,8 +1038,7 @@
   background: #FFFFFF !important;
   border: 2px solid #E0E0E0 !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
-  padding: var(--spacing-lg) var(--spacing-lg) !important;
-  gap: var(--spacing-md) !important;
+  padding: 3rem 2.5rem !important;
 }
 
 [data-theme="light"] .contact-link:hover,
@@ -1084,7 +1056,6 @@
   color: #000000 !important;
   text-shadow: none !important;
   filter: none !important;
-  font-size: 2rem !important;
 }
 
 [data-theme="light"] .contact-link:hover .contact-icon {
@@ -1102,12 +1073,10 @@
 
 [data-theme="light"] .link-label {
   color: #000000 !important;
-  font-size: 0.75rem !important;
 }
 
 [data-theme="light"] .link-value {
   color: #000000 !important;
-  font-size: 1rem !important;
 }
 
 /* Footer */

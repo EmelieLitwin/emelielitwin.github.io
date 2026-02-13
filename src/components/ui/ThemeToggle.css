@@ -9,6 +9,9 @@
   justify-content: center;
   transition: all var(--transition-normal);
   color: var(--color-text);
+  min-width: 3rem;
+  min-height: 3rem;
+  line-height: 1;
 }
 
 .theme-toggle:hover {
@@ -30,6 +33,8 @@
 
 .theme-toggle svg {
   display: block;
+  width: 20px;
+  height: 20px;
   transition: transform var(--transition-normal);
 }
 
