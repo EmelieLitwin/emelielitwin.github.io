@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import './Projects.css';
 
+// Import images
+import scaniaImg from '../assets/scania.jpg';
+import arbetsformedlingenImg from '../assets/arbetsformedligen.jpeg';
+import frisqImg from '../assets/frisq.png';
+
 interface Job {
   role: string
   company: string
@@ -13,6 +18,15 @@ interface Job {
     achievements: string[]
     process: string[]
     tools: string[]
+    images?: {
+      src: string
+      alt: string
+      caption?: string
+    }[]
+    links?: {
+      url: string
+      label: string
+    }[]
   }
 }
 
@@ -93,7 +107,20 @@ export default function Projects() {
           'Conduct user interviews to validate solutions',
           'Stepped in as Product Owner during vacations'
         ],
-        tools: ['StencilJS', 'TypeScript', 'Figma', 'CSS', 'Angular', 'React', 'Power Apps', 'AWS']
+        tools: ['StencilJS', 'TypeScript', 'Figma', 'CSS', 'Angular', 'React', 'Power Apps', 'AWS'],
+        images: [
+          {
+            src: scaniaImg,
+            alt: 'Scania Tegel Design System',
+            caption: 'Working with the Tegel Design System at Scania'
+          }
+        ],
+        links: [
+          {
+            url: 'https://tegel.scania.com',
+            label: 'Visit Tegel Design System'
+          }
+        ]
       }
     },
     {
@@ -117,7 +144,20 @@ export default function Projects() {
           'Test with screen readers and accessibility tools',
           'Document patterns and best practices'
         ],
-        tools: ['Web Components', 'JavaScript', 'Sketch', 'WCAG AAA', 'Figma', 'ARIA']
+        tools: ['Web Components', 'JavaScript', 'Sketch', 'WCAG AAA', 'Figma', 'ARIA'],
+        images: [
+          {
+            src: arbetsformedlingenImg,
+            alt: 'Arbetsförmedlingen Design System',
+            caption: 'Government design system with WCAG AAA compliance'
+          }
+        ],
+        links: [
+          {
+            url: 'https://designsystem.arbetsformedlingen.se/',
+            label: 'Visit Arbetsförmedlingen Design System'
+          }
+        ]
       }
     },
     {
@@ -128,7 +168,7 @@ export default function Projects() {
       icon: 'triangle',
       color: 'var(--color-magenta)',
       details: {
-        myRole: 'UX/UI design consultant',
+        myRole: 'UX/UI Designer',
         achievements: [
           'Designed patient portal interface',
           'Conducted user interviews with patients',
@@ -141,7 +181,14 @@ export default function Projects() {
           'Prototyping',
           'Creative direction'
         ],
-        tools: ['Figma']
+        tools: ['Figma'],
+        images: [
+          {
+            src: frisqImg,
+            alt: 'FRISQ Healthcare Patient Portal',
+            caption: 'Patient portal design for healthcare application'
+          }
+        ]
       }
     },
     {
@@ -183,7 +230,13 @@ export default function Projects() {
           'Create product sheets in InDesign',
           'Edit visuals in Photoshop and Illustrator'
         ],
-        tools: ['Adobe InDesign', 'Photoshop', 'Illustrator']
+        tools: ['Adobe InDesign', 'Photoshop', 'Illustrator'],
+        links: [
+          {
+            url: 'https://www.ravelry.com/designers/emelie-litwin',
+            label: 'View My Patterns on Ravelry'
+          }
+        ]
       }
     }
   ]
@@ -264,6 +317,25 @@ export default function Projects() {
             </div>
 
             <div className="modal-body">
+              {selectedJob.details?.images && selectedJob.details.images.length > 0 && (
+                <section className="modal-section modal-images">
+                  <div className="modal-image-grid">
+                    {selectedJob.details.images.map((image, i) => (
+                      <figure key={i} className="modal-image-item">
+                        <img 
+                          src={image.src} 
+                          alt={image.alt}
+                          loading="lazy"
+                        />
+                        {image.caption && (
+                          <figcaption>{image.caption}</figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
+                </section>
+              )}
+
               {selectedJob.details?.myRole && (
                 <section className="modal-section">
                   <h3>My Role</h3>
@@ -297,6 +369,28 @@ export default function Projects() {
                   ))}
                 </div>
               </section>
+
+              {selectedJob.details?.links && selectedJob.details.links.length > 0 && (
+                <section className="modal-section">
+                  <h3>Links</h3>
+                  <div className="modal-links">
+                    {selectedJob.details.links.map((link, i) => (
+                      <a 
+                        key={i} 
+                        href={link.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="project-link"
+                      >
+                        {link.label}
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <path d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333M10 2H14M14 2V6M14 2L6.66667 9.33333" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </a>
+                    ))}
+                  </div>
+                </section>
+              )}
             </div>
           </div>
         </div>
