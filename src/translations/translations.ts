@@ -581,7 +581,7 @@ contact: {
   email: 'E-post',
   linkedin: 'LinkedIn',
   resume: 'CV',
-  downloadCV: 'Ladda ner mitt CV i PDF format'
+  downloadCV: 'Ladda ner mitt CV (PDF)'
 },
 
     // Footer
