@@ -694,21 +694,38 @@
   margin-bottom: 4rem;
 }
 
-/* Hero title - black text, no gradient, no animation */
-[data-theme="light"] .hero-title {
-  margin-bottom: 2rem;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: unset !important;
-  background-clip: unset !important;
-  color: var(--text-primary) !important;
-  animation: none !important;
-}
-
 /* Hero CTA buttons - more spacing */
 [data-theme="light"] .hero-cta {
   gap: 1rem;
 }
+
+/* ===================================
+   TYPING ANIMATION - Light Mode
+   =================================== */
+
+/* Typing animation text - solid black without gradient */
+[data-theme="light"] .typing-text {
+  background: none !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #000000 !important;
+  color: #000000 !important;
+  animation: none !important;
+}
+
+/* Typing cursor - black */
+[data-theme="light"] .typing-cursor {
+  background: #000000 !important;
+}
+
+/* Typing prefix - black */
+[data-theme="light"] .typing-prefix {
+  color: #000000 !important;
+}
+
+/* ===================================
+   PROJECTS
+   =================================== */
 
 /* Project cards */
 [data-theme="light"] .project-card {

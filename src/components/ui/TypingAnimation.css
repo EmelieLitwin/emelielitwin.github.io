@@ -117,21 +117,3 @@
     background: currentColor;
   }
 }
-
-/* Light mode - solid black text without gradient */
-[data-theme="light"] .typing-text {
-  background: none !important;
-  background-clip: unset !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: #000000 !important;
-  color: #000000 !important;
-  animation: none !important;
-}
-
-[data-theme="light"] .typing-cursor {
-  background: #000000 !important;
-}
-
-[data-theme="light"] .typing-prefix {
-  color: #000000 !important;
-}
