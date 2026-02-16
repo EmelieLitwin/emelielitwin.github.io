@@ -57,6 +57,9 @@ export default function Hero() {
             {t.hero.subtitle}
           </p>
           
+          {/* Desktop only: Description */}
+          <p className="hero-description" dangerouslySetInnerHTML={{ __html: t.hero.description }} />
+          
           {/* 4) CTA Buttons */}
           <div className="hero-cta">
             <a href="#work" className="btn-primary">
