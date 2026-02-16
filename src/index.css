@@ -72,7 +72,18 @@ p {
 }
 
 strong {
-  font-weight: var(--font-weight-semibold);
+  font-weight: 900;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 50%,
+    var(--color-secondary) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
 }
 
 code, pre {

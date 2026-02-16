@@ -24,7 +24,7 @@
   --letter-spacing-ultra: 0.2em;        /* Ultra-wide for emphasis */
   
   /* Line Heights - Tight, compressed technical */
-  --line-height-body: 1.7;          /* Slightly more airy for mono */
+  --line-height-body: 1.5;          /* Slightly more airy for mono */
   --line-height-tight: 1.15;        /* Very tight headings */
   --line-height-heading: 1.05;      /* Compressed, technical
   
@@ -141,7 +141,7 @@
 [data-theme="light"] p,
 [data-theme="light"] li {
   font-family: var(--font-body-light);
-  font-weight: 600;
+  font-weight: 300;
   letter-spacing: var(--letter-spacing-body);
   line-height: var(--line-height-body);
   color: var(--text-primary);
@@ -244,6 +244,9 @@
 }
 [data-theme="light"] .hero {
   background: #FFFFFF;
+}
+[data-theme="light"] .hero-greeting {
+  font-weight: 600;
 }
 
 [data-theme="light"] .skills,
@@ -431,7 +434,7 @@
   box-shadow: none;
   transition: all var(--motion-quick) var(--motion-ease-soft);
   position: relative;
-  padding: 1rem 2rem;
+  padding: 0.875rem 2rem;
   line-height: 1;
   white-space: nowrap;
 }
@@ -459,7 +462,7 @@
   text-transform: uppercase;
   box-shadow: none;
   transition: all var(--motion-quick) var(--motion-ease-soft);
-  padding: 1rem 2rem;
+  padding: 0.875rem 2rem;
   line-height: 1;
   white-space: nowrap;
 }
@@ -476,12 +479,6 @@
 [data-theme="light"] .btn-primary::before,
 [data-theme="light"] .btn-secondary::before {
   display: none;
-}
-
-/* Hero section button height override */
-[data-theme="light"] .hero-cta .btn-primary,
-[data-theme="light"] .hero-cta .btn-secondary {
-  padding: 1.4rem 2.5rem;  /* Taller buttons for hero */
 }
 
 /* Logo and unicorn colors for light mode */
@@ -686,12 +683,12 @@
   padding-left: 1rem;
   border-left: 3px solid #000000;
   display: inline-block;
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Hero description - more spacing */
 [data-theme="light"] .hero-description {
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 /* Hero CTA buttons - more spacing */
@@ -1010,13 +1007,14 @@
   color: #000000 !important;
 }
 
-/* Remove gradient from strong text */
+/* Remove gradient from strong text in light mode - keep it black */
 [data-theme="light"] strong {
   background: none !important;
   -webkit-background-clip: initial !important;
   -webkit-text-fill-color: initial !important;
   background-clip: initial !important;
   color: #000000 !important;
+  animation: none !important;
   font-weight: 900;
 }
 
@@ -1078,7 +1076,7 @@
   color: #000000 !important;
   margin-bottom: 4.5rem !important;
   font-size: 1.3rem !important;
-  line-height: 1.8 !important;
+  line-height: 1.5 !important;
 }
 
 [data-theme="light"] .contact-methods {

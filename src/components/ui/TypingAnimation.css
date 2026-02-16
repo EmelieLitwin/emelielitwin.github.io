@@ -36,6 +36,7 @@
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
+  margin-bottom: 1rem;
 }
 
 .typing-cursor {
@@ -72,6 +73,13 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+/* Smaller text on small mobile devices to prevent wrapping */
+@media (max-width: 480px) {
+  .typing-text {
+    font-size: 0.85em;
   }
 }
 

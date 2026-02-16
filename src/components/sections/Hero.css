@@ -170,7 +170,7 @@
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.08em;
-  margin: 0 0 1rem 0;
+  margin: 0 0 2rem 0; /* Increased from 1.5rem to 2rem */
   color: var(--color-text);
   cursor: default;
   user-select: none;
@@ -225,7 +225,7 @@
   text-transform: uppercase;
   letter-spacing: -0.01em;
   line-height: 1.1;
-  margin: 0 0 1rem 0;
+  margin: 0;
   cursor: default;
   user-select: none;
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-secondary));
@@ -267,7 +267,7 @@
   font-size: 1.375rem;
   font-weight: 400;
   line-height: 1.45;
-  margin: 0 0 var(--spacing-lg) 0;
+  margin: 0 0 2rem 0; /* Increased from var(--spacing-lg) to 2rem */
   color: var(--color-text);
   max-width: 48ch;
   cursor: default;
@@ -276,28 +276,31 @@
 
 /* Description - Desktop only */
 .hero-description {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.6;
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: 2.5rem; /* Increased spacing */
   color: var(--color-text-secondary);
   max-width: 65ch;
   cursor: default;
   user-select: none;
 }
 
-/* Responsive Typography - Single breakpoint at 968px */
+/* Responsive Typography - Single breakpoint at 968px *//* Responsive Typography - Single breakpoint at 968px */
 @media (max-width: 968px) {
   .hero-greeting {
     font-size: 0.85rem;
+    margin-bottom: 1.4rem !important; 
   }
   
   .hero-title {
     font-size: 1.75rem;
+    margin-bottom: 1.5rem; 
   }
   
   .hero-subtitle {
     font-size: 1.2rem;
+    margin-bottom: 2.5rem !important;
   }
   
   /* Hide description on mobile, show animation instead */
@@ -318,7 +321,7 @@
 .btn-primary,
 .btn-secondary {
   padding: 0.875rem 2rem;
-  border-radius: 4px;
+  border-radius: 2rem;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
