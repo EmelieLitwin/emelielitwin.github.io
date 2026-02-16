@@ -16,10 +16,10 @@ export const translations = {
     
     // Hero Section
     hero: {
-      greeting: 'Hi, I\'m Emelie',
+      greeting: 'Hi, I\'m Emelie Litwin',
       title: 'Design Technologist',
       subtitle: 'I take ideas from concept to interface, start to finish.',
-      description: 'I am a multi-talented <strong>DESIGN TECHNOLOGIST</strong> with expertise in both UX/UI design and frontend development. I bridge the gap between design and code, creating consistent and user-centered experiences across platforms and devices. I\'m enthusiastic about tech-agnostic design systems and committed to delivering solutions that are both beautiful and functional, always keeping up with the latest trends to bring innovative approaches to every project.',
+      animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
       cta: {
         work: 'View My Work',
         contact: 'Let\'s Talk'
@@ -311,10 +311,10 @@ export const translations = {
     
     // Hero Section
     hero: {
-      greeting: 'Hej, jag är Emelie',
+      greeting: 'Hej, jag är Emelie Litwin',
       title: 'Designteknolog',
-      subtitle: 'Jag förverkligar idéer från koncept till fungerande gränssnitt.  ',
-      description: 'Jag är en mångsidig <strong>DESIGNTEKNOLOG</strong> med expertis inom både UX/UI-design och frontendutveckling. Jag arbetar i skärningspunkten mellan design och kod och skapar konsekventa, användarcentrerade upplevelser över plattformar och enheter. Jag brinner för teknikagnostiska designsystem och är engagerad i att leverera lösningar som är både vackra och funktionella, alltid uppdaterad med senaste trenderna för att ta med innovativa tillvägagångssätt till varje projekt.',
+      subtitle: 'Jag förverkligar idéer från koncept till fungerande gränssnitt.',
+      animatedTitles: ['Utvecklare', 'Designer', 'Designteknolog'],
       cta: {
         work: 'Se Projekt',
         contact: 'Kontakta Mig'

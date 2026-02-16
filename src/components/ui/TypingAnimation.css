@@ -1,0 +1,137 @@
+/* Visually hidden utility for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.typing-animation {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.typing-prefix {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.typing-text {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 50%,
+    var(--color-secondary) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  margin-left: 2px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 50%,
+    var(--color-secondary) 100%
+  );
+  animation: blink 1s step-end infinite;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Reduced motion support - disable all animations */
+@media (prefers-reduced-motion: reduce) {
+  .typing-text {
+    animation: none;
+    background: var(--color-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  
+  .typing-cursor {
+    animation: none;
+    opacity: 1;
+  }
+  
+  /* Ensure gradient animation doesn't run */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .typing-text {
+    background: currentColor;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: currentColor;
+    color: var(--color-text);
+  }
+  
+  .typing-cursor {
+    background: currentColor;
+  }
+}
+
+/* Light mode - solid black text without gradient */
+[data-theme="light"] .typing-text {
+  background: none !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #000000 !important;
+  color: #000000 !important;
+  animation: none !important;
+}
+
+[data-theme="light"] .typing-cursor {
+  background: #000000 !important;
+}
+
+[data-theme="light"] .typing-prefix {
+  color: #000000 !important;
+}

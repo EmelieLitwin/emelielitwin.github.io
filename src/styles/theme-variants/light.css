@@ -141,11 +141,11 @@
 [data-theme="light"] p,
 [data-theme="light"] li {
   font-family: var(--font-body-light);
-  font-weight: var(--font-weight-body);
+  font-weight: 600;
   letter-spacing: var(--letter-spacing-body);
   line-height: var(--line-height-body);
   color: var(--text-primary);
-  font-size: 0.95em;  /* Slightly smaller for mono readability */
+  font-size: 1em;  /* Slightly smaller for mono readability */
 }
 
 /* Headings - Sharp geometric technical */
@@ -686,7 +686,7 @@
   padding-left: 1rem;
   border-left: 3px solid #000000;
   display: inline-block;
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
 }
 
 /* Hero description - more spacing */
@@ -694,9 +694,15 @@
   margin-bottom: 4rem;
 }
 
-/* Hero title - more spacing */
+/* Hero title - black text, no gradient, no animation */
 [data-theme="light"] .hero-title {
   margin-bottom: 2rem;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  color: var(--text-primary) !important;
+  animation: none !important;
 }
 
 /* Hero CTA buttons - more spacing */
@@ -978,12 +984,13 @@
 [data-theme="light"] .hero-title,
 [data-theme="light"] .about-heading,
 [data-theme="light"] .section-title {
-  text-shadow: none;
-  animation: none;
-  background: #000000;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: none !important;
+  animation: none !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  color: #000000 !important;
 }
 
 /* Remove gradient from strong text */
