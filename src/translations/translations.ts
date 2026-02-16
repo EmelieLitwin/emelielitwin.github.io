@@ -16,7 +16,7 @@ export const translations = {
     
     // Hero Section
     hero: {
-      greeting: 'Hi, I\'m Emelie Litwin',
+      greeting: 'Hi, I\'m Emelie',
       title: 'Design Technologist',
      subtitle: 'From concept to working interface.',
 description: 'I am a <strong>DESIGN TECHNOLOGIST</strong> working across UX and frontend implementation, translating design thinking into accessible, production-ready code.',
@@ -312,7 +312,7 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
     
     // Hero Section
     hero: {
-      greeting: 'Hej, jag är Emelie Litwin',
+      greeting: 'Hej, jag är Emelie',
       title: 'Designteknolog',
      subtitle: 'Från koncept till fungerande gränssnitt.',
 description: 'Jag är en <strong>DESIGNTEKNOLOG</strong> som arbetar i mötet mellan UX och frontendutveckling, med fokus på tillgänglighet, struktur och lösningar som håller över tid.',
