@@ -38,15 +38,18 @@ export default function Hero() {
             {t.hero.greeting}
           </p>
           
-          {/* 2) Main animated title */}
+          {/* 2) Main title - Desktop: static, Mobile: animated */}
           <h1 className="hero-title">
-            <TypingAnimation 
-              words={t.hero.animatedTitles}
-              prefix=""
-              typingSpeed={150}
-              deletingSpeed={75}
-              delayBetweenWords={3000}
-            />
+            <span className="hero-title-desktop">{t.hero.title}</span>
+            <span className="hero-title-mobile">
+              <TypingAnimation 
+                words={t.hero.animatedTitles}
+                prefix=""
+                typingSpeed={150}
+                deletingSpeed={75}
+                delayBetweenWords={3000}
+              />
+            </span>
           </h1>
           
           {/* 3) Subtitle */}
