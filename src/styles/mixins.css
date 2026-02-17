@@ -1,37 +1,23 @@
-/* ============================================
-   CSS MIXINS - Recurring Patterns
-   Reusable classes for common design patterns
-   ============================================ */
 
-/* ============================================
-   FOCUS STATE MIXINS
-   ============================================ */
 
-/* Standard focus state with offset ring */
 .mixin-focus-ring,
 .focus-state {
   outline: var(--focus-ring-width) var(--focus-ring-style) var(--focus-ring-color);
   outline-offset: var(--focus-ring-offset);
 }
 
-/* Inset focus state (for buttons/cards) */
 .mixin-focus-inset {
   outline: var(--focus-ring-width) var(--focus-ring-style) var(--color-primary);
   outline-offset: -3px;
 }
 
-/* Focus with glow effect */
 .mixin-focus-glow {
   outline: var(--focus-ring-width) var(--focus-ring-style) var(--focus-ring-color);
   outline-offset: var(--focus-ring-offset);
   box-shadow: 0 0 0 4px var(--color-primary-alpha-20);
 }
 
-/* ============================================
-   NEON GLOW MIXINS
-   ============================================ */
 
-/* Primary neon glow (cyan) */
 .mixin-neon-glow-primary,
 .neon-glow-primary {
   box-shadow: 
@@ -47,7 +33,6 @@
     0 0 45px var(--color-primary-alpha-20);
 }
 
-/* Secondary neon glow (magenta) */
 .mixin-neon-glow-secondary,
 .neon-glow-secondary {
   box-shadow: 
@@ -56,7 +41,6 @@
     0 0 30px var(--color-secondary-alpha-10);
 }
 
-/* Dual color neon glow */
 .mixin-neon-glow-dual {
   box-shadow: 
     0 0 10px var(--color-primary-alpha-30),
@@ -64,7 +48,6 @@
     0 0 40px var(--color-primary-alpha-10);
 }
 
-/* Text neon glow */
 .mixin-text-glow-primary {
   text-shadow: 
     0 0 10px var(--color-primary-alpha-60),
@@ -78,11 +61,7 @@
     0 0 20px var(--color-secondary-alpha-40);
 }
 
-/* ============================================
-   CARD HOVER EFFECT MIXINS
-   ============================================ */
 
-/* Standard card hover with lift and glow */
 .mixin-card-hover,
 .card-hover-effect {
   transition: 
@@ -98,7 +77,6 @@
     0 0 20px var(--color-primary-alpha-20);
 }
 
-/* Card hover with scale */
 .mixin-card-hover-scale {
   transition: 
     transform var(--transition-transform),
@@ -112,7 +90,6 @@
     0 0 30px var(--color-primary-alpha-30);
 }
 
-/* Card hover with border glow */
 .mixin-card-hover-border {
   transition: 
     transform var(--transition-transform),
@@ -128,21 +105,15 @@
     inset 0 0 20px var(--color-primary-alpha-10);
 }
 
-/* ============================================
-   GRADIENT MIXINS
-   ============================================ */
 
-/* Primary gradient (cyan → magenta) */
 .mixin-gradient-primary {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
 }
 
-/* Accent gradient (cyan → blue) */
 .mixin-gradient-accent {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
 }
 
-/* Gradient text (primary) */
 .mixin-gradient-text-primary {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   -webkit-background-clip: text;
@@ -150,7 +121,6 @@
   background-clip: text;
 }
 
-/* Gradient text (accent) */
 .mixin-gradient-text-accent {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   -webkit-background-clip: text;
@@ -158,7 +128,6 @@
   background-clip: text;
 }
 
-/* Animated gradient background */
 .mixin-gradient-animated {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-accent));
   background-size: 200% 200%;
@@ -174,11 +143,7 @@
   }
 }
 
-/* ============================================
-   GLASSMORPHISM MIXINS
-   ============================================ */
 
-/* Standard glass card */
 .mixin-glass-card {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
@@ -186,7 +151,6 @@
   border: 2px solid var(--glass-border);
 }
 
-/* Elevated glass card (stronger effect) */
 .mixin-glass-card-elevated {
   background: rgba(30, 41, 59, 0.95);
   backdrop-filter: blur(15px);
@@ -194,7 +158,6 @@
   border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Glass card with glow */
 .mixin-glass-card-glow {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
@@ -205,11 +168,7 @@
     0 0 20px var(--color-primary-alpha-10);
 }
 
-/* ============================================
-   BUTTON EFFECT MIXINS
-   ============================================ */
 
-/* Primary button with glow */
 .mixin-button-primary {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   border: 2px solid transparent;
@@ -231,7 +190,6 @@
   transform: translateY(0) scale(var(--motion-active-scale));
 }
 
-/* Outlined button with border glow */
 .mixin-button-outline {
   background: transparent;
   border: 2px solid var(--color-primary);
@@ -251,7 +209,6 @@
   transform: translateY(-2px);
 }
 
-/* Ghost button (subtle) */
 .mixin-button-ghost {
   background: transparent;
   border: 2px solid transparent;
@@ -267,11 +224,7 @@
   border-color: var(--color-primary-alpha-20);
 }
 
-/* ============================================
-   ANIMATION MIXINS
-   ============================================ */
 
-/* Fade in up animation */
 .mixin-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -287,7 +240,6 @@
   }
 }
 
-/* Pulse animation */
 .mixin-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -301,7 +253,6 @@
   }
 }
 
-/* Shimmer effect */
 .mixin-shimmer {
   position: relative;
   overflow: hidden;
@@ -334,7 +285,6 @@
   }
 }
 
-/* Spin animation */
 .mixin-spin {
   animation: spin 1s linear infinite;
 }
@@ -348,11 +298,7 @@
   }
 }
 
-/* ============================================
-   BORDER EFFECT MIXINS
-   ============================================ */
 
-/* Gradient border */
 .mixin-border-gradient {
   position: relative;
   border: 2px solid transparent;
@@ -377,34 +323,25 @@
   pointer-events: none;
 }
 
-/* Animated border gradient */
 .mixin-border-gradient-animated::before {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-accent));
   background-size: 200% 200%;
   animation: gradientShift 3s ease infinite;
 }
 
-/* ============================================
-   RESPONSIVE VISIBILITY MIXINS
-   ============================================ */
 
-/* Hide on mobile */
 @media (max-width: 768px) {
   .mixin-hide-mobile {
     display: none !important;
   }
 }
 
-/* Hide on desktop */
 @media (min-width: 769px) {
   .mixin-hide-desktop {
     display: none !important;
   }
 }
 
-/* ============================================
-   REDUCED MOTION SUPPORT
-   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .mixin-fade-in-up,
   .mixin-pulse,

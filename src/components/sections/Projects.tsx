@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 import './Projects.css';
 
-// Import images
 import scaniaImg from '../../assets/scania.jpg';
 import arbetsformedlingenImg from '../../assets/arbetsformedligen.jpeg';
 import frisqImg from '../../assets/frisq.png';
@@ -57,7 +56,6 @@ export default function Projects() {
     return () => observer.disconnect()
   }, [])
 
-  // Handle modal accessibility
   useEffect(() => {
     if (selectedJob) {
       previousFocusRef.current = document.activeElement as HTMLElement
@@ -73,7 +71,6 @@ export default function Projects() {
     }
   }, [selectedJob])
 
-  // Handle Escape key to close modal
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && selectedJob) {

@@ -1,6 +1,3 @@
-/* ============================================
-   HERO SECTION - CYBERPUNK THEME
-   ============================================ */
 
 .hero {
   height: 100vh;
@@ -36,9 +33,6 @@
   z-index: 2;
 }
 
-/* ============================================
-   Unicorn Glow Effect
-   ============================================ */
 .unicorn-glow {
   position: absolute;
   inset: -20%;
@@ -60,19 +54,15 @@
   }
 }
 
-/* ============================================
-   Origami Unicorn SVG
-   ============================================ */
 .origami-svg {
   width: 100%;
   max-width: 500px;
   height: auto;
   filter: var(--drop-shadow-glow-sm);
   animation: cyber-glitch 8s infinite;
-  transform: scaleX(-1); /* Mirror the unicorn horizontally */
+  transform: scaleX(-1); 
 }
 
-/* Unicorn polygon parts */
 .unicorn-part {
   fill: none;
   stroke-width: 2;
@@ -116,7 +106,6 @@
   }
 }
 
-/* Unicorn gradient stops */
 .unicorn-stop-1 {
   stop-color: var(--color-primary);
   stop-opacity: 1;
@@ -132,7 +121,6 @@
   stop-opacity: 1;
 }
 
-/* Cyberpunk animations */
 @keyframes cyber-glitch {
   0%, 90%, 100% { 
     transform: scaleX(-1) translate(0, 0); 
@@ -161,16 +149,12 @@
   }
 }
 
-/* ============================================
-   Hero Typography Hierarchy - Calm & Intentional
-   ============================================ */
 
-/* 1) Greeting line */
 .hero-greeting {
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.08em;
-  margin: 0 0 2rem 0; /* Increased from 1.5rem to 2rem */
+  margin: 0 0 2rem 0; 
   color: var(--color-text);
   cursor: default;
   user-select: none;
@@ -178,7 +162,6 @@
   display: inline-block;
 }
 
-/* Wave icon */
 .wave-icon {
   display: inline-block;
   margin-right: 0.5rem;
@@ -218,7 +201,6 @@
   100% { transform: rotate(-20deg); }
 }
 
-/* 2) Main title - Desktop: static, Mobile: animated */
 .hero-title {
   font-size: 2.4rem;
   font-weight: 600;
@@ -236,7 +218,6 @@
   animation: gradient-shift 8s ease infinite;
 }
 
-/* Desktop: Show static title, hide animation */
 .hero-title-desktop {
   display: none;
 }
@@ -245,7 +226,6 @@
   display: none;
 }
 
-/* Mobile: Hide static title, show animation */
 @media (max-width: 968px) {
   .hero-title-desktop {
     display: none;
@@ -262,31 +242,28 @@
   100% { background-position: 0% 50%; }
 }
 
-/* 3) Subtitle */
 .hero-subtitle {
   font-size: 1.375rem;
   font-weight: 400;
   line-height: 1.45;
-  margin: 0 0 2rem 0; /* Increased from var(--spacing-lg) to 2rem */
+  margin: 0 0 2rem 0; 
   color: var(--color-text);
   max-width: 48ch;
   cursor: default;
   user-select: none;
 }
 
-/* Description - Desktop only */
 .hero-description {
   font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.6;
-  margin-bottom: 2.5rem; /* Increased spacing */
+  margin-bottom: 2.5rem;
   color: var(--color-text-secondary);
   max-width: 65ch;
   cursor: default;
   user-select: none;
 }
 
-/* Responsive Typography - Single breakpoint at 968px *//* Responsive Typography - Single breakpoint at 968px */
 @media (max-width: 968px) {
   .hero-greeting {
     font-size: 0.85rem;
@@ -303,15 +280,11 @@
     margin-bottom: 2.5rem !important;
   }
   
-  /* Hide description on mobile, show animation instead */
   .hero-description {
     display: none;
   }
 }
 
-/* ============================================
-   CTA Buttons - Subtle & Intentional
-   ============================================ */
 .hero-cta {
   display: flex;
   gap: 1rem;
@@ -373,9 +346,6 @@
   outline-offset: 2px;
 }
 
-/* ============================================
-   Responsive Design
-   ============================================ */
 @media (max-width: 968px) {
   .hero {
     padding: 2rem;
@@ -460,11 +430,7 @@
   }
 }
 
-/* All remaining responsive rules removed - using only 968px breakpoint above */
 
-/* ============================================
-   ACCESSIBILITY - Reduced Motion
-   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .wave-icon {
     animation: none;

@@ -16,7 +16,6 @@ export default function LanguageToggle() {
   const [language, setLanguage] = useState<'en' | 'sv'>('en');
 
   useEffect(() => {
-    // Load saved language preference
     const savedLang = localStorage.getItem('language') as 'en' | 'sv' | null;
     if (savedLang) {
       setLanguage(savedLang);
@@ -30,7 +29,6 @@ export default function LanguageToggle() {
     localStorage.setItem('language', newLang);
     document.documentElement.lang = newLang;
     
-    // Emit custom event for other components to listen to
     window.dispatchEvent(new CustomEvent('languagechange', { detail: { language: newLang } }));
   };
 

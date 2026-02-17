@@ -44,8 +44,6 @@
 .timeline-item {
   position: relative;
   margin-bottom: var(--spacing-2xl);
-  /* opacity: 0; Temporarily disabled for debugging */
-  /* transform: translateX(-50px); Temporarily disabled for debugging */
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -187,7 +185,6 @@
   font-size: 1rem;
 }
 
-/* Modal Styles */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -223,12 +220,10 @@
   flex-direction: column;
 }
 
-/* Custom scrollbar for modal */
 .modal-content::-webkit-scrollbar {
   width: 0;
 }
 
-/* Firefox scrollbar */
 .modal-content {
   scrollbar-width: none;
 }
@@ -329,7 +324,6 @@
   padding-right: 0.5rem;
 }
 
-/* Custom scrollbar for modal body */
 .modal-body::-webkit-scrollbar {
   width: 12px;
 }
@@ -403,7 +397,6 @@
   font-weight: 600;
 }
 
-/* Modal Images */
 .modal-images {
   margin-bottom: 2rem;
 }
@@ -458,7 +451,6 @@
   border-top: 1px solid var(--color-border);
 }
 
-/* Modal Links */
 .modal-links {
   display: flex;
   flex-direction: column;

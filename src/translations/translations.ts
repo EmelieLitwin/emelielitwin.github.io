@@ -1,10 +1,5 @@
-/**
- * Translation strings for English and Swedish
- */
-
 export const translations = {
   en: {
-    // Navigation
     nav: {
       work: 'Work',
       skills: 'Skills',
@@ -14,7 +9,6 @@ export const translations = {
       home: 'Home'
     },
     
-    // Hero Section
     hero: {
       greeting: 'Hi, I\'m Emelie',
       title: 'Design Technologist',
@@ -27,7 +21,6 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
       }
     },
     
-    // Work Section
     work: {
       title: 'Work Experience',
       intro: 'My journey bridging design and development',
@@ -161,7 +154,6 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
       }
     },
     
-    // HUD Section
     hud: {
       targetLock: 'TARGET LOCK',
       scanning: 'SCANNING...',
@@ -171,7 +163,6 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
       sections: 'Sections:',
       sector: 'SECTOR',
       coordinates: 'COORDINATES',
-      // Section labels
       hero: 'HERO',
       work: 'WORK',
       skills: 'SKILLS',
@@ -179,7 +170,6 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
       about: 'ABOUT',
       contact: 'CONTACT',
       footer: 'FOOTER',
-      // Target labels
       resume: '🚀 RESUME',
       sayHello: '📡 SAY HELLO',
       contactTarget: '💬 CONTACT',
@@ -206,7 +196,6 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
       home: '🏠 HOME'
     },
     
-    // Skills Section
     skills: {
       title: 'Skills & Expertise',
       categories: {
@@ -237,7 +226,6 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
       ]
     },
     
-    // Education Section
     education: {
       title: 'Education',
       additionalCourses: '◆ Additional Courses',
@@ -267,7 +255,6 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
       ]
     },
     
-    // About Section
     about: {
       title: 'About Me',
       introFull: 'I\'m a design technologist who bridges the gap between design and development. With expertise in both UX/UI design and frontend development, I create beautiful, functional experiences that solve real problems.',
@@ -278,7 +265,6 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
       paragraph2Mobile: 'I like building products that feel natural to use. Whether I\'m coding components or prototyping in Figma, I make sure accessibility is part of the process from the start.'
     },
     
-    // Contact Section
     contact: {
       title: 'Let\'s Connect',
       introFull: 'Want to bridge design and development? Whether it is building design systems, crafting web components, or exploring innovative solutions, let us create something amazing together.',
@@ -289,7 +275,6 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
       downloadCV: 'Download my CV (PDF)'
     },
     
-    // Footer
     footer: {
       madeWith: 'Made with',
       coffee: 'coffee',
@@ -300,17 +285,15 @@ animatedTitles: ['Developer', 'Designer', 'Design Technologist'],
   },
   
   sv: {
-    // Navigation
     nav: {
       work: 'Erfarenhet',
       skills: 'Kompetenser',
       education: 'Utbildning',
-      about: 'Om Mig',
+      about: 'Om',
       contact: 'Kontakt',
       home: 'Hem'
     },
     
-    // Hero Section
     hero: {
       greeting: 'Hej, jag är Emelie',
       title: 'Designteknolog',
@@ -323,7 +306,6 @@ animatedTitles: ['Utvecklare', 'Designer', 'Designteknolog'],
       }
     },
     
-    // Work Section
     work: {
       title: 'Arbetslivserfarenhet',
       intro: 'Min resa mellan design och utveckling',
@@ -457,7 +439,6 @@ animatedTitles: ['Utvecklare', 'Designer', 'Designteknolog'],
       }
     },
 
-    // HUD Section
     hud: {
       targetLock: 'MÅL LÅST',
       scanning: 'SKANNAR...',
@@ -467,7 +448,6 @@ animatedTitles: ['Utvecklare', 'Designer', 'Designteknolog'],
       sections: 'Sektioner:',
       sector: 'SEKTOR',
       coordinates: 'KOORDINATER',
-      // Section labels
       hero: 'START',
       work: 'ARBETE',
       skills: 'KOMPETENSER',
@@ -475,7 +455,6 @@ animatedTitles: ['Utvecklare', 'Designer', 'Designteknolog'],
       about: 'OM',
       contact: 'KONTAKT',
       footer: 'SIDFOT',
-      // Target labels
       resume: '🚀 CV',
       sayHello: '📡 SÄGA HEJ',
       contactTarget: '💬 KONTAKT',
@@ -502,7 +481,6 @@ animatedTitles: ['Utvecklare', 'Designer', 'Designteknolog'],
       home: '🏠 HEM'
     },
     
-    // Skills Section
     skills: {
       title: 'Kompetenser & Expertis',
       categories: {
@@ -533,7 +511,6 @@ animatedTitles: ['Utvecklare', 'Designer', 'Designteknolog'],
       ]
     },
     
-    // Education Section
     education: {
       title: 'Utbildning',
       additionalCourses: '◆ Ytterligare Kurser',
@@ -563,7 +540,6 @@ animatedTitles: ['Utvecklare', 'Designer', 'Designteknolog'],
       ]
     },
     
-    // About Section
   about: {
   title: 'Om Mig',
   introFull: 'Jag är designteknolog och arbetar i skärningspunkten mellan design och utveckling. Med erfarenhet inom både UX-design och frontendutveckling bygger jag skalbara system och robusta gränssnitt som fungerar i praktiken.',
@@ -575,7 +551,6 @@ animatedTitles: ['Utvecklare', 'Designer', 'Designteknolog'],
 },
 
     
-    // Contact Section
 contact: {
   title: 'Kontakta mig',
   introFull: 'Söker du en designteknolog som kan bygga skalbara system och robust frontend i praktiken? Jag är öppen för nya möjligheter och samarbeten. Hör gärna av dig så tar vi nästa steg tillsammans.',
@@ -586,7 +561,6 @@ contact: {
   downloadCV: 'Ladda ner mitt CV (PDF)'
 },
 
-    // Footer
     footer: {
       madeWith: 'Gjord med',
       coffee: 'kaffe',

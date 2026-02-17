@@ -56,8 +56,6 @@
   align-items: center;
   overflow: hidden;
   cursor: default;
-  /* opacity: 0; Temporarily disabled for debugging */
-  /* transform: translateY(50px); Temporarily disabled for debugging */
 }
 
 .skill-category.animate-in {

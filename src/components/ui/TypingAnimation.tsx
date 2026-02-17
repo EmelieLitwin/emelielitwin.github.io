@@ -27,7 +27,6 @@ export default function TypingAnimation({
   )
 
   useEffect(() => {
-    // If user prefers reduced motion, show all words without animation
     if (prefersReducedMotion.current) {
       setCurrentText(words.join(' / '))
       return
@@ -71,7 +70,6 @@ export default function TypingAnimation({
     return () => clearTimeout(timeout)
   }, [currentText, currentWordIndex, isDeleting, isPaused, words, typingSpeed, deletingSpeed, delayBetweenWords])
 
-  // For screen readers: provide the full context
   const fullText = prefix ? `${prefix} ${words.join(', ')}` : words.join(', ')
 
   return (

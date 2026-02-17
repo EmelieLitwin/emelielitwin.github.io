@@ -1,19 +1,9 @@
-/* Typography Imports - Theme-specific fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Shadows+Into+Light&family=Handlee&family=Indie+Flower&family=Courier+Prime:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
-/* Design System Imports */
 @import './styles/design-tokens.css';
 @import './styles/mixins.css';
 @import './styles/utilities.css';
 
-/* ============================================
-   BASE STYLES
-   ============================================ */
 
 :root {
   font-family: var(--font-body);
@@ -23,22 +13,17 @@
   color: var(--color-text);
   background-color: var(--color-bg);
 
-  /* Font rendering optimization */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-  /* Smooth theme transitions */
   transition: 
     background-color var(--transition-base), 
     color var(--transition-base),
     font-family var(--transition-base);
 }
 
-/* ============================================
-   RESET & LAYOUT
-   ============================================ */
 
 * {
   margin: 0;
@@ -66,9 +51,6 @@ body {
     font-family var(--transition-slow);
 }
 
-/* ============================================
-   TYPOGRAPHY
-   ============================================ */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: var(--line-height-tight);
@@ -85,7 +67,6 @@ p {
   color: var(--color-text);
 }
 
-/* Strong text with gradient animation (dark mode default) */
 strong {
   font-weight: var(--font-weight-display);
   background: linear-gradient(
@@ -106,18 +87,12 @@ code, pre {
   font-size: 0.9em;
 }
 
-/* ============================================
-   TEXT SELECTION
-   ============================================ */
 
 ::selection {
   background: var(--color-primary);
   color: var(--color-bg);
 }
 
-/* ============================================
-   RESPONSIVE TYPOGRAPHY
-   ============================================ */
 
 @media (max-width: 768px) {
   :root {

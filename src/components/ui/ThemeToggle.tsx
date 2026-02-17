@@ -22,7 +22,6 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
 
   useEffect(() => {
-    // Check for saved theme preference or default to 'dark'
     const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' || 'dark'
     setTheme(savedTheme)
     document.documentElement.setAttribute('data-theme', savedTheme)
@@ -43,7 +42,6 @@ export default function ThemeToggle() {
       title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       {theme === 'dark' ? (
-        // Sun icon for switching to light mode
         <svg 
           width="20" 
           height="20" 
@@ -64,7 +62,6 @@ export default function ThemeToggle() {
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
         </svg>
       ) : (
-        // Moon icon for switching to dark mode
         <svg 
           width="20" 
           height="20" 

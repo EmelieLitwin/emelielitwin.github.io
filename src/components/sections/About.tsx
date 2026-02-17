@@ -1,26 +1,18 @@
 import './About.css'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from '../../hooks/useTranslation'
 import profileImage from '../../assets/profile-cyberpunk.png'
 import profileImageLight from '../../assets/profile-cyberpunk-light.png'
 
-export default function About() {
-  const { t } = useTranslation()
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+function useTheme() {
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    return (document.documentElement.getAttribute('data-theme') as 'dark' | 'light') || 'dark'
+  })
 
   useEffect(() => {
-    // Check current theme
-    const currentTheme = document.documentElement.getAttribute('data-theme') as 'dark' | 'light' || 'dark'
-    setTheme(currentTheme)
-
-    // Listen for theme changes
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'data-theme') {
-          const newTheme = document.documentElement.getAttribute('data-theme') as 'dark' | 'light' || 'dark'
-          setTheme(newTheme)
-        }
-      })
+    const observer = new MutationObserver(() => {
+      const newTheme = (document.documentElement.getAttribute('data-theme') as 'dark' | 'light') || 'dark'
+      setTheme(newTheme)
     })
 
     observer.observe(document.documentElement, {
@@ -30,6 +22,13 @@ export default function About() {
 
     return () => observer.disconnect()
   }, [])
+
+  return theme
+}
+
+export default function About() {
+  const { t } = useTranslation()
+  const theme = useTheme()
 
   return (
     <section className="about" id="about-me">

@@ -1,7 +1,3 @@
-/* ============================================
-   HUD BACKGROUND - Sci-Fi UI Layer
-   Global fixed overlay across all sections
-   ============================================ */
 
 .hud {
   position: fixed;
@@ -20,7 +16,6 @@
   height: 100%;
 }
 
-/* All HUD elements behind unicorn (z-index: 1) */
 .hud-circuits-back,
 .hud-circuits-front,
 .hud-reticle,
@@ -29,11 +24,7 @@
   z-index: 1;
 }
 
-/* ============================================
-   ANIMATIONS - Subtle motion
-   ============================================ */
 
-/* Reticle micro drift + slow rotation */
 .hud-reticle {
   animation: 
     hud-drift 8s ease-in-out infinite,
@@ -53,7 +44,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* Circuit trace signal animation */
 .circuit-trace {
   stroke-dasharray: 400;
   stroke-dashoffset: 400;
@@ -71,7 +61,6 @@
   100% { stroke-dashoffset: 0; opacity: 0.5; }
 }
 
-/* Scanline shimmer with glitch effect */
 .hud-scanline {
   animation: hud-scan 6s linear infinite, scanline-glitch 3s ease-in-out infinite;
 }
@@ -123,7 +112,6 @@
   }
 }
 
-/* Disable animations for reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .hud-reticle,
   .circuit-trace,
@@ -132,9 +120,6 @@
   }
 }
 
-/* ============================================
-   HUD PANELS - Live data displays
-   ============================================ */
 
 .hud-panel {
   position: fixed;
@@ -181,7 +166,6 @@
   margin-bottom: 0;
 }
 
-/* Panel positioning - safe zones to avoid text */
 .hud-panel-tl {
   top: 100px;
   left: 20px;
@@ -217,7 +201,6 @@
   padding: 8px 12px;
 }
 
-/* Progress bar */
 .panel-bar {
   height: 4px;
   background: rgba(0, 0, 0, 0.1);
@@ -233,7 +216,6 @@
   transition: width 0.3s ease;
 }
 
-/* Mouse coordinates */
 .panel-coords {
   display: flex;
   flex-direction: column;
@@ -249,7 +231,6 @@
   font-family: 'Courier New', monospace;
 }
 
-/* Telemetry panel */
 .panel-telemetry {
   display: flex;
   flex-direction: column;
@@ -283,7 +264,6 @@
   min-width: 45px;
 }
 
-/* Pulse animation when locked on target */
 @keyframes target-pulse {
   0%, 100% { 
     opacity: 0.85;
@@ -300,7 +280,6 @@
   border-color: currentColor;
 }
 
-/* Signal quality indicator color */
 .panel-focus {
   position: relative;
 }
@@ -324,9 +303,6 @@
   50% { opacity: calc(var(--hud-signal, 100) / 150); }
 }
 
-/* ============================================
-   RESPONSIVE - Hide/simplify on small screens
-   ============================================ */
 
 @media (max-width: 1500px) {
   .hud-panel {
@@ -347,9 +323,6 @@
   }
 }
 
-/* ============================================
-   DARK MODE - Hide HUD completely
-   ============================================ */
 
 [data-theme="dark"] .hud {
   display: none;

@@ -1,15 +1,7 @@
-/* ============================================
-   DESIGN SYSTEM - THEME SYSTEM
-   ============================================ */
 
-/* Import theme variants */
 @import './theme-variants/light.css';
 
-/* ============================================
-   Global Design Tokens
-   ============================================ */
 :root {
-  /* Spacing Scale */
   --spacing-xs: 0.5rem;       /* 8px */
   --spacing-sm: 0.75rem;      /* 12px */
   --spacing-md: 1rem;         /* 16px */
@@ -22,7 +14,6 @@
   --spacing-card: 2.5rem;     /* 40px - card padding */
   --spacing-button-y: 0.875rem; /* 14px - button vertical padding */
   
-  /* Border Radius Scale */
   --radius-sm: 0.5rem;     /* 8px */
   --radius-md: 0.75rem;    /* 12px */
   --radius-lg: 1rem;       /* 16px */
@@ -32,7 +23,6 @@
   --radius-full: 3.125rem; /* 50px - pills/buttons */
   --radius-pill: 2rem;     /* 32px - button pill shape */
   
-  /* Box Shadow System */
   --shadow-xs: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -40,7 +30,6 @@
   --shadow-xl: 0 10px 40px rgba(0, 0, 0, 0.4);
   --shadow-2xl: 0 20px 60px rgba(0, 0, 0, 0.5);
   
-  /* Neon Glow Effects (Dark Mode) */
   --glow-sm: 0 0 10px var(--color-primary);
   --glow-md: 0 0 20px var(--color-primary);
   --glow-lg: 0 0 30px var(--color-primary), 0 0 40px var(--color-primary);
@@ -48,7 +37,6 @@
   --glow-primary-lg: 0 8px 25px rgba(0, 240, 255, 0.5);
   --glow-card: 0 20px 60px var(--color-primary-alpha), 0 0 80px var(--color-primary-alpha) inset;
   
-  /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 300ms ease;
   --transition-slow: 500ms ease;
@@ -56,34 +44,26 @@
   --transition-all: all 0.3s ease;
   --transition-smooth: all 0.4s ease;
   
-  /* Easing Functions */
   --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   
-  /* Z-index Layers */
   --z-header: 1000;
   
-  /* Motion */
   --motion-hover-translate: -2px;
   --motion-hover-scale: 1.02;
   --motion-active-scale: 0.98;
   --motion-focus-ring-offset: 2px;
   
-  /* Focus Ring Style */
   --focus-ring-width: 3px;
   --focus-ring-style: solid;
   --focus-ring-color: var(--color-primary);
   --focus-ring-offset: 2px;
   
-  /* Glassmorphism */
   --glass-bg: rgba(30, 41, 59, 0.9);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: blur(10px);
 }
 
-/* ============================================
-   Accessibility - Reduced Motion
-   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   :root {
     --motion-hover-translate: 0;
@@ -95,46 +75,36 @@
   }
 }
 
-/* ============================================
-   Cyberpunk Theme Tokens (DEFAULT DARK MODE)
-   ============================================ */
 :root,
 [data-theme="dark"],
 [data-theme="cyberpunk"] {
-  /* Typography - Soft, Organic, Flowing (Cyberpunk style) */
   --font-heading: 'Space Grotesk', sans-serif;     /* Rounded, soft geometric */
   --font-body: 'Inter', sans-serif;                /* Humanist, readable */
   --font-mono: 'JetBrains Mono', monospace;
   
-  /* Font Weights - Subtle gradation for organic feel */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-black: 900;
   
-  /* Font Sizes - Semantic scale */
   --font-size-heading: 3rem;      /* 48px - section headings */
   --font-size-subheading: 2.5rem; /* 40px - sub headings */
   --font-size-large: 1.8rem;      /* 29px - large text */
   --font-size-body-lg: 1.2rem;    /* 19px - large body text */
   
-  /* Line Heights - Relaxed, flowing */
   --line-height-tight: 1.3;          /* More breathing room */
   --line-height-base: 1.6;
   --line-height-relaxed: 1.8;
   
-  /* Letter Spacing - Minimal, natural flow */
   --letter-spacing-tight: -0.02em;   /* Tight for organic feel */
   --letter-spacing-normal: 0;
   --letter-spacing-wide: 0.03em;     /* Subtle wide spacing */
   
-  /* Color Palette */
   --color-primary: #00F0FF;      /* Cyan */
   --color-secondary: #FF00FF;    /* Magenta */
   --color-accent: #3B82F6;       /* Blue */
   
-  /* Color Alpha Variants - Multiple opacity levels */
   --color-primary-alpha-05: rgba(0, 240, 255, 0.05);
   --color-primary-alpha-10: rgba(0, 240, 255, 0.1);
   --color-primary-alpha-15: rgba(0, 240, 255, 0.15);
@@ -157,52 +127,36 @@
   --color-accent-alpha-15: rgba(59, 130, 246, 0.15);
   --color-accent-alpha-20: rgba(59, 130, 246, 0.2);
   
-  /* Legacy support */
   --color-primary-alpha: var(--color-primary-alpha-20);
   --color-secondary-alpha: var(--color-secondary-alpha-20);
   --color-accent-alpha: var(--color-accent-alpha-20);
   
-  /* Background Colors */
   --color-bg: #0A0E1A;
   --color-bg-elevated: rgba(30, 41, 59, 0.9);
   --color-bg-secondary: #111827;
   --color-surface: #1E293B;
   
-  /* Text Colors */
   --color-text: #F1F5F9;
   --color-text-muted: #94A3B8;
   --color-text-secondary: #94A3B8;
   
-  /* Border Colors */
   --color-border: rgba(0, 240, 255, 0.2);
   
-  /* Surface Colors */
   --color-surface-accent: rgba(0, 240, 255, 0.1);
   --color-surface-selected: rgba(0, 240, 255, 0.15);
   
-  /* Gradients */
   --gradient-primary: linear-gradient(135deg, #00F0FF, #FF00FF);
   
-  /* Layout Constraints */
   --max-width-content: 1200px;  /* Standard content width */
   --max-width-narrow: 800px;    /* Narrow content width */
   --max-width-timeline: 900px;  /* Timeline width */
   
-  /* Cyberpunk-specific Motion */
   --motion-hover-translate: -4px;
   --motion-hover-scale: 1.03;
   --motion-active-scale: 0.96;
   
-  /* ============================================
-     DROP SHADOW TOKENS
-     Reusable drop-shadow filters for consistent glow effects
-     ============================================ */
   --drop-shadow-glow-sm: drop-shadow(0 0 10px var(--color-primary-alpha-30));
   
-  /* ============================================
-     RADIAL GRADIENT TOKENS
-     Common radial gradient patterns for backgrounds and effects
-     ============================================ */
   --gradient-radial-primary-glow: radial-gradient(
     circle at 50% 50%,
     var(--color-primary-alpha-20) 0%,

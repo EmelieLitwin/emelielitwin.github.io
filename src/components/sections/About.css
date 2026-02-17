@@ -1,6 +1,3 @@
-/* ============================================
-   ABOUT ME SECTION - CYBERPUNK THEME
-   ============================================ */
 
 .about {
   padding: var(--spacing-3xl) var(--spacing-xl) 8rem var(--spacing-xl);
@@ -27,9 +24,6 @@
   font-family: var(--font-heading);
 }
 
-/* ============================================
-   About Content Layout
-   ============================================ */
 .about-content {
   display: grid;
   grid-template-columns: 400px 1fr;
@@ -37,9 +31,6 @@
   align-items: start;
 }
 
-/* ============================================
-   Profile Image
-   ============================================ */
 .about-image-wrapper {
   position: relative;
   display: flex;
@@ -97,9 +88,6 @@
     0 0 60px var(--color-secondary-alpha-40);
 }
 
-/* ============================================
-   About Text
-   ============================================ */
 .about-text {
   display: flex;
   flex-direction: column;
@@ -142,15 +130,11 @@
   color: var(--color-text-muted);
 }
 
-/* Highlighted text */
 .about-text strong {
   color: var(--color-primary);
   font-weight: 700;
 }
 
-/* ============================================
-   Animations
-   ============================================ */
 @keyframes pulse-glow {
   0%, 100% { 
     opacity: 0.6; 
@@ -162,9 +146,6 @@
   }
 }
 
-/* ============================================
-   Responsive Design
-   ============================================ */
 @media (max-width: 968px) {
   .about-content {
     grid-template-columns: 1fr;

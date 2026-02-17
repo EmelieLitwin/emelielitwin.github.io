@@ -34,7 +34,6 @@ export default function Header() {
     setMobileMenuOpen(false)
   }
 
-  // Close menu on Escape key
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Escape' && mobileMenuOpen) {
       closeMobileMenu()
