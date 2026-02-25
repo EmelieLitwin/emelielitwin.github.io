@@ -1,17 +1,14 @@
-# robots.txt for emelielitwin.se
+# robots.txt for emelielitwin.com / emelielitwin.se
 User-agent: *
 Allow: /
 
-# Block specific paths (if any in future)
-# Disallow: /private/
+# Sitemap location (accessible from both domains)
+Sitemap: https://emelielitwin.com/sitemap.xml
+Sitemap: https://emelielitwin.se/sitemap-se.xml
 
-# Sitemap location
-Sitemap: https://emelielitwin.se/sitemap.xml
-
-# Crawl-delay (optional, helps prevent server overload)
+# Crawl-delay
 Crawl-delay: 1
 
-# Common bots
 User-agent: Googlebot
 Allow: /
 

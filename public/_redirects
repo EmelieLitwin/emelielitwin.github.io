@@ -1,0 +1,10 @@
+# Netlify redirects for multi-domain setup
+# Redirect .se domain to primary .com domain (301 = permanent redirect)
+https://emelielitwin.se/* https://emelielitwin.com/:splat 301!
+http://emelielitwin.se/* https://emelielitwin.com/:splat 301!
+
+# Force HTTPS for .com
+http://emelielitwin.com/* https://emelielitwin.com/:splat 301!
+
+# Fallback for SPA (if needed in future)
+/* /index.html 200
